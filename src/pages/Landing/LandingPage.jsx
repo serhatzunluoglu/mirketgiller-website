@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
 
 function LandingPage() {
-  return <div>LandingPasdage</div>;
+  return <div>LandingPage</div>;
 }
 
 export default LandingPage;
