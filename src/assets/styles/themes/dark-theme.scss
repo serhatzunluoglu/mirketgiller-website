@@ -1,0 +1,4 @@
+body[data-theme="dark"]{
+    background-color: var(--secondary-color);
+    transition: background-color 0.3s;
+}

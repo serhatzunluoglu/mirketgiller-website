@@ -10,6 +10,6 @@ export const CustomRouter = [
   { path: "/hakkimizda", element: <AboutUsPage /> },
   { path: "/iletisim", element: <ContactPage /> },
   { path: "/blog", element: <BlogPage /> },
-  { path: "/etkinlikler", element: <EventsPage /> },
+  { path: "/etkinliklerimiz", element: <EventsPage /> },
   { path: "*", element: <NotFoundPage /> },
 ];

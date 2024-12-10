@@ -1,0 +1,9 @@
+// This is where all the css files are collected
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import 'base/_variables.scss';
+@import 'base/reset.scss';
+@import 'base/utilities.scss';
+@import 'themes/dark-theme.scss';
+@import 'themes/light-theme.scss';
