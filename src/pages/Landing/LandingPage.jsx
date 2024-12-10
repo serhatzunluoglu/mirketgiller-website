@@ -1,12 +1,7 @@
-import styles from './styles.module.scss';
-import Navbar from './../../components/navbar/Navbar';
+import style from './styles.module.scss';
 
 function LandingPage() {
-  return (
-    <div>
-      <Navbar />
-    </div>
-  );
+  return <div className={style.landing}>Landing Page</div>;
 }
 
 export default LandingPage;

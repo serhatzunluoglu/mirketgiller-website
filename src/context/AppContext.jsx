@@ -1,35 +1,26 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState } from 'react';
 
-const ThemeContext = createContext();
+const AppContext = createContext();
 
-// eslint-disable-next-line react-refresh/only-export-components
-export const useTheme = () => useContext(ThemeContext);
+export const useAppContext = () => useContext(AppContext);
 
-export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-  const [passwordToken, setPasswordToken] = useState();
+export const AppProvider = ({ children }) => {
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
-  const toggleTheme = () => {
-    setTheme((current) => {
-      const newTheme = current === "light" ? "dark" : "light";
-      localStorage.setItem("theme", newTheme);
-      return newTheme;
-    });
+  const handleThemeChange = (newTheme) => {
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
   };
 
   return (
-    <ThemeContext.Provider
+    <AppContext.Provider
       value={{
         theme,
-        toggleTheme,
-        user,
-        setUser,
-        passwordToken,
-        setPasswordToken,
+        setTheme,
+        handleThemeChange,
       }}
     >
       {children}
-    </ThemeContext.Provider>
+    </AppContext.Provider>
   );
 };

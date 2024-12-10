@@ -133,3 +133,8 @@ a {
   font-weight: unset;
   color: unset;
 }
+
+img,
+video {
+  max-width: unset !important;  
+}
