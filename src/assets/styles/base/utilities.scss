@@ -1,3 +1,4 @@
+// Main Colors
 .primary-color {
   color: var(--primary-color);
 }
@@ -12,4 +13,140 @@
 
 .secondary-color-bg {
   background-color: var(--secondary-color);
+}
+
+.tertiary-color {
+  color: var(--tertiary-color);
+}
+
+.tertiary-color-bg {
+  background-color: var(--tertiary-color);
+}
+
+
+// Text Colors
+.primary-text-color {
+  color: var(--primary-text-color);
+}
+
+.mg-gray {
+  color: var(--mg-gray);
+}
+
+.mg-dark {
+  color: var(--mg-dark);
+}
+
+.mg-stroke {
+  color: var(--mg-stroke);
+}
+
+
+//Text Styles
+.body-extra-small-text-medium{
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.body-extra-small-text-regular{
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.body-small-medium{
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 500;
+}
+
+.body-small-regular{
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+.body-medium-bold{
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.body-medium-semibold{
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.body-medium-medium{
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+.body-medium-regular{
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.body-large-bold{
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+}
+
+.body-large-semibold{
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+.body-large-medium{
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 500;
+}
+
+.body-large-regular{
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+.heading-6{
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 600;
+}
+
+.heading-5{
+  font-size: 28px;
+  line-height: 40px;
+  font-weight: 600;
+}
+
+.heading-4{
+  font-size: 30px;
+  line-height: 38px;
+  font-weight: 700;
+}
+
+.heading-3{
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+}
+
+.heading-2{
+  font-size: 48px;
+  line-height: 58px;
+  font-weight: 700;
+}
+
+.heading-1{
+  font-size: 60px;
+  line-height: 72px;
+  font-weight: 700;
 }
