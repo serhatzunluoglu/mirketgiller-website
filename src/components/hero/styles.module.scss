@@ -1,30 +1,29 @@
-.buttonFirst{
-    border-color: #D37C26;
-    border-radius: 48px;
+.buttonFirst {
+  border-color: #d37c26;
+  border-radius: 48px;
 }
-.buttonSecond{
-    border-color: #D37C26;
-    border-radius: 48px;
+.buttonSecond {
+  border-color: #d37c26;
+  border-radius: 48px;
 }
-.rightCardRadius{
-    border-radius: 24px;
-}
-
-body[data-theme='dark']{
-    .bgColorTransparent{
-        background-color: transparent !important;
-    }
-    .leftLandingText{
-        color: white;
-    }
+.rightCardRadius {
+  border-radius: 24px;
 }
 
-
+body[data-theme='dark'] {
+  .bgColorTransparent {
+    background-color: transparent !important;
+  }
+  .leftLandingText {
+    color: white;
+  }
+}
 
 @media screen and (min-width: 640px) {
-    .heading-1{
+  .heading-1 {
     font-size: 38px;
     line-height: 72px;
     font-weight: 700;
-    }
+  }
 }
+

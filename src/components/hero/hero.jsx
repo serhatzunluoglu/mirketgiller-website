@@ -1,7 +1,10 @@
 import style from './styles.module.scss';
+
 const hero = () => {
   return (
-    <div className="mx-auto flex max-w-7xl items-center justify-between py-10 px-8 md:flex-col ">
+    <div
+      className={`mx-auto flex max-w-7xl items-center justify-between py-10 px-8 md:flex-col`}
+    >
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         {/* Left Section */}
         <div>
@@ -16,14 +19,14 @@ const hero = () => {
             <strong> "birimiz hepimiz, hepimiz birimiz için" </strong>
             anlayışını benimseyen bir topluluğuz.
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-wrap">
             <button
-              className={`${style.buttonFirst} primary-color-bg text-white font-medium body-extra-small-text-regular px-2 sm:px-6 py-3 rounded-lg transition h-12 sm:text-sm`}
+              className={`${style.buttonFirst} primary-color-bg text-white font-medium body-small-medium px-6 py-3 rounded-lg transition h-12 sm:text-sm`}
             >
               Topluluğumuza Katıl
             </button>
             <button
-              className={`${style.buttonSecond} border primary-color font-medium body-extra-small-text-regular px-2 py-3 sm:px-6 hover:primary-color-bg transition h-12 sm:text-sm`}
+              className={`${style.buttonSecond} border primary-color font-medium body-small-medium px-6 py-3 hover:primary-color-bg transition h-12 sm:text-sm`}
             >
               Ekibimize Katıl
             </button>
@@ -63,3 +66,4 @@ const hero = () => {
 };
 
 export default hero;
+

@@ -236,10 +236,35 @@ export default function Navbar() {
               Sosyal Medya
             </div>
             <div className="social-media-icons">
-              <i className="bi bi-instagram"></i>
-              <i className="bi bi-linkedin"></i>
-              <i className="bi bi-youtube"></i>
-              <i className="bi bi-medium"></i>
+              <a
+                target="_blank"
+                href="https://www.instagram.com/mirketgiller_/"
+                alt="mirketgiller-instagram"
+              >
+                <i className="bi bi-instagram"> </i>
+              </a>
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/company/mirketgiller/"
+                alt="mirketgiller-linkedin"
+              >
+                <i className="bi bi-linkedin"></i>
+              </a>
+
+              <a
+                target="_blank"
+                href="https://www.youtube.com/@mirketgiller?sub_confirmation=1&sub_confirmation=1"
+                alt="mirketgiller-youtube"
+              >
+                <i className="bi bi-youtube"></i>
+              </a>
+              <a
+                target="_blank"
+                href="https://medium.com/@mirketgillerresmi"
+                alt="mirketgiller-medium"
+              >
+                <i className="bi bi-medium"></i>
+              </a>
             </div>
           </div>
         </DialogPanel>

@@ -1,75 +1,74 @@
-.border-left-1-tertiary{
-    border-left: 1px solid var(--tertiary-color);
+.border-left-1-tertiary {
+  border-left: 1px solid var(--tertiary-color);
 }
 
-.border-1-primary{
-    border:1px solid var(--primary-color) ;
+.border-1-primary {
+  border: 1px solid var(--primary-color);
 }
 
 // When this is a dark theme between the specified screen resolutions, do not add a different css code here to separate the right navbar from the left menu with a 1 px line.
-@media screen and (min-width:640px) and (max-width:1024px){
-    body[data-theme='dark'] .custom-left-border{
-        border-left: 1px solid var(--tertiary-color);
-    }
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  body[data-theme='dark'] .custom-left-border {
+    border-left: 1px solid var(--tertiary-color);
+  }
 }
-
 
 // nav-link hover and active effects start
-.nav-right a:hover{
-    transform: scale(1.05);
+.nav-right a:hover {
+  transform: scale(1.05);
 }
 
-nav .nav-right a{
-    position: relative;
-    display: inline-flex;
+nav .nav-right a {
+  position: relative;
+  display: inline-flex;
 }
 
-nav .nav-right a::after{
-    content: "";
-    position: absolute;
-    bottom: 4px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    transform: translateX(-50%);
-    transform-origin: center;
-    transition: width 0.3s ease;
+nav .nav-right a::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transform: translateX(-50%);
+  transform-origin: center;
+  transition: width 0.3s ease;
 }
 
 nav .nav-right a:hover::after {
-    width: 110%;
+  width: 110%;
 }
 
-nav .nav-right .active-link::after{    
-    content: "";
-    position: absolute;
-    bottom: 4px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary-color);
-    transform: translateX(-50%);
-    transform-origin: center;
-    transition: width 0.3s ease;    
-    width: 110%;
+nav .nav-right .active-link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transform: translateX(-50%);
+  transform-origin: center;
+  transition: width 0.3s ease;
+  width: 110%;
 }
 // nav-link hover and active effects end
 
-nav .theme-switcher div:hover{
-    transform: scale(1.1);
-    transition: transform 0.2s;
+nav .theme-switcher div:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s;
 }
 
-.social-media{
-    .social-media-title{
-        margin-bottom: 20px;
+.social-media {
+  .social-media-title {
+    margin-bottom: 20px;
+  }
+  .social-media-icons {
+    display: flex;
+    gap: 20px;
+    i {
+      font-size: 36px;
     }
-    .social-media-icons{
-        display: flex;
-        gap: 20px;
-        i{
-            font-size: 36px;
-        }
-    }
+  }
 }

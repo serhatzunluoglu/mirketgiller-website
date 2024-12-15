@@ -1,40 +1,46 @@
 .scrollAnimation {
-    animation: scroll 20s linear infinite;
-    display: flex;
-    white-space: nowrap;
-    opacity: 1;
-    transition: 0.2s;
+  animation: scroll 40s linear infinite; // Desktop slider animation speed
+  display: flex;
+  white-space: nowrap;
+  opacity: 1;
+  transition: 0.2s;
 }
 
 @keyframes scroll {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-50%); // %50 kaydırarak sürekli döngü sağlıyoruz
-    }
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%); // %50 kaydırarak sürekli döngü sağlıyoruz
+  }
 }
-
 
 .collabsText {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    opacity: 0;
-    align-items: center;
-    justify-content: center;
-    transition: 0.2s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  opacity: 0;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
 }
 
-.slider{
-    transition: 0.1s;
+.slider {
+  transition: 0.1s;
 }
 
-.slider:hover p{
-    opacity: 1;
+.slider:hover p {
+  opacity: 1;
 }
 
 .slider:hover .scrollAnimation {
-    opacity: 0;
+  opacity: 0;
 }
+
+@media screen and (max-width: 641px) {
+  .scrollAnimation {
+    animation: scroll 20s linear infinite; // Mobile slider animation speed
+  }
+}
+
