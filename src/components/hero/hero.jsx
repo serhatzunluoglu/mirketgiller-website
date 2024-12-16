@@ -3,10 +3,9 @@ import style from './styles.module.scss';
 const hero = () => {
   return (
     <div
-      className={`mx-auto flex max-w-7xl items-center justify-between py-10 px-8 md:flex-col`}
+      className={`mx-auto flex max-w-7xl items-center justify-between pt-[40px] pb-[80px] px-8 md:flex-col`}
     >
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-        {/* Left Section */}
         <div>
           <h1 className={`text-4xl font-bold primary-color mb-6 lg:text-6xl`}>
             Birlikte büyüyen yetenekler
@@ -33,7 +32,6 @@ const hero = () => {
           </div>
         </div>
 
-        {/* Right Section */}
         <div className="grid grid-rows-3 gap-4">
           <div
             className={`${style.rightCardRadius} ${style.bgColorTransparent} border-1-primary bg-white flex items-center flex-col py-[15px] px-[10px] gap-1 h-[96px]`}
@@ -66,4 +64,3 @@ const hero = () => {
 };
 
 export default hero;
-
