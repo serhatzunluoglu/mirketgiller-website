@@ -20,12 +20,12 @@ const hero = () => {
           </p>
           <div className="flex gap-4 flex-wrap">
             <button
-              className={`${style.buttonFirst} primary-color-bg text-white font-medium body-small-medium px-6 py-3 rounded-lg transition h-12 sm:text-sm`}
+              className={`${style.buttonFirst} primary-color-bg text-white font-medium body-small-medium px-6 py-3 rounded-lg transition h-12 sm:text-sm hover:bg-[#f18d29]`}
             >
               Topluluğumuza Katıl
             </button>
             <button
-              className={`${style.buttonSecond} border primary-color font-medium body-small-medium px-6 py-3 hover:primary-color-bg transition h-12 sm:text-sm`}
+              className={`${style.buttonSecond} border primary-color font-medium body-small-medium px-6 py-3 hover:primary-color-bg transition h-12 sm:text-sm hover:bg-[#d37c26] hover:border-[#d37c26] hover:text-white`}
             >
               Ekibimize Katıl
             </button>
