@@ -6,6 +6,10 @@
   transition: 0.2s;
 }
 
+.paused {
+  animation-play-state: paused; /* Animasyonu durdur */
+}
+
 @keyframes scroll {
   0% {
     transform: translateX(0%);
@@ -26,21 +30,8 @@
   transition: 0.2s;
 }
 
-.slider {
-  transition: 0.1s;
-}
-
-.slider:hover p {
-  opacity: 1;
-}
-
-.slider:hover .scrollAnimation {
-  opacity: 0;
-}
-
 @media screen and (max-width: 641px) {
   .scrollAnimation {
     animation: scroll 20s linear infinite; // Mobile slider animation speed
   }
 }
-
