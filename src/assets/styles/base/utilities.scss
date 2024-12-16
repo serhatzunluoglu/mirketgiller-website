@@ -1,3 +1,10 @@
+// Mixin for text styles
+@mixin text-style($font-size, $line-height, $font-weight) {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-weight: $font-weight;
+}
+
 // Main Colors
 .primary-color {
   color: var(--primary-color);
@@ -40,111 +47,75 @@
   color: var(--mg-stroke);
 }
 
-//Text Styles
+// Text Styles
 .body-extra-small-text-medium {
-  font-size: 12px;
-  line-height: 20px;
-  font-weight: 500;
+  @include text-style(12px, 20px, 500);
 }
 
 .body-extra-small-text-regular {
-  font-size: 12px;
-  line-height: 20px;
-  font-weight: 400;
+  @include text-style(12px, 20px, 400);
 }
 
 .body-small-medium {
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 500;
+  @include text-style(14px, 22px, 500);
 }
 
 .body-small-regular {
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 400;
+  @include text-style(14px, 22px, 400);
 }
 
 .body-medium-bold {
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 700;
+  @include text-style(16px, 24px, 700);
 }
 
 .body-medium-semibold {
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 600;
+  @include text-style(16px, 24px, 600);
 }
 
 .body-medium-medium {
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 500;
+  @include text-style(16px, 24px, 500);
 }
 
 .body-medium-regular {
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+  @include text-style(16px, 24px, 400);
 }
 
 .body-large-bold {
-  font-size: 18px;
-  line-height: 26px;
-  font-weight: 700;
+  @include text-style(18px, 26px, 700);
 }
 
 .body-large-semibold {
-  font-size: 18px;
-  line-height: 26px;
-  font-weight: 600;
+  @include text-style(18px, 26px, 600);
 }
 
 .body-large-medium {
-  font-size: 18px;
-  line-height: 26px;
-  font-weight: 500;
+  @include text-style(18px, 26px, 500);
 }
 
 .body-large-regular {
-  font-size: 18px;
-  line-height: 26px;
-  font-weight: 400;
+  @include text-style(18px, 26px, 400);
 }
 
 .heading-6 {
-  font-size: 24px;
-  line-height: 30px;
-  font-weight: 600;
+  @include text-style(24px, 30px, 600);
 }
 
 .heading-5 {
-  font-size: 28px;
-  line-height: 40px;
-  font-weight: 600;
+  @include text-style(28px, 40px, 600);
 }
 
 .heading-4 {
-  font-size: 30px;
-  line-height: 38px;
-  font-weight: 700;
+  @include text-style(30px, 38px, 700);
 }
 
 .heading-3 {
-  font-size: 40px;
-  line-height: 48px;
-  font-weight: 700;
+  @include text-style(40px, 48px, 700);
 }
 
 .heading-2 {
-  font-size: 48px;
-  line-height: 58px;
-  font-weight: 700;
+  @include text-style(48px, 58px, 700);
 }
 
 .heading-1 {
-  font-size: 60px;
-  line-height: 72px;
-  font-weight: 700;
+  @include text-style(60px, 72px, 700);
 }
