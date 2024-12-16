@@ -25,79 +25,101 @@ const events = () => {
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* İlk Blog Kartı */}
-            <div className="w-full rounded-lg overflow-hidden flex flex-col gap-8">
-              <img
-                src={blogImage}
-                alt="Meet AutoManage, the best AI management tools"
-                className="w-full h-[220px] object-cover rounded-[5px]"
-              />
-              <div>
-                <span className="bg-[#d37c26] text-white px-[15px] py-[6px] rounded-[5px] body-extra-small-text-medium">
-                  Dec 22, 2023
-                </span>
+            <a href="#">
+              <div
+                className={`${style.cardHover} w-full rounded-lg overflow-hidden flex flex-col gap-8`}
+              >
+                <a href="#">
+                  <img
+                    src={blogImage}
+                    alt="Meet AutoManage, the best AI management tools"
+                    className={`${style.imageHover} w-full h-[220px] object-cover rounded-[5px] opacity-100`}
+                  />
+                </a>
+                <div>
+                  <span className="bg-[#d37c26] text-white px-[15px] py-[6px] rounded-[5px] body-extra-small-text-medium">
+                    Dec 22, 2023
+                  </span>
+                </div>
+                <div className="flex flex-col gap-4">
+                  <a
+                    className={`${style.textDark} ${style.textHover} text-lg heading-6 mg-dark  cursor-pointer transition-all`}
+                  >
+                    Meet AutoManage, the best AI management tools
+                  </a>
+                  <p
+                    className={`${style.stroke} primary-text-color body-medium-regular text-sm`}
+                  >
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry.
+                  </p>
+                </div>
               </div>
-              <div className="flex flex-col gap-4">
-                <h3 className={`${style.textDark} text-lg heading-6 mg-dark`}>
-                  Meet AutoManage, the best AI management tools
-                </h3>
-                <p
-                  className={`${style.stroke} primary-text-color body-medium-regular text-sm`}
-                >
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
-              </div>
-            </div>
+            </a>
 
-            {/* İkinci Blog Kartı */}
-            <div className="w-full rounded-lg overflow-hidden flex flex-col gap-8">
-              <img
-                src={blogImage}
-                alt="Meet AutoManage, the best AI management tools"
-                className="w-full h-[220px] object-cover rounded-[5px]"
-              />
-              <div>
-                <span className="bg-[#d37c26] text-white px-[15px] py-[6px] rounded-[5px] body-extra-small-text-medium">
-                  Dec 22, 2023
-                </span>
+            <a href="#">
+              <div
+                className={`${style.cardHover} w-full rounded-lg overflow-hidden flex flex-col gap-8`}
+              >
+                <a href="#">
+                  <img
+                    src={blogImage}
+                    alt="Meet AutoManage, the best AI management tools"
+                    className={`${style.imageHover} w-full h-[220px] object-cover rounded-[5px] opacity-100`}
+                  />
+                </a>
+                <div>
+                  <span className="bg-[#d37c26] text-white px-[15px] py-[6px] rounded-[5px] body-extra-small-text-medium">
+                    Dec 22, 2023
+                  </span>
+                </div>
+                <div className="flex flex-col gap-4">
+                  <a
+                    className={`${style.textDark} ${style.textHover} text-lg heading-6 mg-dark  cursor-pointer transition-all`}
+                  >
+                    Meet AutoManage, the best AI management tools
+                  </a>
+                  <p
+                    className={`${style.stroke} primary-text-color body-medium-regular text-sm`}
+                  >
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry.
+                  </p>
+                </div>
               </div>
-              <div className="flex flex-col gap-4">
-                <h3 className={`${style.textDark} text-lg heading-6 mg-dark`}>
-                  Meet AutoManage, the best AI management tools
-                </h3>
-                <p
-                  className={`${style.stroke} primary-text-color body-medium-regular text-sm`}
-                >
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
-              </div>
-            </div>
+            </a>
 
-            {/* Üçüncü Blog Kartı */}
-            <div className="w-full rounded-lg overflow-hidden flex flex-col gap-8 md:justify-self-center">
-              <img
-                src={blogImage}
-                alt="Meet AutoManage, the best AI management tools"
-                className="w-full h-[220px] object-cover rounded-[5px]"
-              />
-              <div>
-                <span className="bg-[#d37c26] text-white px-[15px] py-[6px] rounded-[5px] body-extra-small-text-medium">
-                  Dec 22, 2023
-                </span>
+            <a href="#">
+              <div
+                className={`${style.cardHover} w-full rounded-lg overflow-hidden flex flex-col gap-8`}
+              >
+                <a href="#">
+                  <img
+                    src={blogImage}
+                    alt="Meet AutoManage, the best AI management tools"
+                    className={`${style.imageHover} w-full h-[220px] object-cover rounded-[5px] opacity-100`}
+                  />
+                </a>
+                <div>
+                  <span className="bg-[#d37c26] text-white px-[15px] py-[6px] rounded-[5px] body-extra-small-text-medium">
+                    Dec 22, 2023
+                  </span>
+                </div>
+                <div className="flex flex-col gap-4">
+                  <a
+                    className={`${style.textDark} ${style.textHover} text-lg heading-6 mg-dark  cursor-pointer transition-all`}
+                  >
+                    Meet AutoManage, the best AI management tools
+                  </a>
+                  <p
+                    className={`${style.stroke} primary-text-color body-medium-regular text-sm`}
+                  >
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry.
+                  </p>
+                </div>
               </div>
-              <div className="flex flex-col gap-4">
-                <h3 className={`${style.textDark} text-lg heading-6 mg-dark`}>
-                  Meet AutoManage, the best AI management tools
-                </h3>
-                <p
-                  className={`${style.stroke} primary-text-color body-medium-regular text-sm`}
-                >
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry.
-                </p>
-              </div>
-            </div>
+            </a>
           </div>
         </div>
 
