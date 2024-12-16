@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useRef } from 'react';
 import style from './style.module.scss';
 
 // Test logoları
@@ -8,10 +8,22 @@ import moon from '../../assets/images/svg/moon-white.svg';
 import mirketIcon from '../../assets/images/svg/mirket-white.png';
 
 function CollaborationBar() {
-  const logos = useMemo(() => [sun, mirketIcon, mirketLogo, moon], []); // logo kaynakları
+  const logos = useMemo(
+    () => [
+      { src: sun, href: 'https://example.com/sun' },
+      { src: mirketIcon, href: 'https://example.com/mirket' },
+      { src: mirketLogo, href: 'https://example.com/logo' },
+      { src: moon, href: 'https://example.com/moon' },
+    ],
+    []
+  );
+
   const [extendedLogos, setExtendedLogos] = useState([]);
   const [barWidth, setBarWidth] = useState(window.innerWidth);
   const [imageDimensions, setImageDimensions] = useState([]);
+  const sliderRef = useRef(null); // Slider elementine referans
+  const [isPaused, setIsPaused] = useState(false); // Animasyon durumu
+  const [currentOffset, setCurrentOffset] = useState(0); // O anki pozisyon
 
   useEffect(() => {
     const loadImages = async () => {
@@ -19,15 +31,15 @@ function CollaborationBar() {
         logos.map((logo) => {
           return new Promise((resolve) => {
             const img = new Image();
-            img.src = logo;
+            img.src = logo.src;
 
             img.onload = () => {
               const aspectRatio = img.width / img.height;
-              const targetHeight = 36; // İstenen yükseklik
+              const targetHeight = 36;
               const calculatedWidth = targetHeight * aspectRatio;
 
               resolve({
-                src: logo,
+                ...logo,
                 width: calculatedWidth,
                 height: targetHeight,
               });
@@ -39,12 +51,9 @@ function CollaborationBar() {
     };
 
     loadImages();
-  }, [logos]); // logos artık sabit referansa sahip, bu nedenle sadece ilk renderda tetiklenecek ve width değerleri imageDimensions dizisine yazılacak.
-
-  console.log('imagedimension ' + imageDimensions.length);
+  }, [logos]);
 
   useEffect(() => {
-    // Ekran boyutu değişirse bar genişliğini güncelle
     const handleResize = () => setBarWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -57,39 +66,65 @@ function CollaborationBar() {
         logoLayoutSize += imageDimensions[i].width;
       }
 
-      logoLayoutSize += imageDimensions.length * 64; // Her bir logo arasındaki boşluklar
-      console.log('logo layout ' + logoLayoutSize);
+      logoLayoutSize += imageDimensions.length * 64;
 
-      var logosToFill = Math.ceil((barWidth * 1.5) / logoLayoutSize); // Gerekli logo tekrar sayısı
-      logosToFill = logosToFill + (logosToFill % 10) + 1;
-      console.log('logos to fill: ' + logosToFill);
+      const logosToFill = Math.ceil((barWidth * 1.5) / logoLayoutSize) + 1;
 
-      // Logoları yeterince tekrar et ve döngü oluştur
       const repeatedLogos = [];
       for (let i = 0; i < logosToFill; i++) {
-        repeatedLogos.push(...logos);
+        repeatedLogos.push(...imageDimensions);
       }
 
-      setExtendedLogos([...repeatedLogos]);
+      setExtendedLogos(repeatedLogos);
     }
-  }, [barWidth, logos, imageDimensions]); // imageDimensions yüklendiğinde işlemleri tetikle
+  }, [barWidth, imageDimensions]);
+
+  const handleMouseEnter = () => {
+    if (sliderRef.current) {
+      const offset = sliderRef.current.getBoundingClientRect().left;
+      setCurrentOffset(offset); // Mevcut pozisyonu kaydet
+      setIsPaused(true); // Animasyonu duraklat
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsPaused(false); // Animasyonu yeniden başlat
+  };
 
   return (
     <div
       className={`${style.slider} w-full h-[88px] primary-color-bg overflow-hidden relative`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <p className={`${style.collabsText} heading-6 text-white`}>
         Destekçilerimiz
       </p>
       <div className="flex items-center justify-start w-full h-full slider-track">
-        <div className={`${style.scrollAnimation} flex items-center gap-16`}>
+        <div
+          ref={sliderRef}
+          className={`${style.scrollAnimation} ${
+            isPaused ? style.paused : ''
+          } flex items-center gap-16`}
+          style={{
+            transform: isPaused
+              ? `translateX(${currentOffset}px)`
+              : 'translateX(0)',
+          }}
+        >
           {extendedLogos.map((logo, index) => (
-            <img
+            <a
               key={index}
-              src={logo}
-              alt={`Logo ${index}`}
-              className="h-9 w-auto"
-            />
+              href={logo.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src={logo.src}
+                alt={`Logo ${index}`}
+                style={{ width: logo.width, height: logo.height }}
+              />
+            </a>
           ))}
         </div>
       </div>
@@ -98,4 +133,3 @@ function CollaborationBar() {
 }
 
 export default CollaborationBar;
-
