@@ -21,8 +21,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme, handleThemeChange } = useAppContext();
   const { pathname } = useLocation();
-  const hoverClass =
-    theme === 'light' ? 'hover:bg-gray-50' : 'hover:bg-neutral-900';
+
   useEffect(() => {
     if (theme === 'dark') {
       document.body.setAttribute('data-theme', 'dark');
@@ -40,7 +39,7 @@ export default function Navbar() {
         <div className="flex lg:flex-1">
           <Link to={'/'} className="-m-1.5 p-1.5">
             <span className="sr-only">Mirketgiller</span>
-            <img alt="mirket-logo" src={mirketLogo} className="h-8 w-auto" />
+            <img alt="mirketgiller-logo" src={mirketLogo} className="h-8 w-auto" />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -53,11 +52,11 @@ export default function Navbar() {
             <Bars3Icon aria-hidden="true" className="h-6 w-6 primary-color" />
           </button>
         </div>
-        <div className="nav-right hidden lg:flex lg:gap-x-6 lg:justify-end primary-color">
+        <div className="nav-right hidden lg:flex lg:gap-x-6 lg:justify-end color-808080">
           <Link
             to={'/'}
             className={`text-base/9 font-semibold ${
-              pathname === '/' && 'active-link'
+              pathname === '/' && 'active-link primary-color'
             }`}
           >
             Ana Sayfa
@@ -65,7 +64,7 @@ export default function Navbar() {
           <Link
             to={'/etkinliklerimiz'}
             className={`text-base/9 font-semibold ${
-              pathname === '/etkinliklerimiz' && 'active-link'
+              pathname === '/etkinliklerimiz' && 'active-link primary-color'
             }`}
           >
             Etkinliklerimiz
@@ -73,7 +72,7 @@ export default function Navbar() {
           <Link
             to={'/hakkimizda'}
             className={`text-base/9 font-semibold ${
-              pathname === '/hakkimizda' && 'active-link'
+              pathname === '/hakkimizda' && 'active-link primary-color'
             }`}
           >
             Hakkımızda
@@ -81,7 +80,7 @@ export default function Navbar() {
           <Link
             to={'/iletisim'}
             className={`text-base/9 font-semibold ${
-              pathname === '/iletisim' && 'active-link'
+              pathname === '/iletisim' && 'active-link primary-color'
             }`}
           >
             İletişim
@@ -89,7 +88,7 @@ export default function Navbar() {
           <Link
             to={'/blog'}
             className={`text-base/9 font-semibold ${
-              pathname === '/blog' && 'active-link'
+              pathname === '/blog' && 'active-link primary-color'
             }`}
           >
             Blog
@@ -156,7 +155,11 @@ export default function Navbar() {
                 <Link
                   to={'/'}
                   className={`-mx-3 block rounded-lg px-3 py-2 text-lg/7 font-semibold ${
-                    pathname === '/' ? hoverClass : ''
+                    pathname === '/'
+                      ? theme === 'light'
+                        ? 'hover:bg-gray-50'
+                        : 'hover:bg-neutral-900'
+                      : ''
                   }`}
                 >
                   Ana Sayfa

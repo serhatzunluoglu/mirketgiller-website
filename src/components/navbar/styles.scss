@@ -23,36 +23,37 @@ nav .nav-right a {
   display: inline-flex;
 }
 
-nav .nav-right a::after {
-  content: '';
-  position: absolute;
-  bottom: 4px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background-color: var(--primary-color);
-  transform: translateX(-50%);
-  transform-origin: center;
-  transition: width 0.3s ease;
-}
+// nav .nav-right a::after {
+//   content: '';
+//   position: absolute;
+//   bottom: 4px;
+//   left: 50%;
+//   width: 0;
+//   height: 2px;
+//   background-color: var(--primary-color);
+//   transform: translateX(-50%);
+//   transform-origin: center;
+//   transition: width 0.3s ease;
+// }
 
-nav .nav-right a:hover::after {
-  width: 110%;
-}
+// nav .nav-right a:hover::after {
+//   width: 110%;
+// }
 
-nav .nav-right .active-link::after {
-  content: '';
-  position: absolute;
-  bottom: 4px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background-color: var(--primary-color);
-  transform: translateX(-50%);
-  transform-origin: center;
-  transition: width 0.3s ease;
-  width: 110%;
-}
+// nav .nav-right .active-link::after {
+//   content: '';
+//   position: absolute;
+//   bottom: 4px;
+//   left: 50%;
+//   width: 0;
+//   height: 2px;
+//   background-color: var(--primary-color);
+//   transform: translateX(-50%);
+//   transform-origin: center;
+//   transition: width 0.3s ease;
+//   width: 110%;
+// }
+
 // nav-link hover and active effects end
 
 nav .theme-switcher div:hover {
