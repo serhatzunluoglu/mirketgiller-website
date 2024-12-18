@@ -4,7 +4,7 @@ import blogImage from '../../assets/images/blogImage.png';
 const events = () => {
   return (
     <div className={`${style.bgDark} py-[90px] bg-white h-auto `}>
-      <div className="mx-auto flex max-w-7xl items-center justify-between  px-8 flex flex-col gap-[60px]">
+      <div className="mx-auto max-w-7xl items-center justify-between  px-8 flex flex-col gap-[60px]">
         <div className="text-center">
           <h2 className="text-3xl font-bold primary-color mb-2 heading-3">
             Etkinliklerimiz
@@ -19,12 +19,10 @@ const events = () => {
           </p>
         </div>
 
-        {/* Cards */}
         <div
           className={`${style.bgDark} flex flex-wrap lg:flex-nowrap gap-[30px]`}
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* İlk Blog Kartı */}
             <a href="#">
               <div
                 className={`${style.cardHover} w-full rounded-lg overflow-hidden flex flex-col gap-8`}
@@ -123,7 +121,6 @@ const events = () => {
           </div>
         </div>
 
-        {/* Button */}
         <div className="h-auto w-full flex items-center justify-center ">
           <a
             href="#"

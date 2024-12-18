@@ -1,5 +1,21 @@
 <IfModule mod_rewrite.c>
-  RewriteEngine On RewriteBase / RewriteRule ^index\.html$ - [L] RewriteCond
-  %{REQUEST_FILENAME} !-f RewriteCond %{REQUEST_FILENAME} !-d RewriteRule .
-  /index.html [L]
+  RewriteEngine On
+  RewriteBase /
+
+  # Eski URL'den Yeni URL'ye Yönlendirme (SEO için 301 Yönlendirmeleri)
+  RewriteRule ^anasayfa$ / [R=301,L]
+  RewriteRule ^(about|about-us)$ /hakkimizda [R=301,L]
+  RewriteRule ^(contact|contact-us)$ /iletisim [R=301,L]
+  RewriteRule ^(blogs)$ /blog [R=301,L]
+  RewriteRule ^(event|events)$ /etkinliklerimiz [R=301,L]
+  RewriteRule ^(team|our-team)$ /ekibimiz [R=301,L]
+  RewriteRule ^(supported-projects|projects)$ /destekledigimiz-projeler [R=301,L]
+
+  # index.html dosyasına yönlendirme (eğer URL doğrudan index.html ise)
+  RewriteRule ^index\.html$ - [L]
+
+  # Fiziksel dosya ve dizin kontrolü (Mevcut değilse index.html'ye yönlendir)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
 </IfModule>

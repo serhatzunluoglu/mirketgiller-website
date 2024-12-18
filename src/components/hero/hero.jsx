@@ -3,7 +3,7 @@ import style from './styles.module.scss';
 const hero = () => {
   return (
     <div
-      className={`mx-auto flex max-w-7xl items-center justify-between pt-[40px] pb-[80px] px-8 md:flex-col`}
+      className={`hero mx-auto flex max-w-7xl items-center justify-between pt-[40px] pb-[80px] px-8 md:flex-col`}
     >
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         <div>
@@ -20,12 +20,12 @@ const hero = () => {
           </p>
           <div className="flex gap-4 flex-wrap">
             <button
-              className={`${style.buttonFirst} primary-color-bg text-white font-medium body-small-medium px-6 py-3 rounded-lg transition h-12 sm:text-sm hover:bg-[#f18d29]`}
+              className={`${style.buttonFirst} primary-color-bg text-white font-medium body-small-medium px-6 py-3 rounded-lg transition h-12 sm:text-sm hover:bg-[#f18d29] hover:scale-105 duration-100`}
             >
               Topluluğumuza Katıl
             </button>
             <button
-              className={`${style.buttonSecond} border primary-color font-medium body-small-medium px-6 py-3 hover:primary-color-bg transition h-12 sm:text-sm hover:bg-[#d37c26] hover:border-[#d37c26] hover:text-white`}
+              className={`${style.buttonSecond} border primary-color font-medium body-small-medium px-6 py-3 hover:primary-color-bg transition h-12 sm:text-sm hover:bg-[#d37c26] hover:border-[#d37c26] hover:text-white hover:scale-105 duration-100`}
             >
               Ekibimize Katıl
             </button>
@@ -52,7 +52,7 @@ const hero = () => {
           <div
             className={`${style.rightCardRadius} ${style.bgColorTransparent} border-1-primary bg-white flex items-center flex-col py-[15px] px-[10px] gap-1 h-[96px]`}
           >
-            <p className="text-2xl font-bold primary-color heading-4">20+</p>
+            <p className="text-2xl font-bold primary-color heading-4">25+</p>
             <p className="text-gray-600 primary-color body-medium-regular">
               ekip üyesi
             </p>
@@ -64,3 +64,4 @@ const hero = () => {
 };
 
 export default hero;
+

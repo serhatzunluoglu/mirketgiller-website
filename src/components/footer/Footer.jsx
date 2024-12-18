@@ -1,40 +1,51 @@
 import mirketLogo from '../../assets/images/svg/mirketgiller-white-logo.svg';
+import { Link } from 'react-router-dom';
+
+let year = new Date().getFullYear();
 
 function Footer() {
   return (
     <footer className="primary-color-bg">
       <div className="mx-auto md:flex md:max-w-7xl md:justify-between py-20 px-8 md:flex-row sm:flex sm:gap-12 sm:flex-col flex-col flex gap-12">
         <div className="md:flex md:flex-col gap-5 sm:flex sm:flex-row flex flex-col items-start">
-          <img src={mirketLogo} alt="Mirketgiller" className="h-8 w-auto" />
+          <Link to={'/'}>
+            <img src={mirketLogo} alt="Mirketgiller" className="h-8 w-auto" />
+          </Link>
           <p className="body-medium-regular text-white">
-            Mirketgiller | 2024 <br></br>Tüm hakları saklıdır.
+            Mirketgiller | {year} <br></br>Tüm hakları saklıdır.
           </p>
         </div>
 
         <div className="md:flex md:gap-8 sm:flex sm:flex-row sm:justify-between flex flex-col gap-8">
           <div className="flex flex-col gap-4">
             <p className="body-medium-semibold text-white">Hızlı Bağlantılar</p>
-            <a href="" className="body-medium-regular text-white">
+            <Link
+              to={'/etkinliklerimiz'}
+              className="body-medium-regular text-white"
+            >
               Etkinliklerimiz
-            </a>
-            <a href="" className="body-medium-regular text-white">
+            </Link>
+            <Link to={'/iletisim'} className="body-medium-regular text-white">
               İletişim
-            </a>
-            <a href="" className="body-medium-regular text-white">
+            </Link>
+            <Link to={'/ekibimiz'} className="body-medium-regular text-white">
               Ekibimiz
-            </a>
+            </Link>
           </div>
 
           <div className="flex flex-col gap-4">
             <p className="body-medium-semibold text-white">
               İlginizi Çekebilir
             </p>
-            <a href="" className="body-medium-regular text-white">
+            <Link to={'/blog'} className="body-medium-regular text-white">
               Blog Yazılarımız
-            </a>
-            <a href="" className="body-medium-regular text-white">
+            </Link>
+            <Link
+              to={'/destekledigimiz-projeler'}
+              className="body-medium-regular text-white"
+            >
               Desteklediğimiz Projeler
-            </a>
+            </Link>
           </div>
 
           <div className="flex flex-col gap-4">
