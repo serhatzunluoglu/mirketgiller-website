@@ -39,7 +39,11 @@ export default function Navbar() {
         <div className="flex lg:flex-1">
           <Link to={'/'} className="-m-1.5 p-1.5">
             <span className="sr-only">Mirketgiller</span>
-            <img alt="mirketgiller-logo" src={mirketLogo} className="h-8 w-auto" />
+            <img
+              alt="mirketgiller-logo"
+              src={mirketLogo}
+              className="h-8 w-auto"
+            />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -151,14 +155,16 @@ export default function Navbar() {
           </div>
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
+              <div className="space-y-2 py-6 color-808080">
                 <Link
                   to={'/'}
                   className={`-mx-3 block rounded-lg px-3 py-2 text-lg/7 font-semibold ${
+                    pathname === '/' && 'primary-color'
+                  } ${
                     pathname === '/'
                       ? theme === 'light'
-                        ? 'hover:bg-gray-50'
-                        : 'hover:bg-neutral-900'
+                        ? 'bg-gray-50'
+                        : 'bg-neutral-900'
                       : ''
                   }`}
                 >
@@ -167,40 +173,56 @@ export default function Navbar() {
                 <Link
                   to={'/etkinliklerimiz'}
                   className={`-mx-3 block rounded-lg px-3 py-2 text-lg/7 font-semibold ${
-                    theme === 'light'
-                      ? 'hover:bg-gray-50'
-                      : 'hover:bg-neutral-900'
-                  } ${pathname === '/etkinliklerimiz' && 'font-bold'}`}
+                    pathname === '/etkinliklerimiz' && 'primary-color'
+                  } ${
+                    pathname === '/etkinliklerimiz'
+                      ? theme === 'light'
+                        ? 'bg-gray-50'
+                        : 'bg-neutral-900'
+                      : ''
+                  }`}
                 >
                   Etkinliklerimiz
                 </Link>
                 <Link
                   to={'/hakkimizda'}
                   className={`-mx-3 block rounded-lg px-3 py-2 text-lg/7 font-semibold ${
-                    theme === 'light'
-                      ? 'hover:bg-gray-50'
-                      : 'hover:bg-neutral-900'
-                  } ${pathname === '/hakkimizda' && 'font-bold'}`}
+                    pathname === '/hakkimizda' && 'primary-color'
+                  } ${
+                    pathname === '/hakkimizda'
+                      ? theme === 'light'
+                        ? 'bg-gray-50'
+                        : 'bg-neutral-900'
+                      : ''
+                  }`}
                 >
                   Hakkımızda
                 </Link>
                 <Link
                   to={'/iletisim'}
                   className={`-mx-3 block rounded-lg px-3 py-2 text-lg/7 font-semibold ${
-                    theme === 'light'
-                      ? 'hover:bg-gray-50'
-                      : 'hover:bg-neutral-900'
-                  } ${pathname === '/iletisim' && 'font-bold'}`}
+                    pathname === '/iletisim' && 'primary-color'
+                  } ${
+                    pathname === '/iletisim'
+                      ? theme === 'light'
+                        ? 'bg-gray-50'
+                        : 'bg-neutral-900'
+                      : ''
+                  }`}
                 >
                   İletişim
                 </Link>
                 <Link
                   to={'/blog'}
                   className={`-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold ${
-                    theme === 'light'
-                      ? 'hover:bg-gray-50'
-                      : 'hover:bg-neutral-900'
-                  } ${pathname === '/blog' && 'font-bold'}`}
+                    pathname === '/blog' && 'primary-color'
+                  } ${
+                    pathname === '/blog'
+                      ? theme === 'light'
+                        ? 'bg-gray-50'
+                        : 'bg-neutral-900'
+                      : ''
+                  }`}
                 >
                   Blog
                 </Link>
