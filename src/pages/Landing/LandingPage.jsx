@@ -2,6 +2,7 @@ import CollaborationBar from '../../components/collaboration-bar/CollaborationBa
 import style from './styles.module.scss';
 import Hero from '../../components/hero/hero';
 import EventsSection from '../../components/events-section/events';
+import Supported from '../../components/supported-project/supported';
 
 function LandingPage() {
   return (
@@ -9,6 +10,7 @@ function LandingPage() {
       <Hero />
       <CollaborationBar />
       <EventsSection />
+      <Supported />
     </div>
   );
 }
