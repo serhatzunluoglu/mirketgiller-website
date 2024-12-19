@@ -68,12 +68,14 @@ function CollaborationBar() {
 
       logoLayoutSize += imageDimensions.length * 64;
 
-      const logosToFill = Math.ceil((barWidth * 1.5) / logoLayoutSize) + 1;
+      const logosToFill = Math.ceil((barWidth * 1.5) / logoLayoutSize) * 10;
 
       const repeatedLogos = [];
       for (let i = 0; i < logosToFill; i++) {
         repeatedLogos.push(...imageDimensions);
       }
+
+      console.log(repeatedLogos.length);
 
       setExtendedLogos(repeatedLogos);
     }
@@ -115,6 +117,7 @@ function CollaborationBar() {
           {extendedLogos.map((logo, index) => (
             <a
               key={index}
+              alt={index}
               href={logo.href}
               target="_blank"
               rel="noopener noreferrer"
