@@ -124,7 +124,7 @@ const events = () => {
         <div className="h-auto w-full flex items-center justify-center ">
           <a
             href="#"
-            className="primary-color px-[28px] py-[13px] border-solid border-[1px] hover:bg-[#d37c26] transition hover:border-[#d37c26] hover:text-white rounded-[50px] text-center"
+            className="body-medium-regular  primary-color px-[20px] py-[12px] sm:py-[14px] sm:px-[28px] border-solid border-[1px] hover:bg-[#d37c26] transition hover:border-[#d37c26] hover:text-white rounded-[50px] text-center"
           >
             Düzenlediğimiz Etkinliklere Göz Atın
           </a>
@@ -135,4 +135,3 @@ const events = () => {
 };
 
 export default events;
-
