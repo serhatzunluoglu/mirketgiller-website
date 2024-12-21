@@ -1,9 +1,9 @@
 .buttonFirst {
-  border-color: #d37c26;
+  border: 1px solid white;
   border-radius: 48px;
 }
 .buttonSecond {
-  border-color: #d37c26;
+  border: 1px solid white;
   border-radius: 48px;
 }
 .rightCardRadius {
@@ -11,12 +11,33 @@
 }
 
 body[data-theme='dark'] {
-  .bgColorTransparent {
-    background-color: transparent !important;
+  .heroContainer {
+    color: var(--primary-color);
   }
-  .leftLandingText {
-    color: white;
+  .buttonFirst {
+    border-color: var(--primary-color);
   }
+  .buttonSecond {
+    border-color: var(--primary-color);
+  }
+  .verticalLine {
+    background-color: var(--primary-color);
+  }
+  .heroBackground {
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: multiply;
+  }
+  .heroRight {
+    img {
+      filter: brightness(0.7) contrast(1);
+    }
+  }
+}
+
+.heroBackground {
+  background: url('/src/assets/images/hero-background.jpg') no-repeat;
+  width: 100%;
+  background-size: cover;
 }
 
 @media screen and (min-width: 640px) {
@@ -24,6 +45,12 @@ body[data-theme='dark'] {
     font-size: 38px;
     line-height: 72px;
     font-weight: 700;
+  }
+}
+
+@media screen and (max-width: 641px) {
+  .heroBackground {
+    background: url('/src/assets/images/hero-background-mobile.jpg') no-repeat;
   }
 }
 
