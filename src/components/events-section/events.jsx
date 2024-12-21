@@ -22,7 +22,7 @@ const events = () => {
         <div
           className={`${style.bgDark} flex flex-wrap w-full lg:flex-nowrap gap-[30px]`}
         >
-          <div className="flex flex-wrap w-full items-start justify-center sm:justify-center gap-8">
+          <div className="flex flex-wrap w-full items-center justify-center  xl:justify-between  gap-8">
             <a href="#">
               <div
                 className={`${style.cardHover} w-[370px] rounded-lg overflow-hidden flex flex-col gap-8 `}
