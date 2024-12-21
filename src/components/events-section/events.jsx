@@ -20,12 +20,12 @@ const events = () => {
         </div>
 
         <div
-          className={`${style.bgDark} flex flex-wrap lg:flex-nowrap gap-[30px]`}
+          className={`${style.bgDark} flex flex-wrap w-full lg:flex-nowrap gap-[30px]`}
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-wrap w-full items-start justify-center sm:justify-center gap-8">
             <a href="#">
               <div
-                className={`${style.cardHover} w-full rounded-lg overflow-hidden flex flex-col gap-8`}
+                className={`${style.cardHover} w-[370px] rounded-lg overflow-hidden flex flex-col gap-8 `}
               >
                 <div>
                   <img
@@ -57,7 +57,7 @@ const events = () => {
 
             <a href="#">
               <div
-                className={`${style.cardHover} w-full rounded-lg overflow-hidden flex flex-col gap-8`}
+                className={`${style.cardHover} w-[370px] rounded-lg overflow-hidden flex flex-col gap-8`}
               >
                 <div>
                   <img
@@ -89,7 +89,7 @@ const events = () => {
 
             <a href="#">
               <div
-                className={`${style.cardHover} w-full rounded-lg overflow-hidden flex flex-col gap-8`}
+                className={`${style.cardHover} w-[370px] rounded-lg overflow-hidden flex flex-col gap-8`}
               >
                 <div>
                   <img
@@ -135,4 +135,3 @@ const events = () => {
 };
 
 export default events;
-
