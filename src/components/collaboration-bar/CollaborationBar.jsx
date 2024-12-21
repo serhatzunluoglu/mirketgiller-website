@@ -75,8 +75,6 @@ function CollaborationBar() {
         repeatedLogos.push(...imageDimensions);
       }
 
-      console.log(repeatedLogos.length);
-
       setExtendedLogos(repeatedLogos);
     }
   }, [barWidth, imageDimensions]);
@@ -99,9 +97,6 @@ function CollaborationBar() {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <p className={`${style.collabsText} heading-6 text-white`}>
-        Destekçilerimiz
-      </p>
       <div className="flex items-center justify-start w-full h-full slider-track">
         <div
           ref={sliderRef}
@@ -117,7 +112,7 @@ function CollaborationBar() {
           {extendedLogos.map((logo, index) => (
             <a
               key={index}
-              alt={index}
+              alt={`logo-${index}`}
               href={logo.href}
               target="_blank"
               rel="noopener noreferrer"
