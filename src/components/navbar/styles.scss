@@ -7,9 +7,16 @@
 }
 
 // When this is a dark theme between the specified screen resolutions, do not add a different css code here to separate the right navbar from the left menu with a 1 px line.
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  body[data-theme='dark'] .custom-left-border {
-    border-left: 1px solid var(--tertiary-color);
+
+body[data-theme='dark'] {
+  @media screen and (min-width: 640px) and (max-width: 1024px) {
+    .custom-left-border {
+      border-left: 1px solid var(--tertiary-color);
+    }
+  }
+  header.scrolled {
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -40,19 +47,19 @@ nav .nav-right a {
 //   width: 110%;
 // }
 
-// nav .nav-right .active-link::after {
-//   content: '';
-//   position: absolute;
-//   bottom: 4px;
-//   left: 50%;
-//   width: 0;
-//   height: 2px;
-//   background-color: var(--primary-color);
-//   transform: translateX(-50%);
-//   transform-origin: center;
-//   transition: width 0.3s ease;
-//   width: 110%;
-// }
+nav .nav-right .active-link::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transform: translateX(-50%);
+  transform-origin: center;
+  transition: width 0.3s ease;
+  width: 110%;
+}
 
 // nav-link hover and active effects end
 
@@ -72,4 +79,11 @@ nav .theme-switcher div:hover {
       font-size: 36px;
     }
   }
+}
+
+header.scrolled {
+  background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  // backdrop-filter: blur(10px);
+  // transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
