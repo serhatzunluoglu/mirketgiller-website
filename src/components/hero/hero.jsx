@@ -31,7 +31,7 @@ const hero = () => {
               Ekibimize Katıl
             </button>
           </div>
-          <div className="hidden lg:flex gap-4 flex-wrap w-max mt-12">
+          <div className="hidden lg:flex gap-5 flex-wrap w-max mt-12">
             <div>
               <div className="heading-4">3500+</div>
               <div className="body-small-regular">Ulaşılan Kişi Sayısı</div>
@@ -61,4 +61,3 @@ const hero = () => {
 };
 
 export default hero;
-
