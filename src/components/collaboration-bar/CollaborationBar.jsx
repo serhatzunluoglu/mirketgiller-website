@@ -35,7 +35,12 @@ function CollaborationBar() {
 
             img.onload = () => {
               const aspectRatio = img.width / img.height;
-              const targetHeight = 36;
+              let targetHeight;
+              if (window.innerWidth > 768) {
+                targetHeight = 36;
+              } else {
+                targetHeight = 28;
+              }
               const calculatedWidth = targetHeight * aspectRatio;
 
               resolve({
@@ -51,7 +56,7 @@ function CollaborationBar() {
     };
 
     loadImages();
-  }, [logos]);
+  }, [logos, barWidth]);
 
   useEffect(() => {
     const handleResize = () => setBarWidth(window.innerWidth);
@@ -93,7 +98,7 @@ function CollaborationBar() {
 
   return (
     <div
-      className={`${style.slider} w-full h-[88px] primary-color-bg overflow-hidden relative`}
+      className={`w-full h-[8vh] sm:h-[10vh] primary-color-bg overflow-hidden relative`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -131,3 +136,4 @@ function CollaborationBar() {
 }
 
 export default CollaborationBar;
+
