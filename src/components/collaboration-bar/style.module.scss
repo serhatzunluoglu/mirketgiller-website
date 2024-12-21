@@ -1,5 +1,5 @@
 .scrollAnimation {
-  animation: scroll 40s linear infinite; // Desktop slider animation speed
+  animation: scroll 180s linear infinite; // Desktop slider animation speed
   display: flex;
   white-space: nowrap;
   opacity: 1;
@@ -32,6 +32,6 @@
 
 @media screen and (max-width: 641px) {
   .scrollAnimation {
-    animation: scroll 20s linear infinite; // Mobile slider animation speed
+    animation: scroll 100s linear infinite; // Mobile slider animation speed
   }
 }
