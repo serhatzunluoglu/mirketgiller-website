@@ -1,0 +1,22 @@
+body[data-theme='dark'] {
+  .sectionDark {
+    background-color: #1a1a1a;
+  }
+  .bgDark {
+    background-color: #242424 !important;
+  }
+  .textDark {
+    color: white;
+  }
+  .stroke {
+    color: #dfe4ea;
+  }
+  .buttonDark {
+    color: #d37c26;
+  }
+
+  .buttonDarkHover {
+    color: #dfe4ea;
+    border-color: #dfe4ea;
+  }
+}

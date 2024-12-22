@@ -25,7 +25,7 @@ const events = () => {
           <div className="flex flex-wrap w-full items-center justify-center  xl:justify-between  gap-8">
             <a href="#">
               <div
-                className={`${style.cardHover} w-[370px] rounded-lg overflow-hidden flex flex-col gap-8 `}
+                className={`${style.cardHover} w-full sm:w-[370px] rounded-lg overflow-hidden flex flex-col gap-8 `}
               >
                 <div>
                   <img
@@ -57,7 +57,7 @@ const events = () => {
 
             <a href="#">
               <div
-                className={`${style.cardHover} w-[370px] rounded-lg overflow-hidden flex flex-col gap-8`}
+                className={`${style.cardHover} w-full sm:w-[370px] rounded-lg overflow-hidden flex flex-col gap-8`}
               >
                 <div>
                   <img
@@ -89,7 +89,7 @@ const events = () => {
 
             <a href="#">
               <div
-                className={`${style.cardHover} w-[370px] rounded-lg overflow-hidden flex flex-col gap-8`}
+                className={`${style.cardHover} w-full sm:w-[370px] rounded-lg overflow-hidden flex flex-col gap-8`}
               >
                 <div>
                   <img
