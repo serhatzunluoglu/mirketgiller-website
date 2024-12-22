@@ -7,7 +7,7 @@ const events = () => {
       <div className="mx-auto max-w-7xl items-center justify-between  px-8 flex flex-col gap-[60px]">
         <div className="text-center">
           <h2 className="text-3xl font-bold primary-color mb-2 heading-3">
-            Etkinliklerimiz
+            Düzenlediğimiz Etkinliklerimiz
           </h2>
           <p
             className={`${style.textDark} primary-text-color max-w-3xl mx-auto body-medium-regular`}
