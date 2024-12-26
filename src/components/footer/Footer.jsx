@@ -1,11 +1,18 @@
 import mirketLogo from '../../assets/images/svg/mirketgiller-white-logo.svg';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import style from './style.module.scss';
 
 let year = new Date().getFullYear();
 
 function Footer() {
+  const { pathname } = useLocation();
+
+  if (pathname == '*') {
+    return null;
+  }
+
   return (
-    <footer className="primary-color-bg">
+    <footer className={`${style.footerContainer} primary-color-bg`}>
       <div className="mx-auto md:flex md:max-w-7xl md:justify-between py-20 px-8 md:flex-row sm:flex sm:gap-12 sm:flex-col flex-col flex gap-12">
         <div className="md:flex md:flex-col gap-5 sm:flex sm:flex-row flex flex-col items-start">
           <Link to={'/'}>
