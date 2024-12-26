@@ -98,7 +98,7 @@ function CollaborationBar() {
 
   return (
     <div
-      className={`w-full h-[8vh] sm:h-[10vh] primary-color-bg overflow-hidden relative`}
+      className={`w-full h-[8vh] md:h-[10vh] min-h-10 primary-color-bg overflow-hidden relative`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
