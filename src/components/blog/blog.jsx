@@ -44,7 +44,7 @@ const events = () => {
                 </p>
                 <a
                   href="#"
-                  className={`${style.buttonDark} px-[28px] py-[12px] rounded-[50px] primary-text-color border-solid border-[1px] hover:border-[#d37c26] hover:text-[#d37c26] transition-all`}
+                  className={`${style.buttonDark} px-[28px] py-[12px] rounded-[50px] primary-text-color border-solid border-[1px] hover:text-white hover:bg-[#d37c26] transition-all`}
                 >
                   View Details
                 </a>
@@ -75,7 +75,7 @@ const events = () => {
                 </p>
                 <a
                   href="#"
-                  className={`px-[28px] py-[12px] rounded-[50px] text-white bg-[#d37c26] border-solid border-[1px] hover:bg-white border-[#d37c26] hover:text-[#d37c26] transition-all`}
+                  className={`${style.buttonDark} px-[28px] py-[12px] rounded-[50px] primary-text-color border-solid border-[1px] hover:text-white hover:bg-[#d37c26] transition-all`}
                 >
                   View Details
                 </a>
@@ -106,7 +106,7 @@ const events = () => {
                 </p>
                 <a
                   href="#"
-                  className={`${style.buttonDark} px-[28px] py-[12px] rounded-[50px] primary-text-color border-solid border-[1px] hover:border-[#d37c26] hover:text-[#d37c26] transition-all`}
+                  className={`${style.buttonDark} px-[28px] py-[12px] rounded-[50px] primary-text-color border-solid border-[1px] hover:text-white hover:bg-[#d37c26] transition-all`}
                 >
                   View Details
                 </a>
