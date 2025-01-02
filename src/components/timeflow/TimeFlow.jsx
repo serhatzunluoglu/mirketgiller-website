@@ -32,7 +32,7 @@ const timeflowData = [
 function TimeFlow() {
   return (
     <div
-      className={`mx-auto flex  items-center flex-col bg-[#F9FAFB] justify-center px-8 py-[90px] ${style.timeflowBackground}`}
+      className={`hidden lg:mx-auto lg:flex lg:items-center lg:flex-col lg:bg-[#F9FAFB] lg:justify-center lg:px-8 lg:py-[90px] ${style.timeflowBackground}`}
     >
       {timeflowData.map((item, index) => {
         // Sağ/sol pozisyonunu sıraya göre belirliyoruz
