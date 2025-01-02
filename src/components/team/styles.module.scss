@@ -1,0 +1,18 @@
+body[data-theme='dark'] {
+  .sectionDark {
+    background-color: #1a1a1a;
+  }
+  .textDark {
+    color: white;
+  }
+  .buttonDark {
+    color: #d37c26;
+  }
+  .buttonDark:hover {
+    color: white;
+    border: #d37c26 1px solid;
+  }
+  .nameBoxDark{
+    background-color: #1a1a1a;
+  }
+}
