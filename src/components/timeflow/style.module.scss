@@ -6,3 +6,13 @@
   width: 16px !important;
   height: 16px !important;
 }
+
+body[data-theme='dark'] {
+  .timeflowBackground {
+    background-color: #1a1a1a;
+  }
+
+  .strokeColorBg {
+    background-color: #242424;
+  }
+}

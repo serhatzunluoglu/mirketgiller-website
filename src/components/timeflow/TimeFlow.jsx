@@ -15,7 +15,7 @@ const timeflowData = [
   {
     heading: 'Lorem Ipsum',
     content:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec molestie arcu. Nam egestas a enim a aliquam.',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec molestie arcu Nam egestas a enim a aliquam.',
   },
   {
     heading: 'Lorem Ipsum',
@@ -31,7 +31,9 @@ const timeflowData = [
 
 function TimeFlow() {
   return (
-    <div className="mx-auto flex max-w-7xl items-center flex-col justify-center px-8">
+    <div
+      className={`mx-auto flex  items-center flex-col bg-[#F9FAFB] justify-center px-8 py-[90px] ${style.timeflowBackground}`}
+    >
       {timeflowData.map((item, index) => {
         // Sağ/sol pozisyonunu sıraya göre belirliyoruz
         const isRight = index % 2 === 0;
@@ -44,7 +46,7 @@ function TimeFlow() {
             }`}
           >
             <div
-              className={`timeflow-item-container w-[496px] min-h-[144px] flex justify-between ${
+              className={`timeflow-item-container w-[496px] flex justify-between ${
                 !isRight ? 'flex-row-reverse' : ''
               }`}
             >
@@ -60,17 +62,18 @@ function TimeFlow() {
                 <h1
                   className={`heading-6 primary-color ${
                     !isRight ? 'text-right' : ''
-                  }`}
+                  } w-full text-wrap`}
                 >
                   {item.heading}
                 </h1>
                 <p
                   className={`body-small-regular primary-color ${
                     !isRight ? 'text-right' : ''
-                  }`}
+                  } w-full text-wrap`}
                 >
                   {item.content}
                 </p>
+                <div className="w-full h-[60px]"></div>
               </div>
             </div>
           </div>
