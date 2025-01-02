@@ -4,10 +4,9 @@ import glorius from '../../assets/images/img/glorius.png';
 import glorius2 from '../../assets/images/img/glorius2.png';
 import nikolas from '../../assets/images/img/nikolas.png';
 
-
 const events = () => {
   return (
-    <div className={`${style.sectionDark} py-[90px] bg-[#F9FAFB] h-auto `}>
+    <div className={`${style.sectionDark} py-[90px] h-auto `}>
       {/* starting here */}
       <div className="mx-auto max-w-7xl items-center justify-between  px-8 flex flex-col">
         {/* team start */}
@@ -52,16 +51,15 @@ const events = () => {
 
         {/* image area */}
         <div className="w-full flex justify-center xl:justify-between items-center gap-[30px] flex-wrap">
-
           <div className="flex items-center justify-center relative ">
             <img
               src={coriss}
               className="w-[270px] h-[330px] object-cover rounded-[8px]"
             />
-            <div className={`${style.nameBoxDark} p-4 absolute bottom-4 flex flex-col items-center justify-center rounded-[8px] bg-white w-auto px-[56px]`}>
-              <h3 className="primary-color body-medium-bold">
-                Coriss Ambady
-              </h3>
+            <div
+              className={`${style.nameBoxDark} p-4 absolute bottom-4 flex flex-col items-center justify-center rounded-[8px] bg-white w-auto px-[56px]`}
+            >
+              <h3 className="primary-color body-medium-bold">Coriss Ambady</h3>
               <p className="primary-text-color body-extra-small-text-regular">
                 Web Developer
               </p>
@@ -73,7 +71,9 @@ const events = () => {
               src={glorius}
               className="w-[270px] h-[330px] object-cover rounded-[8px]"
             />
-            <div className={`${style.nameBoxDark} p-4 absolute bottom-4 flex flex-col items-center justify-center rounded-[8px] bg-white w-auto px-[56px]`}>
+            <div
+              className={`${style.nameBoxDark} p-4 absolute bottom-4 flex flex-col items-center justify-center rounded-[8px] bg-white w-auto px-[56px]`}
+            >
               <h3 className="primary-color body-medium-bold">
                 glorius Cristian
               </h3>
@@ -88,7 +88,9 @@ const events = () => {
               src={glorius2}
               className="w-[270px] h-[330px] object-cover rounded-[8px]"
             />
-            <div className={`${style.nameBoxDark} p-4 absolute bottom-4 flex flex-col items-center justify-center rounded-[8px] bg-white w-auto px-[56px]`}>
+            <div
+              className={`${style.nameBoxDark} p-4 absolute bottom-4 flex flex-col items-center justify-center rounded-[8px] bg-white w-auto px-[56px]`}
+            >
               <h3 className="primary-color body-medium-bold">
                 Glorius Cristian
               </h3>
@@ -103,7 +105,9 @@ const events = () => {
               src={nikolas}
               className="w-[270px] h-[330px] object-cover rounded-[8px]"
             />
-            <div className={`${style.nameBoxDark} p-4 absolute bottom-4 flex flex-col items-center justify-center rounded-[8px] bg-white w-auto px-[56px]`}>
+            <div
+              className={`${style.nameBoxDark} p-4 absolute bottom-4 flex flex-col items-center justify-center rounded-[8px] bg-white w-auto px-[56px]`}
+            >
               <h3 className="primary-color body-medium-bold">
                 Nikolas Brooten
               </h3>
@@ -112,7 +116,6 @@ const events = () => {
               </p>
             </div>
           </div>
-
         </div>
       </div>
     </div>
