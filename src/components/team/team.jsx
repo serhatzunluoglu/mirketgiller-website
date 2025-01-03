@@ -37,22 +37,19 @@ const team = () => {
           <div className="flex gap-4 flex-wrap items-center justify-center">
             <a
               onClick={() => setActiveButton(1)}
-              href="#teamSection"
-              className={`${activeButton === 1 ? style.active : style.inactive} ${style.buttonDark} px-[28px] py-[12px] rounded-[50px] primary-color border-solid border-[1px] hover:text-white hover:bg-[#d37c26] transition-all`}
+              className={`${activeButton === 1 ? style.active : style.inactive} ${style.buttonDark} px-[28px] py-[12px] rounded-[50px] primary-color border-solid border-[1px] cursor-pointer hover:text-white hover:bg-[#d37c26] transition-all`}
             >
               Yönetim Kurulu
             </a>
             <a
               onClick={() => setActiveButton(2)}
-              href="#teamSection"
-              className={`${activeButton === 2 ? style.active : style.inactive} ${style.buttonDark} px-[28px] py-[12px] rounded-[50px] primary-color border-solid border-[1px] hover:text-white hover:bg-[#d37c26] transition-all`}
+              className={`${activeButton === 2 ? style.active : style.inactive} ${style.buttonDark} px-[28px] py-[12px] rounded-[50px] primary-color border-solid border-[1px] cursor-pointer hover:text-white hover:bg-[#d37c26] transition-all`}
             >
               Departman Başkanları
             </a>
             <a
               onClick={() => setActiveButton(3)}
-              href="#teamSection"
-              className={`${activeButton === 3 ? style.active : style.inactive} ${style.buttonDark} px-[28px] py-[12px] rounded-[50px] primary-color border-solid border-[1px] hover:text-white hover:bg-[#d37c26] transition-all`}
+              className={`${activeButton === 3 ? style.active : style.inactive} ${style.buttonDark} px-[28px] py-[12px] rounded-[50px] primary-color border-solid border-[1px] cursor-pointer hover:text-white hover:bg-[#d37c26] transition-all`}
             >
               Genel Ekip Üyeleri
             </a>
