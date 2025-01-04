@@ -6,7 +6,7 @@ const aboutus = () => {
   return (
     <div className={`${style.sectionDark} py-[90px] bg-white h-auto `}>
       <div className="mx-auto max-w-7xl items-center justify-between  px-8 flex flex-col gap-[30px]">
-        <div className="text-center">
+        <div className="text-center mb-[30px]">
           <h2 className="text-3xl font-bold primary-color mb-2 heading-3">
             Birlikte büyüyen yetenekler
           </h2>
@@ -23,7 +23,7 @@ const aboutus = () => {
         <div className={`${style.bgDark} flex flex-wrap w-full lg:flex-nowrap gap-[30px]`}
         >
           <div className="flex w-full flex-wrap lg:flex-nowrap items-center justify-center gap-[30px]">
-            <div className="w-full md:w-3/4 flex flex-col items-start border-solid border border-[#d37c26]  justify-between rounded-3xl p-6 gap-[96px]">
+            <div className="w-full lg:w-3/4 flex flex-col items-start border-solid border border-[#d37c26]  justify-between rounded-3xl p-6 gap-[96px]">
               <img src={bar} alt="" />
               <div className="flex flex-col">
                 <p className="heading-5 primary-color pb-4">Misyonumuz</p>
@@ -42,7 +42,7 @@ const aboutus = () => {
               </div>
             </div>
 
-            <div className="w-full md:w-3/4 flex flex-col items-start border-solid border border-[#d37c26]  justify-between rounded-3xl p-6 gap-[96px]">
+            <div className="w-full lg:w-3/4 flex flex-col items-start border-solid border border-[#d37c26]  justify-between rounded-3xl p-6 gap-[96px]">
               <img src={rocket} alt="" />
               <div className="flex flex-col">
                 <p className="heading-5 primary-color pb-4">Vizyonumuz</p>
@@ -63,18 +63,18 @@ const aboutus = () => {
           </div>
         </div>
 
-        <div className="w-full flex flex-wrap items-center justify-center xl:justify-between gap-[30px]">
-          <div className="w-[375px] h-auto flex flex-col items-center justify-center border border-[#d37c26] border-solid px-[10px] py-[15px] rounded-3xl">
+        <div className="w-full flex flex-wrap lg:flex-nowrap items-center justify-center lg:justify-between gap-[30px]">
+          <div className="w-full lg:w-3/4 h-auto flex flex-col items-center justify-center border border-[#d37c26] border-solid px-[10px] py-[15px] rounded-3xl">
             <p className="primary-color heading-4 pb-1">3500+</p>
             <p className="primary-color body-medium-regular">
               ulaşılan kişi sayısı
             </p>
           </div>
-          <div className="w-[375px] h-auto flex flex-col items-center justify-center border border-[#d37c26] border-solid px-[10px] py-[15px] rounded-3xl">
+          <div className="w-full lg:w-3/4 h-auto flex flex-col items-center justify-center border border-[#d37c26] border-solid px-[10px] py-[15px] rounded-3xl">
             <p className="primary-color heading-4 pb-1">400+</p>
             <p className="primary-color body-medium-regular">aktif üye</p>
           </div>
-          <div className="w-[375px] h-auto flex flex-col items-center justify-center border border-[#d37c26] border-solid px-[10px] py-[15px] rounded-3xl">
+          <div className="w-full lg:w-3/4 h-auto flex flex-col items-center justify-center border border-[#d37c26] border-solid px-[10px] py-[15px] rounded-3xl">
             <p className="primary-color heading-4 pb-1">20+</p>
             <p className="primary-color body-medium-regular">ekip üyesi</p>
           </div>

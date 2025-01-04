@@ -15,4 +15,17 @@ body[data-theme='dark'] {
   .nameBoxDark{
     background-color: #1a1a1a;
   }
+  .active{
+    color: white !important;
+    background-color: #d37c26;
+    border: 1px solid #d37c26;
+  }
+  .buttonHover{
+    color: #d37c26;
+    border: 1px solid #d37c26;
+  }
+  .buttonHover:hover{
+    color: white;
+    border: 1px solid white;
+  }
 }
