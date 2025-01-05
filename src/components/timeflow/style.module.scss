@@ -5,6 +5,7 @@
 .circleSize {
   width: 16px !important;
   height: 16px !important;
+  min-height: 16px;
 }
 
 body[data-theme='dark'] {
