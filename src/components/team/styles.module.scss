@@ -1,6 +1,6 @@
 body[data-theme='dark'] {
   .sectionDark {
-    background-color: #242424;
+    background-color: #1a1a1a;
   }
   .textDark {
     color: white;
@@ -27,5 +27,11 @@ body[data-theme='dark'] {
   .buttonHover:hover{
     color: white;
     border: 1px solid white;
+  }
+
+  @media (min-width: 1024px){
+    .sectionDark{
+      background-color: #242424;
+    }
   }
 }

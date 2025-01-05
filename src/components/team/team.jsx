@@ -10,9 +10,7 @@ const team = () => {
   const [activeButton, setActiveButton] = useState(1);
   
   return (
-    <div
-      id="teamSection"
-      className={`${style.sectionDark} py-[90px] bg-[#F9FAFB] h-auto `}
+    <div className={`${style.sectionDark} py-[90px] bg-[#F9FAFB] h-auto `}
     >
       {/* starting here */}
       <div className="mx-auto max-w-7xl items-center justify-between  px-8 flex flex-col">
