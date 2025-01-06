@@ -8,10 +8,9 @@ import { useState } from 'react';
 const team = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [activeButton, setActiveButton] = useState(1);
-  
+
   return (
-    <div className={`${style.sectionDark} py-[90px] bg-[#F9FAFB] h-auto `}
-    >
+    <div className={`${style.sectionDark} py-[90px] h-auto `}>
       {/* starting here */}
       <div className="mx-auto max-w-7xl items-center justify-between  px-8 flex flex-col">
         {/* team start */}
@@ -35,19 +34,31 @@ const team = () => {
           <div className="flex gap-4 flex-wrap items-center justify-center">
             <a
               onClick={() => setActiveButton(1)}
-              className={`${activeButton === 1 ? style.active : ""} ${style.buttonDark} ${style.buttonHover} px-[28px] py-[12px] rounded-[50px] primary-color border-solid border-[1px] cursor-pointer transition-all`}
+              className={`${activeButton === 1 ? style.active : ''} ${
+                style.buttonDark
+              } ${
+                style.buttonHover
+              } px-[28px] py-[12px] rounded-[50px] primary-color border-solid border-[1px] cursor-pointer transition-all`}
             >
               Yönetim Kurulu
             </a>
             <a
               onClick={() => setActiveButton(2)}
-              className={`${activeButton === 2 ? style.active : ""} ${style.buttonDark} ${style.buttonHover} px-[28px] py-[12px] rounded-[50px] primary-color border-solid border cursor-pointer transition-all`}
+              className={`${activeButton === 2 ? style.active : ''} ${
+                style.buttonDark
+              } ${
+                style.buttonHover
+              } px-[28px] py-[12px] rounded-[50px] primary-color border-solid border cursor-pointer transition-all`}
             >
               Departman Başkanları
             </a>
             <a
               onClick={() => setActiveButton(3)}
-              className={`${activeButton === 3 ? style.active : ""} ${style.buttonDark} ${style.buttonHover} px-[28px] py-[12px] rounded-[50px] primary-color border-solid border-[1px] cursor-pointer transition-all`}
+              className={`${activeButton === 3 ? style.active : ''} ${
+                style.buttonDark
+              } ${
+                style.buttonHover
+              } px-[28px] py-[12px] rounded-[50px] primary-color border-solid border-[1px] cursor-pointer transition-all`}
             >
               Genel Ekip Üyeleri
             </a>
@@ -212,7 +223,6 @@ const team = () => {
                   </p>
                 </div>
               </div>
-              
             </>
           )}
         </div>

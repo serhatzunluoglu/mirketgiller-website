@@ -4,10 +4,12 @@ import rocket from '../../assets/images/aboutus/rocket.png';
 
 const aboutus = () => {
   return (
-    <div className={`${style.sectionDark} py-[90px] bg-white h-auto `}>
+    <div
+      className={`${style.sectionDark} pt-[50px] pb-[90px] bg-white h-auto `}
+    >
       <div className="mx-auto max-w-7xl items-center justify-between  px-8 flex flex-col gap-[30px]">
         <div className="text-center mb-[30px]">
-          <h2 className="text-3xl font-bold primary-color mb-2 heading-3">
+          <h2 className="text-3xl font-bold primary-color mb-3 heading-3">
             Birlikte büyüyen yetenekler
           </h2>
           <p
@@ -20,7 +22,8 @@ const aboutus = () => {
           </p>
         </div>
 
-        <div className={`${style.bgDark} flex flex-wrap w-full lg:flex-nowrap gap-[30px]`}
+        <div
+          className={`${style.bgDark} flex flex-wrap w-full lg:flex-nowrap gap-[30px]`}
         >
           <div className="flex w-full flex-wrap lg:flex-nowrap items-center justify-center gap-[30px]">
             <div className="w-full lg:w-3/4 flex flex-col items-start border-solid border border-[#d37c26]  justify-between rounded-3xl p-6 gap-[96px]">
