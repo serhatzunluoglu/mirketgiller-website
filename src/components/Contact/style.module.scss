@@ -1,0 +1,23 @@
+body[data-theme='dark'] {
+  .contactContainer {
+    p {
+      color: white;
+    }
+
+    input[type='text'],
+    textarea {
+      background-color: #242424;
+      color: white;
+    }
+
+    input[type='text']:focus,
+    textarea:focus {
+      outline: 2px solid var(--primary-color);
+    }
+
+    input[type='text']::placeholder,
+    textarea::placeholder {
+      color: #505050;
+    }
+  }
+}
