@@ -1,4 +1,4 @@
-import React from 'react';
+// Stylesheet imports
 import style from './style.module.scss';
 
 const timeflowData = [
@@ -41,13 +41,15 @@ function TimeFlow() {
         return (
           <div
             key={index}
-            className={`timeflow-container flex w-full lg:w-[80%] flex-col ${
-              isRight ? 'items-end justify-end' : 'items-start justify-start'
+            className={`timeflow-container flex w-full lg:max-w-[75%] xl:w-[65%] flex-col ${
+              isRight
+                ? 'items-center justify-center lg:items-end lg:justify-end'
+                : 'items-center justify-center lg:items-start lg:justify-start'
             }`}
           >
             <div
-              className={`timeflow-item-container w-[calc(50%+8px)] flex justify-between ${
-                !isRight ? 'flex-row-reverse' : ''
+              className={`timeflow-item-container w-full gap-16 sm:w-[75%] lg:w-[calc(50%+8px)] flex justify-between ${
+                !isRight ? 'lg:flex-row-reverse' : ''
               }`}
             >
               <div className="span-container flex flex-col items-center">
@@ -61,14 +63,14 @@ function TimeFlow() {
               <div className="content-container w-[360px]">
                 <h1
                   className={`heading-6 primary-color ${
-                    !isRight ? 'text-right' : ''
+                    !isRight ? 'text-left lg:text-right' : ''
                   } w-full text-wrap`}
                 >
                   {item.heading}
                 </h1>
                 <p
                   className={`body-small-regular primary-color ${
-                    !isRight ? 'text-right' : ''
+                    !isRight ? 'text-left lg:text-right' : ''
                   } w-full text-wrap`}
                 >
                   {item.content}
@@ -84,4 +86,3 @@ function TimeFlow() {
 }
 
 export default TimeFlow;
-
