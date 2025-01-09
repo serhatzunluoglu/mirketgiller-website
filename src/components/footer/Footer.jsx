@@ -13,7 +13,7 @@ function Footer() {
 
   return (
     <footer className={`${style.footerContainer} primary-color-bg`}>
-      <div className="mx-auto md:flex md:max-w-7xl md:justify-between py-20 px-8 md:flex-row sm:flex sm:gap-12 sm:flex-col flex-col flex gap-12">
+      <div className="mx-auto md:flex md:max-w-7xl md:justify-between py-16 sm:py-20 px-8 md:flex-row sm:flex sm:gap-12 sm:flex-col flex-col flex gap-12">
         <div className="md:flex md:flex-col gap-5 sm:flex sm:flex-row flex flex-col items-start">
           <Link to={'/'}>
             <img src={mirketLogo} alt="Mirketgiller" className="h-8 w-auto" />
