@@ -4,6 +4,7 @@ import Hero from '../../components/hero/hero';
 import EventsSection from '../../components/events-section/events';
 import Supported from '../../components/supported-project/supported';
 import Blog from '../../components/blog/blog';
+import WhatIsMirketgiller from '../../components/what-is-mirketgiller/WhatIsMirketgiller';
 
 function LandingPage() {
   return (
@@ -11,6 +12,7 @@ function LandingPage() {
       <Hero />
       <CollaborationBar />
       <EventsSection />
+      <WhatIsMirketgiller />
       <Supported />
       <Blog />
     </div>

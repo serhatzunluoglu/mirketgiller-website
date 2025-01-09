@@ -3,10 +3,12 @@ import blogs from '../../assets/images/blogs/blogs.jpg';
 
 const events = () => {
   return (
-    <div className={`${style.sectionDark} py-[90px] bg-[#F9FAFB] h-auto `}>
-      <div className="mx-auto max-w-7xl items-center justify-between  px-8 flex flex-col gap-[60px]">
+    <div
+      className={`${style.sectionDark} py-[64px] md:py-[90px] bg-[#F9FAFB] h-auto `}
+    >
+      <div className="mx-auto max-w-7xl items-center justify-between  px-8 flex flex-col gap-12 md:gap-[60px]">
         <div className="text-center">
-          <h2 className="text-3xl font-bold primary-color mb-2 heading-3">
+          <h2 className="font-bold primary-color mb-2 text-heading-5 md:text-heading-3">
             Blog Yazılarımız
           </h2>
           <p
@@ -120,7 +122,7 @@ const events = () => {
             href="#"
             className="body-medium-regular  primary-color px-[20px] py-[12px] sm:py-[14px] sm:px-[28px] border-solid border-[1px] hover:bg-[#d37c26] transition hover:border-[#d37c26] hover:text-white rounded-[50px] text-center"
           >
-            Bloglarımıza Göz Atın
+            Blog Yazılarımıza Göz Atın ✍️
           </a>
         </div>
       </div>

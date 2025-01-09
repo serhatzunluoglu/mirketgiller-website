@@ -3,11 +3,11 @@ import blogImage from '../../assets/images/blogImage.png';
 
 const events = () => {
   return (
-    <div className={`${style.bgDark} py-[90px] bg-white h-auto `}>
-      <div className="mx-auto max-w-7xl items-center justify-between  px-8 flex flex-col gap-[60px]">
+    <div className={`${style.bgDark} py-[64px] md:py-[90px] bg-white h-auto `}>
+      <div className="mx-auto max-w-7xl items-center justify-between  px-8 flex flex-col gap-12 md:gap-[60px]">
         <div className="text-center">
-          <h2 className="text-3xl font-bold primary-color mb-2 heading-3">
-            Düzenlediğimiz Etkinliklerimiz
+          <h2 className="font-bold primary-color mb-2 text-heading-5 md:text-heading-3">
+            Etkinliklerimiz
           </h2>
           <p
             className={`${style.textDark} primary-text-color max-w-3xl mx-auto body-medium-regular`}
