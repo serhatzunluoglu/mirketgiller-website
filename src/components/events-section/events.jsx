@@ -1,6 +1,31 @@
 import style from './styles.module.scss';
 import blogImage from '../../assets/images/blogImage.png';
 
+const eventData = [
+  {
+    date: 'Dec 22, 2023',
+    title: 'Meet AutoManage, the best AI management tools',
+    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    image: blogImage,
+    link: '#',
+  },
+  {
+    date: 'Jan 15, 2024',
+    title: 'Discover Next-Gen Web Development',
+    description: 'Join us to explore the future of web development and design trends.',
+    image: blogImage,
+    link: '#',
+  },
+  {
+    date: 'Feb 10, 2024',
+    title: 'Mastering the Art of Project Management',
+    description: 'Learn effective project management strategies from industry leaders.',
+    image: blogImage,
+    link: '#',
+  },
+];
+
+
 const events = () => {
   return (
     <div className={`${style.bgDark} py-[64px] md:py-[90px] bg-white h-auto `}>
@@ -23,101 +48,39 @@ const events = () => {
           className={`${style.bgDark} flex flex-wrap w-full lg:flex-nowrap gap-[30px]`}
         >
           <div className="flex flex-wrap w-full items-center justify-center  xl:justify-between  gap-8">
-            <a href="#">
-              <div
-                className={`${style.cardHover} w-full sm:w-[370px] rounded-lg overflow-hidden flex flex-col gap-8 `}
-              >
-                <div>
-                  <img
-                    src={blogImage}
-                    alt="Meet AutoManage, the best AI management tools"
-                    className={`${style.imageHover} w-full h-[220px] object-cover rounded-[5px] opacity-100`}
-                  />
-                </div>
-                <div>
-                  <span className="bg-[#d37c26] text-white px-[15px] py-[6px] rounded-[5px] body-extra-small-text-medium">
-                    Dec 22, 2023
-                  </span>
-                </div>
-                <div className="flex flex-col gap-4">
-                  <div
-                    className={`${style.textDark} ${style.textHover} text-lg heading-6 mg-dark  cursor-pointer transition-all`}
-                  >
-                    Meet AutoManage, the best AI management tools
+          {eventData.map((event, index) => (
+              <a href={event.link} key={index}>
+                <div
+                  className={`${style.cardHover} w-full sm:w-[370px] rounded-lg overflow-hidden flex flex-col gap-8`}
+                >
+                  <div>
+                    <img
+                      src={event.image}
+                      alt={event.title}
+                      className={`${style.imageHover} w-full h-[220px] object-cover rounded-[5px] opacity-100`}
+                    />
                   </div>
-                  <p
-                    className={`${style.stroke} primary-text-color body-medium-regular text-sm`}
-                  >
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry.
-                  </p>
+                  <div>
+                    <span className="bg-[#d37c26] text-white px-[15px] py-[6px] rounded-[5px] body-extra-small-text-medium">
+                      {event.date}
+                    </span>
+                  </div>
+                  <div className="flex flex-col gap-4">
+                    <div
+                      className={`${style.textDark} ${style.textHover} text-lg heading-6 mg-dark cursor-pointer transition-all`}
+                    >
+                      {event.title}
+                    </div>
+                    <p
+                      className={`${style.stroke} primary-text-color body-medium-regular text-sm`}
+                    >
+                      {event.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            ))}
 
-            <a href="#">
-              <div
-                className={`${style.cardHover} w-full sm:w-[370px] rounded-lg overflow-hidden flex flex-col gap-8`}
-              >
-                <div>
-                  <img
-                    src={blogImage}
-                    alt="Meet AutoManage, the best AI management tools"
-                    className={`${style.imageHover} w-full h-[220px] object-cover rounded-[5px] opacity-100`}
-                  />
-                </div>
-                <div>
-                  <span className="bg-[#d37c26] text-white px-[15px] py-[6px] rounded-[5px] body-extra-small-text-medium">
-                    Dec 22, 2023
-                  </span>
-                </div>
-                <div className="flex flex-col gap-4">
-                  <div
-                    className={`${style.textDark} ${style.textHover} text-lg heading-6 mg-dark  cursor-pointer transition-all`}
-                  >
-                    Meet AutoManage, the best AI management tools
-                  </div>
-                  <p
-                    className={`${style.stroke} primary-text-color body-medium-regular text-sm`}
-                  >
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry.
-                  </p>
-                </div>
-              </div>
-            </a>
-
-            <a href="#">
-              <div
-                className={`${style.cardHover} w-full sm:w-[370px] rounded-lg overflow-hidden flex flex-col gap-8`}
-              >
-                <div>
-                  <img
-                    src={blogImage}
-                    alt="Meet AutoManage, the best AI management tools"
-                    className={`${style.imageHover} w-full h-[220px] object-cover rounded-[5px] opacity-100`}
-                  />
-                </div>
-                <div>
-                  <span className="bg-[#d37c26] text-white px-[15px] py-[6px] rounded-[5px] body-extra-small-text-medium">
-                    Dec 22, 2023
-                  </span>
-                </div>
-                <div className="flex flex-col gap-4">
-                  <div
-                    className={`${style.textDark} ${style.textHover} text-lg heading-6 mg-dark  cursor-pointer transition-all`}
-                  >
-                    Meet AutoManage, the best AI management tools
-                  </div>
-                  <p
-                    className={`${style.stroke} primary-text-color body-medium-regular text-sm`}
-                  >
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry.
-                  </p>
-                </div>
-              </div>
-            </a>
           </div>
         </div>
 
