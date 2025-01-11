@@ -1,9 +1,14 @@
 import style from './styles.module.scss';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 function NotFoundPage() {
   return (
-    <div className={`${style.notFoundPageContainer} not-found-page-container`}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className={`${style.notFoundPageContainer} not-found-page-container`}
+    >
       <div className="mx-auto gap-8 py-10 px-8 max-w-7xl h-full flex items-center">
         <div className="flex flex-col gap-8 w-[400px]">
           <h1 className="text-9xl text-white font-black">404</h1>
@@ -19,7 +24,7 @@ function NotFoundPage() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

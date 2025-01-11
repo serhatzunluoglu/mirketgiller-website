@@ -48,7 +48,7 @@ function TimeFlow() {
             }`}
           >
             <div
-              className={`timeflow-item-container w-full gap-16 sm:w-[75%] lg:w-[calc(50%+8px)] flex justify-between ${
+              className={`timeflow-item-container w-full gap-8 sm:gap-16 sm:w-[75%] lg:w-[calc(50%+8px)] flex justify-between ${
                 !isRight ? 'lg:flex-row-reverse' : ''
               }`}
             >
