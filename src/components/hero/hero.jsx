@@ -1,5 +1,26 @@
 import style from './styles.module.scss';
 import mirketImg from '../../assets/images/mirket.png';
+import { animate } from 'framer-motion';
+import { useEffect, useRef } from 'react';
+
+function Counter({ from, to }) {
+  const nodeRef = useRef();
+
+  useEffect(() => {
+    const node = nodeRef.current;
+
+    const controls = animate(from, to, {
+      duration: 2.5,
+      onUpdate(value) {
+        node.textContent = value.toFixed(0);
+      },
+    });
+
+    return () => controls.stop();
+  }, [from, to]);
+
+  return <span ref={nodeRef} />;
+}
 
 const hero = () => {
   return (
@@ -34,22 +55,28 @@ const hero = () => {
             </button>
           </div>
           <div className="hidden md:flex gap-5 flex-wrap w-max mt-12">
-            <div>
-              <div className="heading-4">3500+</div>
+            <div className="reached-people">
+              <div className="heading-4">
+                <Counter from={0} to={3500} /> +
+              </div>
               <div className="body-small-regular">Ulaşılan Kişi Sayısı</div>
             </div>
             <div
               className={`${style.verticalLine} bg-white h-auto w-[2px]`}
             ></div>
-            <div>
-              <div className="heading-4">400+</div>
-              <div className="body-small-regular">Aktif Üye</div>
+            <div className="active-member min-w-[90px]">
+              <div className="heading-4">
+                <Counter from={0} to={400} /> +
+              </div>
+              <div className="body-small-regular">Aktif Üye </div>
             </div>
             <div
               className={`${style.verticalLine} bg-white h-auto w-[2px]`}
             ></div>
-            <div>
-              <div className="heading-4">25+</div>
+            <div className="team-member">
+              <div className="heading-4">
+                <Counter from={0} to={25} /> +
+              </div>
               <div className="body-small-regular">Ekip Üyesi</div>
             </div>
           </div>
@@ -69,4 +96,3 @@ const hero = () => {
 };
 
 export default hero;
-
