@@ -23,6 +23,21 @@ function formatDate(inputDate) {
   });
 }
 
+function getBackgroundColor(eventType) {
+  switch (eventType) {
+    case 'ideathon':
+      return 'bg-[#ff6347]';
+    case 'meetup':
+      return 'bg-[#007bff]';
+    case 'hackathon':
+      return 'bg-[#28a745]';
+    case 'Webinar':
+      return 'bg-[#6f42c1]';
+    default:
+      return 'bg-[#d37c26]';
+  }
+}
+
 function truncateText(text, maxLength) {
   return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
 }
@@ -34,10 +49,11 @@ function EventsPage() {
   const { theme } = useAppContext();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 6;
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     setIsLoading(true);
-    fetch('https://admin.mirketgiller.com.tr/api/events')
+    fetch(`${apiUrl}/api/events`)
       .then((response) => {
         return response.json();
       })
@@ -81,6 +97,7 @@ function EventsPage() {
                 viewBox="0 0 370 390"
                 backgroundColor={`${theme === 'light' ? '#f3f3f3' : '#242424'}`}
                 foregroundColor={`${theme === 'light' ? '#ecebeb' : '#202020'}`}
+                title="Yükleniyor..."
               >
                 {/* Image */}
                 <rect x="0" y="0" rx="5" ry="5" width="370" height="220" />
@@ -95,23 +112,34 @@ function EventsPage() {
               </ContentLoader>
             ))
           : eventsData.map((event, index) => (
-              <a href="#" key={`event-${index}`}>
+              <a
+                className="event-link-container"
+                href="#"
+                key={`event-${index}`}
+              >
                 <div
-                  className={`${style.cardHover} w-full sm:w-[370px] rounded-lg overflow-hidden flex flex-col gap-8`}
+                  className={`event ${style.cardHover} w-full sm:w-[370px] rounded-lg overflow-hidden flex flex-col gap-8`}
                 >
-                  <div>
+                  <div className="event-image relative">
                     <img
                       src={blogImage}
                       alt="Meet AutoManage, the best AI management tools"
                       className={`${style.imageHover} w-full h-[220px] object-cover rounded-[5px] opacity-100`}
                     />
+                    <span
+                      className={`${getBackgroundColor(
+                        event.event_type
+                      )} text-white px-[10px] py-[4px] rounded-[5px] body-extra-small-text-medium absolute top-2 right-2`}
+                    >
+                      {event.event_type}
+                    </span>
                   </div>
-                  <div>
+                  <div className="event-date">
                     <span className="bg-[#d37c26] text-white px-[15px] py-[6px] rounded-[5px] body-extra-small-text-medium">
                       {formatDate(event.published_at)}
                     </span>
                   </div>
-                  <div className="flex flex-col gap-4">
+                  <div className="event-texts flex flex-col gap-4">
                     <div
                       className={`${style.textDark} ${style.textHover} text-lg heading-6 mg-dark cursor-pointer transition-all min-h-[60px]`}
                     >
