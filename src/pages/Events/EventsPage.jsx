@@ -95,7 +95,7 @@ function EventsPage() {
                 width={370}
                 height={390}
                 viewBox="0 0 370 390"
-                backgroundColor={`${theme === 'light' ? '#f3f3f3' : '#242424'}`}
+                backgroundColor={`${theme === 'light' ? '#f3f3f3' : '#1A1A1A'}`}
                 foregroundColor={`${theme === 'light' ? '#ecebeb' : '#202020'}`}
                 title="Yükleniyor..."
               >
