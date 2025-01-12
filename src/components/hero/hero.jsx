@@ -1,26 +1,6 @@
 import style from './styles.module.scss';
 import mirketImg from '../../assets/images/mirket.png';
-import { animate } from 'framer-motion';
-import { useEffect, useRef } from 'react';
-
-function Counter({ from, to }) {
-  const nodeRef = useRef();
-
-  useEffect(() => {
-    const node = nodeRef.current;
-
-    const controls = animate(from, to, {
-      duration: 2.5,
-      onUpdate(value) {
-        node.textContent = value.toFixed(0);
-      },
-    });
-
-    return () => controls.stop();
-  }, [from, to]);
-
-  return <span ref={nodeRef} />;
-}
+import Counter from '../counter/Counter.jsx';
 
 const hero = () => {
   return (
@@ -57,7 +37,7 @@ const hero = () => {
           <div className="hidden md:flex gap-5 flex-wrap w-max mt-12">
             <div className="reached-people">
               <div className="heading-4">
-                <Counter from={0} to={3500} /> +
+                <Counter from={0} to={3500} duration={3} /> +
               </div>
               <div className="body-small-regular">Ulaşılan Kişi Sayısı</div>
             </div>
@@ -66,7 +46,7 @@ const hero = () => {
             ></div>
             <div className="active-member min-w-[90px]">
               <div className="heading-4">
-                <Counter from={0} to={400} /> +
+                <Counter from={0} to={400} duration={2.5} /> +
               </div>
               <div className="body-small-regular">Aktif Üye </div>
             </div>
@@ -75,7 +55,7 @@ const hero = () => {
             ></div>
             <div className="team-member">
               <div className="heading-4">
-                <Counter from={0} to={25} /> +
+                <Counter from={0} to={25} duration={2} /> +
               </div>
               <div className="body-small-regular">Ekip Üyesi</div>
             </div>
