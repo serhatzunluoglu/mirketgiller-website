@@ -14,9 +14,8 @@ body[data-theme='dark'] {
   .buttonDark {
     color: #d37c26;
   }
-
-  .buttonDarkHover {
-    color: #dfe4ea;
-    border-color: #dfe4ea;
+  .buttonDark:hover {
+    color: white;
+    border: #d37c26 1px solid;
   }
 }

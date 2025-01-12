@@ -4,16 +4,23 @@ import Hero from '../../components/hero/hero';
 import EventsSection from '../../components/events-section/events';
 import Supported from '../../components/supported-project/supported';
 import Blog from '../../components/blog/blog';
+import WhatIsMirketgiller from '../../components/what-is-mirketgiller/WhatIsMirketgiller';
+import { motion } from 'framer-motion';
 
 function LandingPage() {
   return (
-    <div className={style.landing}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className={style.landing}
+    >
       <Hero />
       <CollaborationBar />
       <EventsSection />
+      <WhatIsMirketgiller />
       <Supported />
       <Blog />
-    </div>
+    </motion.div>
   );
 }
 

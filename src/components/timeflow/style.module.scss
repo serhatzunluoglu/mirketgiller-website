@@ -1,0 +1,20 @@
+.strokeColorBg {
+  background-color: #dfe4ea;
+}
+
+.circleSize {
+  width: 16px !important;
+  height: 16px !important;
+  min-height: 16px;
+}
+
+body[data-theme='dark'] {
+  .timeflowBackground {
+    background-color: #1a1a1a;
+  }
+
+  .strokeColorBg {
+    background-color: #242424;
+  }
+}
+

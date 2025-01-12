@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { ArrowRightIcon, ArrowLeftIcon } from '@heroicons/react/24/outline';
 import ContentLoader from 'react-content-loader';
+import { motion } from 'framer-motion';
 
 // Asset imports (images and SVGs)
 import blogImage from '../../assets/images/blogImage.png';
@@ -26,10 +27,6 @@ function truncateText(text, maxLength) {
   return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
 }
 
-function cleanUrls(urlArray) {
-  return urlArray.map((url) => url.replace(/\\/g, ''));
-}
-
 function EventsPage() {
   const [eventsData, setEventsData] = useState([]);
   const [paginationData, setPaginationData] = useState([]);
@@ -52,15 +49,16 @@ function EventsPage() {
         console.log(err);
       })
       .finally(() => {
-        // setIsLoading(false);
+        setIsLoading(false);
       });
   }, []);
 
-  // console.log(eventsData);
-  eventsData.map((event) => console.log(event.event_paths));
-
   return (
-    <div className="events-page mx-auto max-w-7xl py-10 px-8">
+    <motion.div
+      initial={{ opacity: 0, translateY: -30 }}
+      animate={{ opacity: 1, translateY: 0 }}
+      className="events-page mx-auto max-w-7xl py-10 px-8"
+    >
       <div className="events-page-header flex flex-col items-center gap-3 mb-[60px]">
         <h1 className="heading-3 primary-color text-center">
           Düzenlediğimiz Etkinlikler
@@ -170,7 +168,7 @@ function EventsPage() {
           <ArrowRightIcon aria-hidden="true" className="h-[11px] w-[12px]" />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

@@ -1,9 +1,13 @@
 import React from 'react';
 import './styles.module.scss';
+import { motion } from 'framer-motion';
 
 function BlogPage() {
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, translateY: -30 }}
+      animate={{ opacity: 1, translateY: 0 }}
+    >
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea sint delectus
       eligendi accusantium non cupiditate amet, commodi doloribus soluta debitis
       culpa quaerat iusto expedita quam officiis necessitatibus molestias, enim
@@ -357,7 +361,7 @@ function BlogPage() {
       atque aliquid modi accusamus facere ratione, sunt accusantium, debitis
       alias id ea quas nulla quos inventore, soluta ut voluptatibus velit
       quibusdam dignissimos! Cum, corrupti?
-    </div>
+    </motion.div>
   );
 }
 
