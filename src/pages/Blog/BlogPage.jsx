@@ -4,7 +4,10 @@ import { motion } from 'framer-motion';
 
 function BlogPage() {
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+    <motion.div
+      initial={{ opacity: 0, translateY: -30 }}
+      animate={{ opacity: 1, translateY: 0 }}
+    >
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ea sint delectus
       eligendi accusantium non cupiditate amet, commodi doloribus soluta debitis
       culpa quaerat iusto expedita quam officiis necessitatibus molestias, enim

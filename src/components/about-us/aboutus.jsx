@@ -1,6 +1,7 @@
 import style from './styles.module.scss';
 import bar from '../../assets/images/aboutus/bar.png';
 import rocket from '../../assets/images/aboutus/rocket.png';
+import Counter from '../counter/Counter.jsx';
 
 const aboutus = () => {
   return (
@@ -68,17 +69,23 @@ const aboutus = () => {
 
         <div className="w-full flex flex-wrap lg:flex-nowrap items-center justify-center lg:justify-between gap-[30px]">
           <div className="w-full lg:w-3/4 h-auto flex flex-col items-center justify-center border border-[#d37c26] border-solid px-[10px] py-[15px] rounded-3xl">
-            <p className="primary-color heading-4 pb-1">3500+</p>
+            <p className="primary-color heading-4 pb-1">
+              <Counter from={0} to={3500} duration={3} />+
+            </p>
             <p className="primary-color body-medium-regular">
               ulaşılan kişi sayısı
             </p>
           </div>
           <div className="w-full lg:w-3/4 h-auto flex flex-col items-center justify-center border border-[#d37c26] border-solid px-[10px] py-[15px] rounded-3xl">
-            <p className="primary-color heading-4 pb-1">400+</p>
+            <p className="primary-color heading-4 pb-1">
+              <Counter from={0} to={400} duration={2.5} />+
+            </p>
             <p className="primary-color body-medium-regular">aktif üye</p>
           </div>
           <div className="w-full lg:w-3/4 h-auto flex flex-col items-center justify-center border border-[#d37c26] border-solid px-[10px] py-[15px] rounded-3xl">
-            <p className="primary-color heading-4 pb-1">20+</p>
+            <p className="primary-color heading-4 pb-1">
+              <Counter from={0} to={20} duration={2} />+
+            </p>
             <p className="primary-color body-medium-regular">ekip üyesi</p>
           </div>
         </div>
