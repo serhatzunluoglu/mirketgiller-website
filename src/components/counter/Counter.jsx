@@ -1,13 +1,30 @@
-import { animate, useInView } from 'framer-motion';
-import { useEffect, useRef } from 'react';
+import { animate } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 
-// eslint-disable-next-line react/prop-types
 const Counter = ({ from = 0, to = 100, duration = 2 }) => {
   const nodeRef = useRef(null);
-  const isInView = useInView(nodeRef, { triggerOnce: true });
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (isInView) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 1, rootMargin: '-120px 0px 0px 0px' }
+    );
+
+    if (nodeRef.current) {
+      observer.observe(nodeRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (isVisible) {
       const node = nodeRef.current;
 
       const controls = animate(from, to, {
@@ -19,7 +36,7 @@ const Counter = ({ from = 0, to = 100, duration = 2 }) => {
 
       return () => controls.stop();
     }
-  }, [isInView, from, to, duration]);
+  }, [isVisible, from, to, duration]);
 
   return <span ref={nodeRef}>{from}</span>;
 };
