@@ -50,7 +50,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-30">
       <nav
         aria-label="Global"
-        className="mx-auto flex max-w-7xl items-center justify-between py-10 px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between py-8 px-8 sm:py-10"
       >
         <div className="flex lg:flex-1 z-10">
           <Link to={'/'} className="-m-1.5 p-1.5">
@@ -66,7 +66,7 @@ export default function Navbar() {
                     }`
                   : `${mirketLogo}`
               }`}
-              className="h-8 w-auto"
+              className="h-6 sm:h-8 w-auto"
             />
           </Link>
         </div>
@@ -170,7 +170,7 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className={`flex flex-col h-full fixed primary-color inset-y-0 right-0 w-full overflow-y-auto py-10 px-8 lg:px-0 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 custom-left-border z-40 ${
+              className={`flex flex-col h-full fixed primary-color inset-y-0 right-0 w-full overflow-y-auto py-8 px-8 sm:py-10 lg:px-0 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 custom-left-border z-40 ${
                 theme === 'light' ? 'bg-white' : 'secondary-color-bg'
               }`}
             >
@@ -180,7 +180,7 @@ export default function Navbar() {
                   <img
                     alt="mirketgiller-logo"
                     src={mirketLogo}
-                    className="h-8 w-auto"
+                    className="h-6 sm:h-8 w-auto"
                   />
                 </Link>
                 <button

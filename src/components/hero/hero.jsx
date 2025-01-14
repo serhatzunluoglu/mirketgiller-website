@@ -37,7 +37,7 @@ const hero = () => {
           <div className="hidden md:flex gap-5 flex-wrap w-max mt-12">
             <div className="reached-people">
               <div className="heading-4">
-                <Counter from={0} to={3500} duration={3} /> +
+                <Counter from={0} to={3500} duration={1} /> +
               </div>
               <div className="body-small-regular">Ulaşılan Kişi Sayısı</div>
             </div>
