@@ -73,13 +73,13 @@ function EventsPage() {
     <motion.div
       initial={{ opacity: 0, translateY: -30 }}
       animate={{ opacity: 1, translateY: 0 }}
-      className="events-page mx-auto max-w-7xl py-10 px-8"
+      className="events-page mx-auto max-w-7xl pt-6 md:pt-[50px] pb-10 px-8"
     >
-      <div className="events-page-header flex flex-col items-center gap-3 mb-[60px]">
-        <h1 className="heading-3 primary-color text-center">
+      <div className="events-page-header flex flex-col items-center gap-3 mb-12 md:mb-[60px]">
+        <h1 className="text-heading-5 md:text-heading-3 primary-color text-center">
           Düzenlediğimiz Etkinlikler
         </h1>
-        <p className="body-small-regular text-center max-w-3xl primary-text-color">
+        <p className="text-body-sm-regular sm:text-body-md-regular text-center max-w-3xl primary-text-color">
           Sektörün önde gelen profesyonelleriyle gerçekleştirdiğimiz eğitimler,
           seminerler ve atölye çalışmalarıyla gelişiminizi destekliyoruz.
           Birlikte büyüyen yetenekler olarak, hedeflerinize ulaşmanız için
@@ -141,12 +141,12 @@ function EventsPage() {
                   </div>
                   <div className="event-texts flex flex-col gap-4">
                     <div
-                      className={`${style.textDark} ${style.textHover} text-lg heading-6 mg-dark cursor-pointer transition-all min-h-[60px]`}
+                      className={`${style.textDark} ${style.textHover} text-xl font-sans font-semibold sm:heading- mg-dark cursor-pointer transition-all min-h-[60px]`}
                     >
                       {truncateText(event.title, 50)}
                     </div>
                     <p
-                      className={`${style.stroke} primary-text-color body-medium-regular text-sm`}
+                      className={`${style.stroke} primary-text-color text-body-sm-regular sm:text-body-md-regular text-sm`}
                     >
                       {truncateText(event.content, 65)}
                     </p>

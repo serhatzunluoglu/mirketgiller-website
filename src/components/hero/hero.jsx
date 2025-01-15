@@ -11,11 +11,13 @@ const hero = () => {
         className={`${style.hero} hero w-full h-full xl:w-[1280px] flex flex-col md:flex-row items-center justify-between sm:justify-center lg:justify-between gap-4 sm:gap-3 pt-[112px] xl:pt-[116px] xl:px-8`}
       >
         <div className="hero-left h-min w-full sm:w-3/4 lg:w-auto lg:mb-[116px] text-center md:text-left">
-          <h1 className={`text-4xl font-bold mb-4 sm:mb-6 xl:text-6xl`}>
-            Birlikte büyüyen <br /> yetenekler
+          <h1
+            className={`text-heading-6 font-bold mb-4 sm:mb-6 sm:text-heading-4 md:text-heading-2 xl:text-heading-1`}
+          >
+            Birlikte büyüyen yetenekler
           </h1>
           <p
-            className={`text-sm mb-4 sm:mb-6 body-medium-regular w-[auto] md:text-sm md:w-[auto] lg:w-[477px]`}
+            className={`text-body-sm-regular mb-4 sm:mb-6 sm:text-body-md-regular w-[auto] md:w-[auto] lg:w-[477px]`}
           >
             Biz, Mirketgiller ailesi olarak, üniversite öğrencilerinin
             gelişimine odaklanan ve

@@ -13,50 +13,57 @@ function Footer() {
 
   return (
     <footer className={`${style.footerContainer} primary-color-bg`}>
-      <div className="mx-auto md:flex md:max-w-7xl md:justify-between py-16 sm:py-20 px-8 md:flex-row sm:flex sm:gap-12 sm:flex-col flex-col flex gap-12">
-        <div className="md:flex md:flex-col gap-5 sm:flex sm:flex-row flex flex-col items-start">
+      <div className="mx-auto md:flex md:max-w-7xl md:justify-between py-16 sm:py-20 px-8 xl:flex-row sm:flex sm:gap-12 sm:flex-col flex-col flex gap-12">
+        <div className="gap-4 flex flex-col items-start">
           <Link to={'/'}>
             <img src={mirketLogo} alt="Mirketgiller" className="h-8 w-auto" />
           </Link>
-          <p className="body-medium-regular text-white">
-            Mirketgiller | {year} <br></br>Tüm hakları saklıdır.
+          <p className="text-body-sm-regular sm:text-body-md-regular text-white">
+            Mirketgiller | {year} Tüm hakları saklıdır.
           </p>
         </div>
 
         <div className="md:flex md:gap-8 sm:flex sm:flex-row sm:justify-between flex flex-col gap-8">
           <div className="flex flex-col gap-4">
-            <p className="body-medium-semibold text-white">Hızlı Bağlantılar</p>
+            <p className="body-large-semibold text-white">Hızlı Bağlantılar</p>
             <Link
               to={'/etkinliklerimiz'}
-              className="body-medium-regular text-white"
+              className="text-body-sm-regular sm:text-body-md-regular text-white"
             >
               Etkinliklerimiz
             </Link>
-            <Link to={'/iletisim'} className="body-medium-regular text-white">
+            <Link
+              to={'/iletisim'}
+              className="text-body-sm-regular sm:text-body-md-regular text-white"
+            >
               İletişim
             </Link>
-            <Link to={'/ekibimiz'} className="body-medium-regular text-white">
+            <Link
+              to={'/ekibimiz'}
+              className="text-body-sm-regular sm:text-body-md-regular text-white"
+            >
               Ekibimiz
             </Link>
           </div>
 
           <div className="flex flex-col gap-4">
-            <p className="body-medium-semibold text-white">
-              İlginizi Çekebilir
-            </p>
-            <Link to={'/blog'} className="body-medium-regular text-white">
+            <p className="body-large-semibold text-white">İlginizi Çekebilir</p>
+            <Link
+              to={'/blog'}
+              className="text-body-sm-regular sm:text-body-md-regular text-white"
+            >
               Blog Yazılarımız
             </Link>
             <Link
               to={'/destekledigimiz-projeler'}
-              className="body-medium-regular text-white"
+              className="text-body-sm-regular sm:text-body-md-regular text-white"
             >
               Desteklediğimiz Projeler
             </Link>
           </div>
 
           <div className="flex flex-col gap-4">
-            <p className="body-medium-semibold text-white">Sosyal Medya</p>
+            <p className="body-large-semibold text-white">Sosyal Medya</p>
             <div className="flex gap-3 items-center">
               <a
                 href="https://www.instagram.com/mirketgiller_/"

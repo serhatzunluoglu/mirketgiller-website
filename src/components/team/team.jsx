@@ -10,16 +10,16 @@ const team = () => {
   const [activeButton, setActiveButton] = useState(1);
 
   return (
-    <div className={`${style.sectionDark} py-[90px] h-auto `}>
+    <div className={`${style.sectionDark} py-16 md:py-[90px] h-auto `}>
       {/* starting here */}
       <div className="mx-auto max-w-7xl items-center justify-between  px-8 flex flex-col">
         {/* team start */}
-        <div className="text-center mb-[60px]">
-          <h2 className="text-3xl font-bold primary-color mb-3 heading-3">
+        <div className="text-center mb-12 md:mb-[60px]">
+          <h2 className="heading-5 md:text-heading-3 font-bold primary-color mb-3">
             Ekibimiz
           </h2>
           <p
-            className={`${style.textDark} primary-text-color max-w-3xl mx-auto body-medium-regular`}
+            className={`${style.textDark} primary-text-color max-w-3xl mx-auto text-body-sm-regular sm:text-body-md-regular`}
           >
             Birlikte başarıya koşan ve ilham veren profesyonellerden oluşan
             dinamik bir ekip. Her bir üyemiz, topluluğumuzu daha ileriye taşımak
@@ -38,7 +38,7 @@ const team = () => {
                 style.buttonDark
               } ${
                 style.buttonHover
-              } px-[28px] py-[12px] rounded-[50px] primary-color border-solid border-[1px] cursor-pointer transition-all`}
+              } px-[28px] py-[12px] rounded-[50px] primary-color border-solid border-[1px] cursor-pointer transition-all text-body-sm-regular sm:text-body-md-regular`}
             >
               Yönetim Kurulu
             </a>
@@ -48,7 +48,7 @@ const team = () => {
                 style.buttonDark
               } ${
                 style.buttonHover
-              } px-[28px] py-[12px] rounded-[50px] primary-color border-solid border cursor-pointer transition-all`}
+              } px-[28px] py-[12px] rounded-[50px] primary-color border-solid border cursor-pointer transition-all text-body-sm-regular sm:text-body-md-regular`}
             >
               Departman Başkanları
             </a>
@@ -58,7 +58,7 @@ const team = () => {
                 style.buttonDark
               } ${
                 style.buttonHover
-              } px-[28px] py-[12px] rounded-[50px] primary-color border-solid border-[1px] cursor-pointer transition-all`}
+              } px-[28px] py-[12px] rounded-[50px] primary-color border-solid border-[1px] cursor-pointer transition-all text-body-sm-regular sm:text-body-md-regular`}
             >
               Genel Ekip Üyeleri
             </a>

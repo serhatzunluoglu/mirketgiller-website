@@ -6,15 +6,15 @@ import Counter from '../counter/Counter.jsx';
 const aboutus = () => {
   return (
     <div
-      className={`${style.sectionDark} pt-[50px] pb-[90px] bg-white h-auto `}
+      className={`${style.sectionDark} pt-6 md:pt-[50px] pb-16 md:pb-[90px] bg-white h-auto `}
     >
       <div className="mx-auto max-w-7xl items-center justify-between  px-8 flex flex-col gap-[30px]">
-        <div className="text-center mb-[30px]">
-          <h2 className="text-3xl font-bold primary-color mb-3 heading-3">
+        <div className="text-center mb-0 md:mb-[30px]">
+          <h2 className="font-bold primary-color mb-3 heading-5 md:text-heading-3">
             Birlikte büyüyen yetenekler
           </h2>
           <p
-            className={`${style.textDark} primary-text-color max-w-3xl mx-auto body-medium-regular`}
+            className={`${style.textDark} primary-text-color max-w-3xl mx-auto text-body-sm-regular sm:text-body-md-regular`}
           >
             Biz, Mirketgiller ailesi olarak, üniversite öğrencilerinin
             gelişimine odaklanan ve{' '}
@@ -31,7 +31,9 @@ const aboutus = () => {
               <img src={bar} alt="" />
               <div className="flex flex-col">
                 <p className="heading-5 primary-color pb-4">Misyonumuz</p>
-                <p className={`${style.textDark} primary-text-color`}>
+                <p
+                  className={`${style.textDark} primary-text-color text-body-sm-regular sm:text-body-md-regular`}
+                >
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
                   nec molestie arcu. Nam egestas a enim a aliquam. Fusce quam
                   nulla, lobortis id lorem vel, hendrerit ultricies ligula. Nunc
@@ -50,7 +52,9 @@ const aboutus = () => {
               <img src={rocket} alt="" />
               <div className="flex flex-col">
                 <p className="heading-5 primary-color pb-4">Vizyonumuz</p>
-                <p className={`${style.textDark} primary-text-color`}>
+                <p
+                  className={`${style.textDark} primary-text-color text-body-sm-regular sm:text-body-md-regular`}
+                >
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
                   nec molestie arcu. Nam egestas a enim a aliquam. Fusce quam
                   nulla, lobortis id lorem vel, hendrerit ultricies ligula. Nunc

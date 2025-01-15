@@ -5,26 +5,28 @@ const eventData = [
   {
     date: 'Dec 22, 2023',
     title: 'Meet AutoManage, the best AI management tools',
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    description:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     image: blogImage,
     link: '#',
   },
   {
     date: 'Jan 15, 2024',
     title: 'Discover Next-Gen Web Development',
-    description: 'Join us to explore the future of web development and design trends.',
+    description:
+      'Join us to explore the future of web development and design trends.',
     image: blogImage,
     link: '#',
   },
   {
     date: 'Feb 10, 2024',
     title: 'Mastering the Art of Project Management',
-    description: 'Learn effective project management strategies from industry leaders.',
+    description:
+      'Learn effective project management strategies from industry leaders.',
     image: blogImage,
     link: '#',
   },
 ];
-
 
 const events = () => {
   return (
@@ -35,7 +37,7 @@ const events = () => {
             Etkinliklerimiz
           </h2>
           <p
-            className={`${style.textDark} primary-text-color max-w-3xl mx-auto body-medium-regular`}
+            className={`${style.textDark} primary-text-color max-w-3xl mx-auto text-body-sm-regular sm:text-body-md-regular`}
           >
             Sektörün önde gelen profesyonelleriyle gerçekleştirdiğimiz
             eğitimler, seminerler ve atölye çalışmalarıyla gelişiminizi
@@ -47,8 +49,8 @@ const events = () => {
         <div
           className={`${style.bgDark} flex flex-wrap w-full lg:flex-nowrap gap-[30px]`}
         >
-          <div className="flex flex-wrap w-full items-center justify-center  xl:justify-between  gap-8">
-          {eventData.map((event, index) => (
+          <div className="flex flex-wrap w-full items-center justify-center  xl:justify-between gap-8">
+            {eventData.map((event, index) => (
               <a href={event.link} key={index}>
                 <div
                   className={`${style.cardHover} w-full sm:w-[370px] rounded-lg overflow-hidden flex flex-col gap-8`}
@@ -67,12 +69,12 @@ const events = () => {
                   </div>
                   <div className="flex flex-col gap-4">
                     <div
-                      className={`${style.textDark} ${style.textHover} text-lg heading-6 mg-dark cursor-pointer transition-all`}
+                      className={`${style.textDark} ${style.textHover} text-xl font-sans font-semibold sm:heading-6 mg-dark cursor-pointer transition-all`}
                     >
                       {event.title}
                     </div>
                     <p
-                      className={`${style.stroke} primary-text-color body-medium-regular text-sm`}
+                      className={`${style.stroke} primary-text-color text-body-sm-regular sm:text-body-md-regular`}
                     >
                       {event.description}
                     </p>
@@ -80,14 +82,13 @@ const events = () => {
                 </div>
               </a>
             ))}
-
           </div>
         </div>
 
         <div className="h-auto w-full flex items-center justify-center ">
           <a
             href="#"
-            className="body-medium-regular  primary-color px-[20px] py-[12px] sm:py-[14px] sm:px-[28px] border-solid border-[1px] hover:bg-[#d37c26] transition hover:border-[#d37c26] hover:text-white rounded-[50px] text-center"
+            className="text-body-sm-regular sm:text-body-md-regular  primary-color px-[20px] py-[12px] sm:py-[14px] sm:px-[28px] border-solid border-[1px] hover:bg-[#d37c26] transition hover:border-[#d37c26] hover:text-white rounded-[50px] text-center"
           >
             Düzenlediğimiz Etkinliklere Göz Atın
           </a>

@@ -7,15 +7,15 @@ import style from './styles.module.scss';
 const supported = () => {
   // Logoları bir dizi içine aldık
   const logos = [
-    { id: 1, src: AyroUI, alt: "AyroUI" },
-    { id: 2, src: GrayGrids, alt: "GrayGrids" },
-    { id: 3, src: LineIcons, alt: "LineIcons" },
-    { id: 4, src: UIdeck, alt: "UIdeck" },
+    { id: 1, src: AyroUI, alt: 'AyroUI' },
+    { id: 2, src: GrayGrids, alt: 'GrayGrids' },
+    { id: 3, src: LineIcons, alt: 'LineIcons' },
+    { id: 4, src: UIdeck, alt: 'UIdeck' },
   ];
 
   return (
     <div className={`${style.bgDark}`}>
-      <div className="mx-auto flex flex-col max-w-7xl gap-[60px] items-center justify-between py-[64px] md:py-[90px] px-8">
+      <div className="mx-auto flex flex-col max-w-7xl gap-12 md:gap-[60px] items-center justify-between py-[64px] md:py-[90px] px-8">
         <h2 className="primary-color text-heading-5 md:text-heading-3 w-full text-center">
           Desteklediğimiz Projeler
         </h2>
