@@ -4,19 +4,22 @@ import blogs from '../../assets/images/blogs/blogs.jpg';
 const blogData = [
   {
     title: '50+ Best creative website themes & templates',
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+    description:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
     image: blogs,
     link: '#',
   },
   {
     title: 'The ultimate UX and UI guide to card design',
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+    description:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
     image: blogs,
     link: '#',
   },
   {
     title: 'Creative Card Component designsgraphic elements',
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+    description:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
     image: blogs,
     link: '#',
   },
@@ -33,7 +36,7 @@ const events = () => {
             Blog Yazılarımız
           </h2>
           <p
-            className={`${style.textDark} primary-text-color max-w-3xl mx-auto body-medium-regular`}
+            className={`${style.textDark} primary-text-color max-w-3xl mx-auto text-body-sm-regular sm:text-body-md-regular`}
           >
             Ekip arkadaşlarımızdan ilham verici ve bilgilendirici blog yazıları.
             Kendi alanlarında uzmanlaşmış üyelerimizin paylaştığı yazılarla,
@@ -43,8 +46,7 @@ const events = () => {
 
         <div className={`flex flex-wrap w-full lg:flex-nowrap gap-[30px] `}>
           <div className="flex flex-wrap w-full items-center justify-center  xl:justify-between  gap-8">
-            
-          {blogData.map((blog, index) => (
+            {blogData.map((blog, index) => (
               <div
                 key={index}
                 className={`${style.bgDark} bg-white w-full sm:w-[370px] rounded-lg overflow-hidden flex flex-col`}
@@ -58,32 +60,31 @@ const events = () => {
                 </div>
                 <div className="flex flex-col px-[34px] py-[30px] items-center justify-center">
                   <div
-                    className={`${style.stroke} text-center text-lg heading-6 mg-dark cursor-pointer transition-all`}
+                    className={`${style.stroke} text-center text-xl font-sans font-semibold sm:heading-6 mg-dark cursor-pointer transition-all`}
                   >
                     {blog.title}
                   </div>
                   <p
-                    className={`${style.stroke} w-full text-center pt-[14px] pb-[28px] primary-text-color body-medium-regular text-sm`}
+                    className={`${style.stroke} w-full text-center pt-[14px] pb-[28px] primary-text-color text-body-sm-regular sm:text-body-md-regular`}
                   >
                     {blog.description}
                   </p>
                   <a
                     href={blog.link}
-                    className={`${style.buttonDark} px-[28px] py-[12px] rounded-[50px] primary-text-color border-solid border-[1px] hover:text-white hover:bg-[#d37c26] transition-all`}
+                    className={`${style.buttonDark}  px-[28px] py-[12px] rounded-[50px] text-body-sm-regular sm:text-body-md-regular primary-text-color border-solid border-[1px] hover:text-white hover:bg-[#d37c26] transition-all`}
                   >
                     View Details
                   </a>
                 </div>
               </div>
             ))}
-
           </div>
         </div>
 
         <div className="h-auto w-full flex items-center justify-center ">
           <a
             href="#"
-            className="body-medium-regular  primary-color px-[20px] py-[12px] sm:py-[14px] sm:px-[28px] border-solid border-[1px] hover:bg-[#d37c26] transition hover:border-[#d37c26] hover:text-white rounded-[50px] text-center"
+            className="text-body-sm-regular sm:text-body-md-regular  primary-color px-[20px] py-[12px] sm:py-[14px] sm:px-[28px] border-solid border-[1px] hover:bg-[#d37c26] transition hover:border-[#d37c26] hover:text-white rounded-[50px] text-center"
           >
             Blog Yazılarımıza Göz Atın ✍️
           </a>

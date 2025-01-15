@@ -40,14 +40,16 @@ function WhatIsMirketgiller() {
 
         <div className="content-container flex flex-col w-full md:w-[80%] lg:w-1/2 gap-8">
           <div className="text-container flex flex-col gap-4">
-            <p className="text-body-lg-semibold primary-color">
+            <p className="text-body-md-semibold sm:text-body-lg-semibold primary-color">
               Nedir bu Mirketgiller 🤔
             </p>
-            <h3 className={`${style.textColorWhite} text-heading-3 mg-dark`}>
+            <h3
+              className={`${style.textColorWhite} text-heading-4 sm:text-heading-3 mg-dark`}
+            >
               Birlikte büyüyen yetenekler
             </h3>
             <p
-              className={`${style.textColorWhite} text-body-md-regular primary-text-color text-justify`}
+              className={`${style.textColorWhite} text-body-sm-regular sm:text-body-md-regular primary-text-color text-justify`}
             >
               Selam! Biz, Mirketgiller ailesi olarak üniversite öğrencilerinin
               gelişimini en üst düzeye çıkarmayı amaçlayan bir topluluğuz.
@@ -61,7 +63,7 @@ function WhatIsMirketgiller() {
               sağlıyoruz.
             </p>
           </div>
-          <Link className="py-[12px] w-[230px] flex items-center justify-center primary-color-bg text-white rounded-full text-body-md-medium hover:bg-[#eb9035]">
+          <Link className="py-[12px] px-7 w-fit flex items-center justify-center primary-color-bg text-white rounded-full text-body-sm-regular sm:text-body-md-medium hover:bg-[#eb9035]">
             Kimler var bu ekipte 👀
           </Link>
         </div>
