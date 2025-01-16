@@ -28,7 +28,7 @@ const aboutus = () => {
         >
           <div className="flex w-full flex-wrap lg:flex-nowrap items-center justify-center gap-[30px]">
             <div className="w-full lg:w-3/4 flex flex-col items-start border-solid border border-[#d37c26]  justify-between rounded-3xl p-6 gap-[96px]">
-              <img src={bar} alt="" />
+              <i className={`${style.icon} bi bi-bar-chart-fill`}></i>
               <div className="flex flex-col">
                 <p className="heading-5 primary-color pb-4">Misyonumuz</p>
                 <p
@@ -49,7 +49,7 @@ const aboutus = () => {
             </div>
 
             <div className="w-full lg:w-3/4 flex flex-col items-start border-solid border border-[#d37c26]  justify-between rounded-3xl p-6 gap-[96px]">
-              <img src={rocket} alt="" />
+            <i className={`${style.icon} bi bi-rocket-takeoff-fill`}></i>
               <div className="flex flex-col">
                 <p className="heading-5 primary-color pb-4">Vizyonumuz</p>
                 <p
