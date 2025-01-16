@@ -17,8 +17,8 @@ body[data-theme='dark'] {
   }
   .active{
     color: white !important;
-    background-color: #d37c26;
-    border: 1px solid #d37c26;
+    background-color: #d37c26 !important;
+    border: 1px solid #d37c26 !important;
   }
   .buttonHover{
     color: #d37c26;
@@ -28,4 +28,10 @@ body[data-theme='dark'] {
     color: white;
     border: 1px solid white;
   }
+  
+}
+.active{
+  color: white !important;
+  background-color: #d37c26 !important;
+  border: 1px solid #d37c26 !important;
 }
