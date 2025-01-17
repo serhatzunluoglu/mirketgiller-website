@@ -1,9 +1,7 @@
 import style from './styles.module.scss';
-import bar from '../../assets/images/aboutus/bar.png';
-import rocket from '../../assets/images/aboutus/rocket.png';
 import Counter from '../counter/Counter.jsx';
 
-const aboutus = () => {
+const AboutUs = () => {
   return (
     <div
       className={`${style.sectionDark} pt-6 md:pt-[50px] pb-16 md:pb-[90px] bg-white h-auto `}
@@ -98,4 +96,4 @@ const aboutus = () => {
   );
 };
 
-export default aboutus;
+export default AboutUs;

@@ -28,7 +28,7 @@ const eventData = [
   },
 ];
 
-const events = () => {
+const Events = () => {
   return (
     <div className={`${style.bgDark} py-[64px] md:py-[90px] bg-white h-auto `}>
       <div className="mx-auto max-w-7xl items-center justify-between  px-8 flex flex-col gap-12 md:gap-[60px]">
@@ -98,4 +98,4 @@ const events = () => {
   );
 };
 
-export default events;
+export default Events;

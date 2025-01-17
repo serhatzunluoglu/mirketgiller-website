@@ -4,8 +4,7 @@ import LineIcons from '../../assets/images/supported/LineIcons.jpg';
 import UIdeck from '../../assets/images/supported/UIdeck.jpg';
 import style from './styles.module.scss';
 
-const supported = () => {
-  // Logoları bir dizi içine aldık
+const Supported = () => {
   const logos = [
     { id: 1, src: AyroUI, alt: 'AyroUI' },
     { id: 2, src: GrayGrids, alt: 'GrayGrids' },
@@ -35,4 +34,4 @@ const supported = () => {
   );
 };
 
-export default supported;
+export default Supported;

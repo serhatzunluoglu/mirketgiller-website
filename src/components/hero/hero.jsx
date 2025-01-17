@@ -2,7 +2,7 @@ import style from './styles.module.scss';
 import mirketImg from '../../assets/images/mirket.png';
 import Counter from '../counter/Counter.jsx';
 
-const hero = () => {
+const Hero = () => {
   return (
     <div
       className={`${style.heroBackground} ${style.heroContainer} w-full flex items-center justify-between pt-[40px] px-4 sm:px-8 md:flex-col h-[92vh] md:h-[90vh] mt-[-112px] lg:mt-[-116px] text-white`}
@@ -77,4 +77,4 @@ const hero = () => {
   );
 };
 
-export default hero;
+export default Hero;

@@ -25,7 +25,7 @@ const blogData = [
   },
 ];
 
-const events = () => {
+const Blog = () => {
   return (
     <div
       className={`${style.sectionDark} py-[64px] md:py-[90px] bg-[#F9FAFB] h-auto `}
@@ -94,4 +94,4 @@ const events = () => {
   );
 };
 
-export default events;
+export default Blog;
