@@ -1,139 +1,71 @@
-import { useEffect, useState, useMemo, useRef } from 'react';
+import React, { useRef } from 'react';
 import style from './style.module.scss';
 
-// Test logoları
-import mirketLogo from '../../assets/images/svg/mirketgiller-white-logo.svg';
-import sun from '../../assets/images/svg/sun-white.svg';
-import moon from '../../assets/images/svg/moon-white.svg';
-import mirketIcon from '../../assets/images/svg/mirket-white.png';
+const brands = [
+  {
+    link: 'https://www.mirketgiller.com.tr/',
+    name: 'Brand 1',
+    logo: 'https://w7.pngwing.com/pngs/509/532/png-transparent-volkswagen-group-car-logo-volkswagen-car-logo-brand-emblem-trademark-volkswagen-thumbnail.png',
+  },
+  {
+    link: 'https://www.mirketgiller.com.tr/',
+    name: 'Brand 2',
+    logo: 'https://e7.pngegg.com/pngimages/4/794/png-clipart-infiniti-g37-car-logo-nissan-car-angle-emblem.png',
+  },
+  {
+    link: 'https://www.mirketgiller.com.tr/',
+    name: 'Brand 3',
+    logo: 'https://i.hizliresim.com/3nxl15x.png',
+  },
+];
 
-function CollaborationBar() {
-  const logos = useMemo(
-    () => [
-      { src: sun, href: 'https://example.com/sun' },
-      { src: mirketIcon, href: 'https://example.com/mirket' },
-      { src: mirketLogo, href: 'https://example.com/logo' },
-      { src: moon, href: 'https://example.com/moon' },
-    ],
-    []
-  );
+const repeatedBrands = Array(40)
+  .fill([...brands])
+  .flat();
 
-  const [extendedLogos, setExtendedLogos] = useState([]);
-  const [barWidth, setBarWidth] = useState(window.innerWidth);
-  const [imageDimensions, setImageDimensions] = useState([]);
-  const sliderRef = useRef(null); // Slider elementine referans
-  const [isPaused, setIsPaused] = useState(false); // Animasyon durumu
-  const [currentOffset, setCurrentOffset] = useState(0); // O anki pozisyon
-
-  useEffect(() => {
-    const loadImages = async () => {
-      const dimensions = await Promise.all(
-        logos.map((logo) => {
-          return new Promise((resolve) => {
-            const img = new Image();
-            img.src = logo.src;
-
-            img.onload = () => {
-              const aspectRatio = img.width / img.height;
-              let targetHeight;
-              if (window.innerWidth > 768) {
-                targetHeight = 36;
-              } else {
-                targetHeight = 28;
-              }
-              const calculatedWidth = targetHeight * aspectRatio;
-
-              resolve({
-                ...logo,
-                width: calculatedWidth,
-                height: targetHeight,
-              });
-            };
-          });
-        })
-      );
-      setImageDimensions(dimensions);
-    };
-
-    loadImages();
-  }, [logos, barWidth]);
-
-  useEffect(() => {
-    const handleResize = () => setBarWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    if (imageDimensions.length > 0) {
-      let logoLayoutSize = 0;
-      for (let i = 0; i < imageDimensions.length; i++) {
-        logoLayoutSize += imageDimensions[i].width;
-      }
-
-      logoLayoutSize += imageDimensions.length * 64;
-
-      const logosToFill = Math.ceil((barWidth * 1.5) / logoLayoutSize) * 10;
-
-      const repeatedLogos = [];
-      for (let i = 0; i < logosToFill; i++) {
-        repeatedLogos.push(...imageDimensions);
-      }
-
-      setExtendedLogos(repeatedLogos);
-    }
-  }, [barWidth, imageDimensions]);
+const CollaborationBar = () => {
+  const scrollRef = useRef(null);
 
   const handleMouseEnter = () => {
-    if (sliderRef.current) {
-      const offset = sliderRef.current.getBoundingClientRect().left;
-      setCurrentOffset(offset); // Mevcut pozisyonu kaydet
-      setIsPaused(true); // Animasyonu duraklat
+    if (scrollRef.current) {
+      scrollRef.current.style.animationPlayState = 'paused';
     }
   };
 
   const handleMouseLeave = () => {
-    setIsPaused(false); // Animasyonu yeniden başlat
+    if (scrollRef.current) {
+      scrollRef.current.style.animationPlayState = 'running';
+    }
   };
 
   return (
     <div
-      className={`w-full h-[8vh] md:h-[10vh] min-h-10 primary-color-bg overflow-hidden relative`}
+      className="w-full overflow-hidden flex items-center h-[10vh] bg-[#d37c26] p-6 gap-3"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="flex items-center justify-start w-full h-full slider-track">
-        <div
-          ref={sliderRef}
-          className={`${style.scrollAnimation} ${
-            isPaused ? style.paused : ''
-          } flex items-center gap-16`}
-          style={{
-            transform: isPaused
-              ? `translateX(${currentOffset}px)`
-              : 'translateX(0)',
-          }}
-        >
-          {extendedLogos.map((logo, index) => (
-            <a
-              key={index}
-              alt={`logo-${index}`}
-              href={logo.href}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+      <div
+        ref={scrollRef}
+        className={`${style['animate-scroll']} flex w-max animate-scroll gap-8 sm:gap-16`}
+      >
+        {repeatedBrands.concat(brands).map((brand, index) => (
+          <div
+            name={index}
+            key={index}
+            className="flex gap-16 sm:gap-5 justify-center items-center"
+          >
+            <a href={brand.link} target="_blank" rel="noopener noreferrer">
               <img
-                src={logo.src}
-                alt={`Logo ${index}`}
-                style={{ width: logo.width, height: logo.height }}
+                src={brand.logo}
+                alt={brand.name}
+                className="h-10 object-contain w-auto"
               />
             </a>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   );
-}
+};
 
 export default CollaborationBar;
-
