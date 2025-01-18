@@ -4,9 +4,6 @@ import { ArrowRightIcon, ArrowLeftIcon } from '@heroicons/react/24/outline';
 import ContentLoader from 'react-content-loader';
 import { motion } from 'framer-motion';
 
-// Asset imports (images and SVGs)
-import blogImage from '../../assets/images/blogImage.png';
-
 // Stylesheet imports
 import style from './styles.module.scss';
 
@@ -86,7 +83,7 @@ function EventsPage() {
           buradayız!
         </p>
       </div>
-      <div className="events-container flex flex-wrap w-full justify-center xl:justify-between gap-8">
+      <div className="events-container flex flex-wrap w-full justify-start xl:justify-start gap-8 gap-y-11">
         {isLoading
           ? Array.from({ length: 6 }).map((_, index) => (
               <ContentLoader
@@ -122,9 +119,9 @@ function EventsPage() {
                 >
                   <div className="event-image relative">
                     <img
-                      src={blogImage}
+                      src={`${apiUrl}/storage/${event.event_paths[0]}`}
                       alt="Meet AutoManage, the best AI management tools"
-                      className={`${style.imageHover} w-full h-[220px] object-cover rounded-[5px] opacity-100`}
+                      className={`${style.imageHover} w-full h-[220px] object-contain rounded-[5px] opacity-100`}
                     />
                     <span
                       className={`${getBackgroundColor(
@@ -145,11 +142,6 @@ function EventsPage() {
                     >
                       {truncateText(event.title, 50)}
                     </div>
-                    <p
-                      className={`${style.stroke} primary-text-color text-body-sm-regular sm:text-body-md-regular text-sm`}
-                    >
-                      {truncateText(event.content, 65)}
-                    </p>
                   </div>
                 </div>
               </a>

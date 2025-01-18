@@ -1,4 +1,4 @@
-body[data-theme='dark'] {
+html[data-theme='dark'] {
   .sectionDark {
     background-color: #242424;
   }
@@ -12,25 +12,38 @@ body[data-theme='dark'] {
     color: white;
     border: #d37c26 1px solid;
   }
-  .nameBoxDark{
+  .nameBoxDark {
     background-color: #1a1a1a;
   }
-  .active{
-    color: white !important;
-    background-color: #d37c26 !important;
-    border: 1px solid #d37c26 !important;
-  }
-  .buttonHover{
+  .buttonHover {
     color: #d37c26;
     border: 1px solid #d37c26;
   }
-  .buttonHover:hover{
+  .buttonHover:hover {
     color: white;
   }
-  
 }
-.active{
+.active {
   color: white !important;
   background-color: #d37c26 !important;
   border: 1px solid #d37c26 !important;
+}
+
+.flipCard {
+  perspective: 1000px;
+}
+
+.flipCardInner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flipCardFront,
+.flipCardBack {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.flipCardBack {
+  transform: rotateY(180deg);
 }

@@ -1,4 +1,4 @@
-body[data-theme='dark'] {
+html[data-theme='dark'] {
   .sectionDark {
     background-color: #242424;
   }
@@ -7,7 +7,7 @@ body[data-theme='dark'] {
   }
 }
 
-.icon{
+.icon {
   color: #d37c26;
   font-size: 36px;
 }

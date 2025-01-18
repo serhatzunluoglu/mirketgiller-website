@@ -27,13 +27,19 @@ export default function Navbar() {
 
   useEffect(() => {
     if (theme === 'dark') {
-      document.body.setAttribute('data-theme', 'dark');
+      document.documentElement.setAttribute('data-theme', 'dark');
     } else {
-      document.body.setAttribute('data-theme', 'light');
+      document.documentElement.setAttribute('data-theme', 'light');
     }
   }, [theme]);
 
-  window.addEventListener('scroll', () => {
+  useEffect(() => {
+    window.addEventListener('load', () => {
+      handleScroll();
+    });
+  }, []);
+
+  function handleScroll() {
     let navbar = document.querySelector('header');
     let scrollY = window.scrollY;
 
@@ -44,6 +50,10 @@ export default function Navbar() {
       navbar.classList.remove('scrolled');
       setNavbarScrolled(false);
     }
+  }
+
+  window.addEventListener('scroll', () => {
+    handleScroll();
   });
 
   return (

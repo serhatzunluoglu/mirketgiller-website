@@ -8,7 +8,7 @@
 
 // When this is a dark theme between the specified screen resolutions, do not add a different css code here to separate the right navbar from the left menu with a 1 px line.
 
-body[data-theme='dark'] {
+html[data-theme='dark'] {
   @media screen and (min-width: 640px) and (max-width: 1024px) {
     .custom-left-border {
       border-left: 1px solid var(--tertiary-color);

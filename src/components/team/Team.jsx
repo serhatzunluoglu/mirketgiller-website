@@ -1,64 +1,83 @@
 import style from './styles.module.scss';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 const Team = () => {
   const [activeButton, setActiveButton] = useState(1);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const [flippedCards, setFlippedCards] = useState({});
+
+  const handleFlip = (id, isFlipped) => {
+    setFlippedCards((prev) => ({
+      ...prev,
+      [id]: isFlipped,
+    }));
+  };
 
   const teamData = [
     {
       id: 1,
       name: 'Coriss Ambady',
       role: 'Web Developer',
-      image: 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/maturewoman-2-512.png',
+      image:
+        'https://cdn0.iconfinder.com/data/icons/user-pictures/100/maturewoman-2-512.png',
       category: 'management',
     },
     {
       id: 2,
       name: 'Glorius Cristian',
       role: 'App Developer',
-      image: 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/boy-2-512.png',
+      image:
+        'https://cdn0.iconfinder.com/data/icons/user-pictures/100/boy-2-512.png',
       category: 'management',
     },
     {
       id: 3,
       name: 'Glorius Cristian',
       role: 'UI/UX Designer',
-      image: 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman2-2-512.png',
+      image:
+        'https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman2-2-512.png',
       category: 'department_heads',
     },
     {
       id: 4,
       name: 'Nikolas Brooten',
       role: 'Sales Manager',
-      image: 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/supportfemale-2-512.png',
+      image:
+        'https://cdn0.iconfinder.com/data/icons/user-pictures/100/supportfemale-2-512.png',
       category: 'general_members',
     },
     {
       id: 5,
       name: 'Glorius Cristian',
       role: 'App Developer',
-      image: 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/supportmale-2-256.png',
+      image:
+        'https://cdn0.iconfinder.com/data/icons/user-pictures/100/supportmale-2-256.png',
       category: 'department_heads',
     },
     {
       id: 6,
       name: 'Glorius Cristian',
       role: 'App Developer',
-      image: 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/boy-2-512.png',
+      image:
+        'https://cdn0.iconfinder.com/data/icons/user-pictures/100/boy-2-512.png',
       category: 'general_members',
     },
     {
       id: 7,
       name: 'Glorius Cristian',
       role: 'App Developer',
-      image: 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png',
+      image:
+        'https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png',
       category: 'department_heads',
     },
     {
       id: 8,
       name: 'Glorius Cristian',
       role: 'IOS Developer',
-      image: 'https://cdn0.iconfinder.com/data/icons/user-pictures/100/boy-2-512.png',
+      image:
+        'https://cdn0.iconfinder.com/data/icons/user-pictures/100/boy-2-512.png',
       category: 'management',
     },
   ];
@@ -69,21 +88,57 @@ const Team = () => {
       .map((member) => (
         <div
           key={member.id}
-          className="flex items-center justify-center relative gap-[30px]"
+          onMouseEnter={() => handleFlip(member.id, true)}
+          onMouseLeave={() => handleFlip(member.id, false)}
+          className={`${style.flipCard} w-[270px] h-[330px]`}
         >
-          <img
-            src={member.image}
-            alt={member.name}
-            className="w-[270px] h-[330px] object-cover rounded-[8px]"
-          />
-          <div
-            className={`${style.nameBoxDark} p-4 absolute bottom-4 flex flex-col items-center justify-center rounded-[8px] bg-white w-auto px-[56px]`}
+          <motion.div
+            initial={{ opacity: 0, translateY: -30 }}
+            animate={{ opacity: 1, translateY: 0 }}
+            exit={{ opacity: 0 }}
           >
-            <h3 className="primary-color body-medium-bold">{member.name}</h3>
-            <p className="primary-text-color body-extra-small-text-regular">
-              {member.role}
-            </p>
-          </div>
+            <motion.div
+              className={`${style.flipCardInner} w-[270px] h-[330px]`}
+              initial={false}
+              animate={{ rotateY: flippedCards[member.id] ? 180 : 0 }}
+              transition={{ duration: 0.1, animationDirection: 'normal' }}
+              onAnimationComplete={() => setIsAnimating(false)}
+            >
+              <div
+                className={`${style.flipCardFront} flex items-center justify-center relative gap-[30px]`}
+              >
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-[270px] h-[330px] object-cover rounded-[8px]"
+                />
+                <div
+                  className={`${style.nameBoxDark} p-4 absolute bottom-4 flex flex-col items-center justify-center rounded-[8px] bg-white w-auto px-[56px]`}
+                >
+                  <h3 className="primary-color body-medium-bold">
+                    {member.name}
+                  </h3>
+                  <p className="primary-text-color body-extra-small-text-regular">
+                    {member.role}
+                  </p>
+                </div>
+              </div>
+              <div
+                className={`${style.flipCardBack} w-[270px] h-[330px] flex items-center justify-center relative gap-[30px] bg-slate-600 rounded-[8px]`}
+              >
+                <div
+                  className={`${style.nameBoxDark} p-4 absolute bottom-4 flex flex-col items-center justify-center rounded-[8px] bg-white w-auto px-[56px]`}
+                >
+                  <h3 className="primary-color body-medium-bold">
+                    {member.name}
+                  </h3>
+                  <p className="primary-text-color body-extra-small-text-regular">
+                    CARD BACK
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       ));
   };
@@ -99,7 +154,7 @@ const Team = () => {
             className={`${style.textDark} primary-text-color max-w-3xl mx-auto text-body-sm-regular sm:text-body-md-regular`}
           >
             Birlikte başarıya koşan ve ilham veren profesyonellerden oluşan
-dinamik bir ekip. Her bir üyemiz, topluluğumuzu daha ileriye taşımak
+            dinamik bir ekip. Her bir üyemiz, topluluğumuzu daha ileriye taşımak
             için tutkuyla çalışıyor.
           </p>
         </div>

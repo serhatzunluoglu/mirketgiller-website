@@ -1,5 +1,7 @@
 // Stylesheet imports
 import style from './style.module.scss';
+import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 const timeflowData = [
   {
@@ -30,6 +32,51 @@ const timeflowData = [
 ];
 
 function TimeFlow() {
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1020);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 1020);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const largeScreenVariants = {
+    hidden: (direction) => ({
+      x: direction === 'right' ? '50vw' : '-50vw',
+      opacity: 0,
+    }),
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: 'tween',
+        stiffness: 110,
+        damping: 110,
+        duration: 2,
+      },
+    },
+  };
+
+  const smallScreenVariants = {
+    hidden: (direction) => ({
+      x: direction === 'right' ? '50vw' : '-50vw',
+      opacity: 0,
+    }),
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        type: 'tween',
+        stiffness: 110,
+        damping: 110,
+        duration: 2,
+      },
+    },
+  };
+
   return (
     <div
       className={`mx-auto flex items-center flex-col bg-[#F9FAFB] justify-center px-8 py-16 md:py-[90px] ${style.timeflowBackground}`}
@@ -47,7 +94,13 @@ function TimeFlow() {
                 : 'items-center justify-center lg:items-start lg:justify-start'
             }`}
           >
-            <div
+            <motion.div
+              custom={isSmallScreen ? 'right' : isRight ? 'right' : 'left'}
+              initial="hidden"
+              animate="visible"
+              variants={
+                isSmallScreen ? smallScreenVariants : largeScreenVariants
+              }
               className={`timeflow-item-container w-full gap-8 sm:gap-16 sm:w-[75%] lg:w-[calc(50%+8px)] flex justify-between ${
                 !isRight ? 'lg:flex-row-reverse' : ''
               }`}
@@ -77,7 +130,7 @@ function TimeFlow() {
                 </p>
                 <div className="w-full h-[60px]"></div>
               </div>
-            </div>
+            </motion.div>
           </div>
         );
       })}

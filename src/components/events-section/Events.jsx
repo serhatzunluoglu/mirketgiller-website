@@ -31,7 +31,7 @@ const eventData = [
 const Events = () => {
   return (
     <div className={`${style.bgDark} py-[64px] md:py-[90px] bg-white h-auto `}>
-      <div className="mx-auto max-w-7xl items-center justify-between  px-8 flex flex-col gap-12 md:gap-[60px]">
+      <div className="mx-auto max-w-7xl items-center justify-between px-8 flex flex-col gap-12 md:gap-[60px]">
         <div className="text-center">
           <h2 className="font-bold primary-color mb-2 text-heading-5 md:text-heading-3">
             Etkinliklerimiz
@@ -88,7 +88,7 @@ const Events = () => {
         <div className="h-auto w-full flex items-center justify-center ">
           <a
             href="#"
-            className="text-body-sm-regular sm:text-body-md-regular  primary-color px-[20px] py-[12px] sm:py-[14px] sm:px-[28px] border-solid border-[1px] hover:bg-[#d37c26] transition hover:border-[#d37c26] hover:text-white rounded-[50px] text-center"
+            className="text-body-sm-regular sm:text-body-md-regular primary-color px-[20px] py-[12px] sm:py-[14px] sm:px-[28px] border-solid border-[1px] hover:bg-[#d37c26] transition hover:border-[#d37c26] hover:text-white rounded-[50px] text-center"
           >
             Düzenlediğimiz Etkinliklere Göz Atın
           </a>
