@@ -49,11 +49,11 @@ const Events = () => {
         <div
           className={`${style.bgDark} flex flex-wrap w-full lg:flex-nowrap gap-[30px]`}
         >
-          <div className="flex flex-wrap w-full items-center justify-center  xl:justify-between gap-8">
+          <div className="flex flex-wrap w-full items-center justify-center xl:justify-between gap-8">
             {eventData.map((event, index) => (
               <a href={event.link} key={index}>
                 <div
-                  className={`${style.cardHover} w-full sm:w-[370px] rounded-lg overflow-hidden flex flex-col gap-8`}
+                  className={`${style.cardHover} w-full min-h-[424px] sm:w-[370px] rounded-lg overflow-hidden flex flex-col gap-8`} // kutu title'dan dolayı ortadaki kutu aşağıda kalıyor o yüzden min-h-[424px] ekledim.
                 >
                   <div>
                     <img
