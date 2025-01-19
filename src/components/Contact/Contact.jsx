@@ -20,14 +20,17 @@ function Contact() {
         <h3 className="heading-5 md:text-heading-3 primary-color">
           Bize Ulaşın
         </h3>
-        <p className="text-center body-medium-regular primary-text-color">
+        <p className="text-center text-body-sm-regular sm:text-body-md-regular primary-text-color">
           Hayallerinizi gerçeğe dönüştürmek için buradayız! Sorularınızı
           yanıtlamak, projelerinizi desteklemek ve birlikte çalışmanın yollarını
           keşfetmek için bizimle iletişime geçin.
         </p>
-        <p className="primary-text-color flex items-center gap-1">
+        <p className="text-body-sm-regular sm:text-body-md-regular primary-text-color flex items-center gap-1">
           İletişim:
-          <a href="#" className="text-center body-medium-bold primary-color">
+          <a
+            href="#"
+            className="text-center text-body-sm-bold sm:text-body-md-bold primary-color"
+          >
             lorem@ipsum.com
           </a>
         </p>
@@ -47,7 +50,7 @@ function Contact() {
               id="name"
               name="name"
               placeholder="John Doe"
-              className="px-4 py-3 border-[#D37C26] border body-medium-regular rounded-lg w-full focus:outline-[#D37C26]"
+              className="px-4 py-3 border-[#D37C26] border text-body-sm-regular sm:text-body-md-regular rounded-lg w-full focus:outline-[#D37C26]"
             />
           </div>
 
@@ -60,7 +63,7 @@ function Contact() {
               id="email"
               name="email"
               placeholder="johndoe@example.com"
-              className="px-4 py-3 border-[#D37C26] border body-medium-regular rounded-lg w-full focus:outline-[#D37C26]"
+              className="px-4 py-3 border-[#D37C26] border text-body-sm-regular sm:text-body-md-regular rounded-lg w-full focus:outline-[#D37C26]"
             />
           </div>
         </div>
@@ -75,7 +78,7 @@ function Contact() {
               id="phone"
               name="phone"
               placeholder="0 (___) ___ __ __"
-              className="px-4 py-3 border-[#D37C26] border body-medium-regular rounded-lg w-full focus:outline-[#D37C26]"
+              className="px-4 py-3 border-[#D37C26] border text-body-sm-regular sm:text-body-md-regular rounded-lg w-full focus:outline-[#D37C26]"
             />
           </div>
 
@@ -91,7 +94,7 @@ function Contact() {
               id="subject"
               name="subject"
               placeholder="İş Birliği Hk."
-              className="px-4 py-3 border-[#D37C26] border body-medium-regular rounded-lg w-full focus:outline-[#D37C26]"
+              className="px-4 py-3 border-[#D37C26] border text-body-sm-regular sm:text-body-md-regular rounded-lg w-full focus:outline-[#D37C26]"
             />
           </div>
         </div>
@@ -109,16 +112,29 @@ function Contact() {
               id="message"
               name="message"
               placeholder="Mesajınızı yazın..."
-              className="px-4 py-3 border-[#D37C26] border body-medium-regular rounded-lg w-full focus:outline-[#D37C26] h-[172px]"
+              className="px-4 py-3 border-[#D37C26] border text-body-sm-regular sm:text-body-md-regular rounded-lg w-full focus:outline-[#D37C26] h-[172px]"
             />
           </div>
         </div>
 
-        <div className="button-container flex justify-start w-full">
+        <div className="button-container flex flex-col items-start gap-4 mt-6 w-full">
+          <label className={style.checkBoxContainer}>
+            <input type="checkbox" defaultChecked />
+            <div className={style.checkmark}></div>
+            <span className="sm:inline-flex items-end text-body-sm-regular sm:text-body-md-regular">
+              <a
+                href=""
+                className="primary-color hover:underline text-body-sm-regular sm:text-body-md-regular font-bold sm:font-bold"
+              >
+                KVKK Aydınlatma Metni
+              </a>
+              &apos;ni okudum ve onaylıyorum.
+            </span>
+          </label>
           <input
             type="button"
             value="Gönder"
-            className="body-medium-regular w-[240px] primary-color-bg py-4 rounded-full text-white hover:bg-[#eb9035]"
+            className="text-body-sm-regular sm:text-body-md-regular w-full sm:w-[240px] primary-color-bg py-4 rounded-full text-white hover:bg-[#eb9035]"
           />
         </div>
       </form>
