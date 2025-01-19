@@ -19,5 +19,73 @@ html[data-theme='dark'] {
     textarea::placeholder {
       color: #505050;
     }
+
+    .checkBoxContainer {
+      color: white;
+
+      .checkmark {
+        background-color: #505050;
+      }
+
+      input:checked ~ .checkmark {
+        background-color: var(--primary-color);
+      }
+    }
+  }
+}
+
+// Checkbox.module.scss
+.checkBoxContainer {
+  display: flex;
+  gap: 0;
+  align-items: center;
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    position: relative;
+    background-color: #dcdcdc;
+    height: 24px;
+    width: 24px;
+    margin-right: 10px;
+    flex-shrink: 0;
+    transition: all 0.2s ease 0s;
+    cursor: pointer;
+    transform-origin: center;
+    border-radius: 50%;
+    padding: 0;
+    box-sizing: border-box;
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: none;
+      left: 50%;
+      top: 50%;
+      width: 6px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: translate(-50%, -60%) rotate(45deg);
+      transition: all 500ms ease-in-out;
+    }
+  }
+
+  input:checked ~ .checkmark {
+    background-color: var(--primary-color);
+
+    &:after {
+      display: block;
+    }
   }
 }
