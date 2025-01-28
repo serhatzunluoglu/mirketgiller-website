@@ -40,7 +40,7 @@ const CollaborationBar = () => {
 
   return (
     <div
-      className="w-full overflow-hidden flex items-center h-[10vh] bg-[#d37c26] p-6 gap-3"
+      className="w-full overflow-hidden flex items-center h-[10vh] bg-[#d37c26] p-6 gap-3 relative"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

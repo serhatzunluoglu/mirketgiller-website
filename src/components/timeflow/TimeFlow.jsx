@@ -45,17 +45,17 @@ function TimeFlow() {
 
   const largeScreenVariants = {
     hidden: (direction) => ({
-      x: direction === 'right' ? '50vw' : '-50vw',
+      y: '-50vh',
       opacity: 0,
     }),
     visible: {
-      x: 0,
+      y: 0,
       opacity: 1,
       transition: {
         type: 'tween',
         stiffness: 110,
         damping: 110,
-        duration: 2,
+        duration: 1.4,
       },
     },
   };
@@ -79,7 +79,7 @@ function TimeFlow() {
 
   return (
     <div
-      className={`mx-auto flex items-center flex-col bg-[#F9FAFB] justify-center px-8 py-16 md:py-[90px] ${style.timeflowBackground}`}
+      className={`mx-auto flex items-center flex-col bg-[#F9FAFB] justify-center px-8 py-16 md:py-[90px] overflow-y-hidden ${style.timeflowBackground}`}
     >
       {timeflowData.map((item, index) => {
         // Sağ/sol pozisyonunu sıraya göre belirliyoruz
@@ -101,7 +101,7 @@ function TimeFlow() {
               variants={
                 isSmallScreen ? smallScreenVariants : largeScreenVariants
               }
-              className={`timeflow-item-container w-full gap-8 sm:gap-16 sm:w-[75%] lg:w-[calc(50%+8px)] flex justify-between ${
+              className={`timeflow-item-container w-full gap-8 sm:gap-16 sm:w-[75%] lg:w-[calc(50%+8px)] flex justify-between overflow-y-hidden ${
                 !isRight ? 'lg:flex-row-reverse' : ''
               }`}
             >

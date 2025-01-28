@@ -1,3 +1,5 @@
+import { color } from 'framer-motion';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
@@ -6,7 +8,11 @@ export default {
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
       },
-
+      screens: {
+        'screen-380': '380px',
+        'screen-480': '480px',
+        'screen-520': '520px',
+      },
       fontSize: {
         // Body Styles
         'body-xs-medium': ['12px', { lineHeight: '20px', fontWeight: '500' }],
@@ -29,6 +35,9 @@ export default {
         'heading-3': ['40px', { lineHeight: '48px', fontWeight: '700' }],
         'heading-2': ['48px', { lineHeight: '58px', fontWeight: '700' }],
         'heading-1': ['60px', { lineHeight: '72px', fontWeight: '700' }],
+      },
+      colors: {
+        'primary-color': 'var(--primary-color)',
       },
     },
   },

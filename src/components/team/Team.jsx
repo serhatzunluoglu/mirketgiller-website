@@ -1,6 +1,9 @@
 import style from './styles.module.scss';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Globe2, Linkedin } from 'react-bootstrap-icons';
+
+// https://admin.mirketgiller.com.tr/api/users-by-department/genel-ekip-uyesi
 
 const Team = () => {
   const [activeButton, setActiveButton] = useState(1);
@@ -26,8 +29,8 @@ const Team = () => {
     },
     {
       id: 2,
-      name: 'Glorius Cristian',
-      role: 'App Developer',
+      name: 'Serhat İsmail Zunluoğlu',
+      role: 'Yönetim Kurulu Üyesi',
       image:
         'https://cdn0.iconfinder.com/data/icons/user-pictures/100/boy-2-512.png',
       category: 'management',
@@ -113,26 +116,46 @@ const Team = () => {
                   className="w-[270px] h-[330px] object-cover rounded-[8px]"
                 />
                 <div
-                  className={`${style.nameBoxDark} p-4 absolute bottom-4 flex flex-col items-center justify-center rounded-[8px] bg-white w-auto px-[56px]`}
+                  className={`${style.nameBoxDark} p-4 absolute bottom-4 flex flex-col items-center justify-center rounded-[8px] px-4 w-[230px]`}
                 >
-                  <h3 className="primary-color body-medium-bold">
+                  <h3 className="primary-color body-medium-bold text-center">
                     {member.name}
                   </h3>
-                  <p className="primary-text-color body-extra-small-text-regular">
+                  <p
+                    className={`text-white body-extra-small-text-regular text-center`}
+                  >
                     {member.role}
                   </p>
                 </div>
               </div>
               <div
-                className={`${style.flipCardBack} w-[270px] h-[330px] flex items-center justify-center relative gap-[30px] bg-slate-600 rounded-[8px]`}
+                className={`${style.flipCardBack} w-[270px] h-[330px] px-5 flex flex-col items-center justify-end relative pb-5 gap-12 primary-color-bg rounded-[8px]`}
               >
                 <div
-                  className={`${style.nameBoxDark} p-4 absolute bottom-4 flex flex-col items-center justify-center rounded-[8px] bg-white w-auto px-[56px]`}
+                  className={`${style.personSocialMedia} flex w-full flex-col gap-4`}
+                >
+                  <a
+                    href=""
+                    className="person-linkedin flex items-center justify-center gap-3 p-4 border border-white border-solid rounded-full text-white cursor-pointer hover:bg-white hover:text-primary-color"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                    <span className="text-body-md-medium">Linkedin</span>
+                  </a>
+                  <a
+                    href=""
+                    className="person-website flex items-center justify-center gap-3 p-4 border border-white border-solid rounded-full text-white cursor-pointer hover:bg-white hover:text-primary-color"
+                  >
+                    <Globe2 className="w-5 h-5" />
+                    <span className="text-body-md-medium">Website</span>
+                  </a>
+                </div>
+                <div
+                  className={`${style.nameBoxDark} p-4 bottom-4 flex flex-col items-center justify-center rounded-[8px] w-full text-center`}
                 >
                   <h3 className="primary-color body-medium-bold">
                     {member.name}
                   </h3>
-                  <p className="primary-text-color body-extra-small-text-regular">
+                  <p className="text-white body-extra-small-text-regular text-center">
                     CARD BACK
                   </p>
                 </div>

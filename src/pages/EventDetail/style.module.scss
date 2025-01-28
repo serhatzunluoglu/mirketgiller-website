@@ -1,0 +1,9 @@
+.eventInfoBorder {
+  border: 1px solid var(--primary-color);
+}
+
+html[data-theme='dark'] {
+  .darkThemeWhiteText {
+    color: #fff;
+  }
+}

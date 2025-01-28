@@ -4,6 +4,7 @@ import AboutUsPage from '../pages/AboutUs/AboutUsPage.jsx';
 import ContactPage from '../pages/Contact/ContactPage.jsx';
 import BlogPage from '../pages/Blog/BlogPage.jsx';
 import EventsPage from '../pages/Events/EventsPage.jsx';
+import EventDetailPage from '../pages/EventDetail/EventDetailPage.jsx';
 import TeamPage from '../pages/Team/TeamPage.jsx';
 import SupportedProjectsPage from '../pages/SupportedProjects/SupportedProjectsPage.jsx';
 
@@ -13,6 +14,7 @@ export const CustomRouter = [
   { path: '/iletisim', element: <ContactPage /> },
   { path: '/blog', element: <BlogPage /> },
   { path: '/etkinliklerimiz', element: <EventsPage /> },
+  { path: '/:slug', element: <EventDetailPage /> },
   { path: '/ekibimiz', element: <TeamPage /> },
   { path: '/destekledigimiz-projeler', element: <SupportedProjectsPage /> },
   { path: '*', element: <NotFoundPage /> },
