@@ -17,9 +17,9 @@ function Contact() {
       className={`${style.contactContainer} mx-auto flex max-w-7xl items-center flex-col pt-6 md:pt-[50px] pb-[90px] px-8 gap-12 md:gap-[60px]`}
     >
       <div className="hero-content flex flex-col items-center sm:w-[90%] md:w-[80%] gap-3 lg:w-[65%] xl:w-[65%]">
-        <h3 className="heading-5 md:text-heading-3 primary-color">
+        <h1 className="heading-5 md:text-heading-3 primary-color">
           Bize Ulaşın
-        </h3>
+        </h1>
         <p className="text-center text-body-sm-regular sm:text-body-md-regular primary-text-color">
           Hayallerinizi gerçeğe dönüştürmek için buradayız! Sorularınızı
           yanıtlamak, projelerinizi desteklemek ve birlikte çalışmanın yollarını
@@ -119,7 +119,7 @@ function Contact() {
 
         <div className="button-container flex flex-col items-start gap-4 mt-6 w-full">
           <label className={style.checkBoxContainer}>
-            <input type="checkbox" defaultChecked />
+            <input type="checkbox" />
             <div className={style.checkmark}></div>
             <span className="sm:inline-flex items-end text-body-sm-regular sm:text-body-md-regular">
               <a

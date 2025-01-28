@@ -5,6 +5,7 @@ html[data-theme='dark'] {
   .textDark {
     color: white;
   }
+
   .buttonDark {
     color: #d37c26;
   }
@@ -12,9 +13,7 @@ html[data-theme='dark'] {
     color: white;
     border: #d37c26 1px solid;
   }
-  .nameBoxDark {
-    background-color: #1a1a1a;
-  }
+
   .buttonHover {
     color: #d37c26;
     border: 1px solid #d37c26;
@@ -22,6 +21,9 @@ html[data-theme='dark'] {
   .buttonHover:hover {
     color: white;
   }
+}
+.nameBoxDark {
+  background-color: rgba(26, 26, 26, 0.7);
 }
 .active {
   color: white !important;
@@ -46,4 +48,8 @@ html[data-theme='dark'] {
 
 .flipCardBack {
   transform: rotateY(180deg);
+}
+
+.personSocialMedia{
+  
 }

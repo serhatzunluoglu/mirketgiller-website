@@ -3,17 +3,20 @@ import { useState, useEffect } from 'react';
 import { ArrowRightIcon, ArrowLeftIcon } from '@heroicons/react/24/outline';
 import ContentLoader from 'react-content-loader';
 import { motion } from 'framer-motion';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 // Stylesheet imports
 import style from './styles.module.scss';
 
 // Other imports
 import { useAppContext } from '../../context/AppContext';
+import Pagination from '../../components/pagination/Pagination';
 
 function formatDate(inputDate) {
   const date = new Date(inputDate);
 
-  return date.toLocaleDateString('en-US', {
+  return date.toLocaleDateString('tr-TR', {
     month: 'short',
     day: '2-digit',
     year: 'numeric',
@@ -40,31 +43,47 @@ function truncateText(text, maxLength) {
 }
 
 function EventsPage() {
-  const [eventsData, setEventsData] = useState([]);
-  const [paginationData, setPaginationData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
   const { theme } = useAppContext();
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 6;
   const apiUrl = import.meta.env.VITE_API_URL;
 
+  const [events, setEvents] = useState([]); // Etkinlikler listesi
+  const [pagination, setPagination] = useState({
+    current_page: 1,
+    last_page: 1,
+    per_page: 6,
+    total: 0,
+    from: 0,
+    to: 0,
+  }); // Pagination bilgileri
+  const [loading, setLoading] = useState(false); // Yüklenme durumu
+
+  const fetchEvents = async (page = 1) => {
+    setLoading(true); // Yükleniyor durumunu göster
+    try {
+      const response = await axios.get(
+        `https://admin.mirketgiller.com.tr/api/events?per_page=${pagination.per_page}&page=${page}`
+      );
+      const data = response.data;
+      console.log(data);
+
+      setEvents(data.events); // Etkinlikler
+      setPagination(data.pagination); // Pagination bilgilerini ayarla
+    } catch (error) {
+      console.error('Etkinlikler yüklenirken hata oluştu:', error);
+    } finally {
+      setLoading(false); // Yükleniyor durumunu kaldır
+    }
+  };
+
   useEffect(() => {
-    setIsLoading(true);
-    fetch(`${apiUrl}/api/events`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setEventsData(data.events);
-        setPaginationData(data.pagination);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, []);
+    fetchEvents(pagination.current_page); // İlk yüklendiğinde ve sayfa değiştiğinde API çağrısı
+  }, [pagination.current_page]);
+
+  const handlePageChange = (page) => {
+    if (page > 0 && page <= pagination.last_page) {
+      setPagination((prev) => ({ ...prev, current_page: page })); // Sayfayı güncelle
+    }
+  };
 
   return (
     <motion.div
@@ -76,22 +95,24 @@ function EventsPage() {
         <h1 className="text-heading-5 md:text-heading-3 primary-color text-center">
           Düzenlediğimiz Etkinlikler
         </h1>
-        <p className="text-body-sm-regular sm:text-body-md-regular text-center max-w-3xl primary-text-color">
+        <p
+          className={`${style.textDark} text-body-sm-regular sm:text-body-md-regular text-center max-w-3xl`}
+        >
           Sektörün önde gelen profesyonelleriyle gerçekleştirdiğimiz eğitimler,
           seminerler ve atölye çalışmalarıyla gelişiminizi destekliyoruz.
           Birlikte büyüyen yetenekler olarak, hedeflerinize ulaşmanız için
           buradayız!
         </p>
       </div>
-      <div className="events-container flex flex-wrap w-full justify-start xl:justify-start gap-8 gap-y-11">
-        {isLoading
+      <div className="events-container flex flex-wrap w-full max-w-[370px] lg:max-w-[772px]  xl:max-w-[1174px] justify-start xl:justify-start gap-8 gap-y-11 ml-auto mr-auto">
+        {loading
           ? Array.from({ length: 6 }).map((_, index) => (
               <ContentLoader
                 key={`loader-${index}`}
                 speed={2}
                 width={370}
-                height={390}
-                viewBox="0 0 370 390"
+                height={352}
+                viewBox="0 0 370 352"
                 backgroundColor={`${theme === 'light' ? '#f3f3f3' : '#1A1A1A'}`}
                 foregroundColor={`${theme === 'light' ? '#ecebeb' : '#202020'}`}
                 title="Yükleniyor..."
@@ -99,95 +120,60 @@ function EventsPage() {
                 {/* Image */}
                 <rect x="0" y="0" rx="5" ry="5" width="370" height="220" />
                 {/* Date Area */}
-                <rect x="0" y="240" rx="5" ry="5" width="80" height="25" />
+                <rect x="0" y="236" rx="5" ry="5" width="105" height="32" />
                 {/* Title */}
-                <rect x="0" y="275" rx="5" ry="5" width="300" height="25" />
-                <rect x="0" y="310" rx="5" ry="5" width="300" height="25" />
-                {/* Text */}
-                <rect x="0" y="350" rx="5" ry="5" width="350" height="15" />
-                <rect x="0" y="375" rx="5" ry="5" width="350" height="15" />
+                <rect x="0" y="292" rx="5" ry="5" width="370" height="25" />
+                <rect x="0" y="327" rx="5" ry="5" width="300" height="25" />
               </ContentLoader>
             ))
-          : eventsData.map((event, index) => (
-              <a
+          : events.map((event, index) => (
+              <Link
                 className="event-link-container"
-                href="#"
+                to={`/${event.slug}`}
                 key={`event-${index}`}
               >
                 <div
-                  className={`event ${style.cardHover} w-full sm:w-[370px] rounded-lg overflow-hidden flex flex-col gap-8`}
+                  className={`event ${style.cardHover} w-full sm:w-[370px] rounded-lg overflow-hidden flex flex-col`}
                 >
                   <div className="event-image relative">
                     <img
                       src={`${apiUrl}/storage/${event.event_paths[0]}`}
                       alt="Meet AutoManage, the best AI management tools"
-                      className={`${style.imageHover} w-full h-[220px] object-contain rounded-[5px] opacity-100`}
+                      className={`${style.imageHover} w-full aspect-[370/220] min-h-40 h-auto sm:h-[220px] object-cover rounded-[5px] opacity-100`}
                     />
                     <span
                       className={`${getBackgroundColor(
                         event.event_type
-                      )} text-white px-[10px] py-[4px] rounded-[5px] body-extra-small-text-medium absolute top-2 right-2`}
+                      )} text-white px-[8px] py-[2px] sm:px-[10px] sm:py-[4px] rounded-[5px] body-extra-small-text-medium absolute top-2 right-2`}
                     >
                       {event.event_type}
                     </span>
                   </div>
-                  <div className="event-date">
-                    <span className="bg-[#d37c26] text-white px-[15px] py-[6px] rounded-[5px] body-extra-small-text-medium">
+                  <div className="event-date mt-4">
+                    <div className="bg-[#d37c26] text-white px-[10px] py-[4px] sm:px-[15px] sm:py-[6px] rounded-[5px] body-extra-small-text-medium w-max">
                       {formatDate(event.published_at)}
-                    </span>
+                    </div>
                   </div>
-                  <div className="event-texts flex flex-col gap-4">
+                  <div className="event-texts flex flex-col gap-4 mt-6">
                     <div
-                      className={`${style.textDark} ${style.textHover} text-xl font-sans font-semibold sm:heading- mg-dark cursor-pointer transition-all min-h-[60px]`}
+                      className={`${style.textDark} ${style.textHover} text-base screen-380:text-xl font-sans font-semibold sm:heading- mg-dark cursor-pointer transition-all min-h-[60px]`}
                     >
                       {truncateText(event.title, 50)}
                     </div>
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
       </div>
-
-      <div className="events-pagination flex justify-center gap-[3px] sm:gap-[7px] py-2 mt-[60px]">
-        <div
-          className={`${style.buttonBorder} rounded-full events-prev w-[35px] h-[35px] flex justify-center items-center leading-[15px] text-[16px]`}
-        >
-          <ArrowLeftIcon
-            aria-hidden="true"
-            className="h-[11px] w-[12px] leading-[15px] text-[16px]"
-          />
-        </div>
-        <div
-          className={`${style.buttonBorder} rounded-full w-[35px] h-[35px] flex justify-center items-center leading-[15px] text-[16px]`}
-        >
-          1
-        </div>
-        <div
-          className={`${style.buttonBorder} rounded-full w-[35px] h-[35px] flex justify-center items-center leading-[15px] text-[16px]`}
-        >
-          2
-        </div>
-        <div
-          className={`${style.buttonBorder} rounded-full w-[35px] h-[35px] flex justify-center items-center leading-[15px] text-[16px]`}
-        >
-          3
-        </div>
-        <div
-          className={`${style.buttonBorder} rounded-full w-[35px] h-[35px] flex justify-center items-center leading-[15px] text-[16px]`}
-        >
-          4
-        </div>
-        <div
-          className={`${style.buttonBorder} rounded-full w-[35px] h-[35px] flex justify-center items-center leading-[15px] text-[16px]`}
-        >
-          5
-        </div>
-        <div
-          className={`${style.buttonBorder} rounded-full events-next w-[35px] h-[35px] flex justify-center items-center leading-[15px] text-[16px]`}
-        >
-          <ArrowRightIcon aria-hidden="true" className="h-[11px] w-[12px]" />
-        </div>
-      </div>
+      {/* Pagination */}
+      <Pagination
+        currentPage={pagination.current_page}
+        totalPages={pagination.last_page}
+        onPageChange={handlePageChange}
+        from={pagination.from}
+        to={pagination.to}
+        total={pagination.total}
+      />
     </motion.div>
   );
 }
