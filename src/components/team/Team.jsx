@@ -1,9 +1,10 @@
-import style from './styles.module.scss';
+// Stylesheet imports
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Globe2, Linkedin } from 'react-bootstrap-icons';
 
-// https://admin.mirketgiller.com.tr/api/users-by-department/genel-ekip-uyesi
+// Stylesheet imports
+import style from './styles.module.scss';
 
 const Team = () => {
   const [activeButton, setActiveButton] = useState(1);

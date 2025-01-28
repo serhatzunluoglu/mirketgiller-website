@@ -129,7 +129,7 @@ function EventsPage() {
           : events.map((event, index) => (
               <Link
                 className="event-link-container"
-                to={`/${event.slug}`}
+                to={`${event.slug}`}
                 key={`event-${index}`}
               >
                 <div
