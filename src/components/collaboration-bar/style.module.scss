@@ -11,8 +11,29 @@
   animation: scrollAnim 120s linear infinite;
 }
 
+<<<<<<< Updated upstream
 .animate-scroll:hover {
   animation-play-state: paused;
+=======
+@media screen and (max-width: 640px) {
+  .animate-scroll {
+    @keyframes scrollAnim {
+      0% {
+        margin-left: 0;
+      }
+      100% {
+        margin-left: -2000%;
+      }
+    }
+  }
+  .animate-scroll {
+    animation: scrollAnim 100s linear infinite;
+    display: flex;
+    width: max-content;
+    will-change: transform;
+  }
+  
+>>>>>>> Stashed changes
 }
 
 /* 
