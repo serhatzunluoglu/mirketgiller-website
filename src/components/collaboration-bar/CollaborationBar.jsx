@@ -46,7 +46,7 @@ const CollaborationBar = () => {
     >
       <div
         ref={scrollRef}
-        className={`${style['animate-scroll']} flex w-max animate-scroll gap-8 sm:gap-16`}
+        className={`${style['animate-scroll']} flex w-max gap-8 sm:gap-16`}
       >
         {repeatedBrands.concat(brands).map((brand, index) => (
           <div
