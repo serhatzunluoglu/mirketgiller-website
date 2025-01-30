@@ -58,7 +58,7 @@ const CollaborationBar = () => {
               <img
                 src={brand.logo}
                 alt={brand.name}
-                className="h-10 object-contain w-auto"
+                className="h-9 object-contain w-auto"
               />
             </a>
           </div>
