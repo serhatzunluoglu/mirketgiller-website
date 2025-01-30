@@ -11,10 +11,10 @@
   animation: scrollAnim 120s linear infinite;
 }
 
-<<<<<<< Updated upstream
 .animate-scroll:hover {
   animation-play-state: paused;
-=======
+}
+
 @media screen and (max-width: 640px) {
   .animate-scroll {
     @keyframes scrollAnim {
@@ -33,7 +33,6 @@
     will-change: transform;
   }
   
->>>>>>> Stashed changes
 }
 
 /* 
