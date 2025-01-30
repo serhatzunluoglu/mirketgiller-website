@@ -1,19 +1,39 @@
 @keyframes scrollAnim {
   0% {
-    transform: translateX(0);
+    margin-left: 0;
   }
   100% {
-    transform: translateX(-50%);
+    margin-left: -500%;
   }
 }
 
 .animate-scroll {
   animation: scrollAnim 120s linear infinite;
+  display: flex;
+  width: max-content;
+  will-change: transform;
 }
 
-.animate-scroll:hover {
-  animation-play-state: paused;
+@media screen and (max-width: 768px) {
+  .animate-scroll {
+    @keyframes scrollAnim {
+      0% {
+        margin-left: 0;
+      }
+      100% {
+        margin-left: -1000%;
+      }
+    }
+  }
+  .animate-scroll {
+    animation: scrollAnim 100s linear infinite;
+    display: flex;
+    width: max-content;
+    will-change: transform;
+  }
+  
 }
+
 
 /* 
 @keyframes scrollAnim {
