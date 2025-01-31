@@ -1,9 +1,9 @@
 @keyframes scrollAnim {
   0% {
-    transform: translateX(0);
+    margin-left: 0;
   }
   100% {
-    transform: translateX(-50%);
+    margin-left: -500%;
   }
 }
 
@@ -12,6 +12,55 @@
 }
 
 .animate-scroll:hover {
-  animation-play-state: paused; /* Hover durumunda animasyonu durdur */
+  animation-play-state: paused;
 }
 
+@media screen and (max-width: 640px) {
+  .animate-scroll {
+    @keyframes scrollAnim {
+      0% {
+        margin-left: 0;
+      }
+      100% {
+        margin-left: -2000%;
+      }
+    }
+  }
+  .animate-scroll {
+    animation: scrollAnim 100s linear infinite;
+    display: flex;
+    width: max-content;
+    will-change: transform;
+  }
+  
+}
+
+/* 
+@keyframes scrollAnim {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@-webkit-keyframes scrollAnim {
+  0% {
+    -webkit-transform: translateX(0);
+  }
+  100% {
+    -webkit-transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scrollAnim 120s linear infinite;
+  -webkit-animation: scrollAnim 120s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+  -webkit-animation-play-state: paused;
+}
+ */

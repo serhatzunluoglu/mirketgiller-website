@@ -5,12 +5,12 @@ const brands = [
   {
     link: 'https://www.mirketgiller.com.tr/',
     name: 'Brand 1',
-    logo: 'https://w7.pngwing.com/pngs/509/532/png-transparent-volkswagen-group-car-logo-volkswagen-car-logo-brand-emblem-trademark-volkswagen-thumbnail.png',
+    logo: 'https://logos-world.net/wp-content/uploads/2020/09/Microsoft-Logo.png',
   },
   {
     link: 'https://www.mirketgiller.com.tr/',
     name: 'Brand 2',
-    logo: 'https://e7.pngegg.com/pngimages/4/794/png-clipart-infiniti-g37-car-logo-nissan-car-angle-emblem.png',
+    logo: 'https://logos-world.net/wp-content/uploads/2020/09/Microsoft-Logo.png',
   },
   {
     link: 'https://www.mirketgiller.com.tr/',
@@ -46,7 +46,7 @@ const CollaborationBar = () => {
     >
       <div
         ref={scrollRef}
-        className={`${style['animate-scroll']} flex w-max animate-scroll gap-8 sm:gap-16`}
+        className={`${style['animate-scroll']} flex w-max gap-8 sm:gap-16`}
       >
         {repeatedBrands.concat(brands).map((brand, index) => (
           <div
@@ -58,7 +58,7 @@ const CollaborationBar = () => {
               <img
                 src={brand.logo}
                 alt={brand.name}
-                className="h-10 object-contain w-auto"
+                className="h-9 object-contain w-auto"
               />
             </a>
           </div>
