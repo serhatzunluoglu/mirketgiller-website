@@ -5,6 +5,7 @@ import axios from 'axios';
 import { ClockFill, GeoFill } from 'react-bootstrap-icons';
 import ContentLoader from 'react-content-loader';
 import { motion } from 'framer-motion';
+import { useMediaQuery } from 'react-responsive';
 
 // Stylesheet imports
 import style from './style.module.scss';
@@ -15,6 +16,7 @@ function EventDetailPage() {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const apiUrl = import.meta.env.VITE_API_URL;
+  const isMobile = useMediaQuery({ maxWidth: 768 });
 
   useEffect(() => {
     const fetchEvent = async () => {
@@ -41,33 +43,69 @@ function EventDetailPage() {
       className="event-detail-container mx-auto max-w-7xl py-[50px] px-8"
     >
       {loading ? (
-        <ContentLoader
-          speed={2}
-          width={1280}
-          height={812}
-          viewBox="0 0 1280 812"
-          backgroundColor="#f3f3f3"
-          foregroundColor="#ecebeb"
-        >
-          {/* Title */}
-          <rect x="0" y="0" rx="5" ry="5" width="600" height="40" />
-          <rect x="0" y="50" rx="5" ry="5" width="600" height="40" />
+        isMobile ? (
+          // Mobil için küçük bir loader
+          <ContentLoader
+            speed={2}
+            width="100%"
+            height={1034}
+            viewBox="0 0 750 1034"
+            backgroundColor="#f3f3f3"
+            foregroundColor="#ecebeb"
+            style={{
+              maxWidth: '100%',
+              height: 'auto',
+              alignSelf: 'flex-start',
+            }}
+          >
+            {/* Başlık */}
+            <rect x="0" y="0" rx="4" ry="4" width="750" height="40" />
+            <rect x="0" y="50" rx="4" ry="4" width="750" height="40" />
 
-          {/* Image Area */}
-          <rect x="0" y="150" rx="10" ry="10" width="792" height="458" />
+            {/* Resim Alanı */}
+            <rect x="0" y="138" rx="8" ry="8" width="750" height="400" />
 
-          {/* Information Card */}
-          <rect x="822" y="150" rx="10" ry="10" width="396" height="210" />
+            {/* Açıklama */}
+            <rect x="0" y="586" rx="5" ry="5" width="750" height="24" />
+            <rect x="0" y="620" rx="5" ry="5" width="750" height="24" />
+            <rect x="0" y="654" rx="5" ry="5" width="550" height="24" />
 
-          {/* Share Button */}
-          <rect x="822" y="400" rx="10" ry="10" width="396" height="50" />
+            {/* Bilgi Kartı */}
+            <rect x="0" y="700" rx="8" ry="8" width="750" height="260" />
 
-          {/* Description */}
-          <rect x="0" y="668" rx="5" ry="5" width="792" height="24" />
-          <rect x="0" y="702" rx="5" ry="5" width="792" height="24" />
-          <rect x="0" y="736" rx="5" ry="5" width="792" height="24" />
-          <rect x="0" y="770" rx="5" ry="5" width="600" height="24" />
-        </ContentLoader>
+            {/* Buton */}
+            <rect x="0" y="984" rx="8" ry="8" width="750" height="50" />
+          </ContentLoader>
+        ) : (
+          // Masaüstü için büyük bir loader
+          <ContentLoader
+            speed={2}
+            width="100%"
+            height={812}
+            viewBox="0 0 1280 812"
+            backgroundColor="#f3f3f3"
+            foregroundColor="#ecebeb"
+          >
+            {/* Title */}
+            <rect x="0" y="0" rx="5" ry="5" width="600" height="40" />
+            <rect x="0" y="50" rx="5" ry="5" width="600" height="40" />
+
+            {/* Image Area */}
+            <rect x="0" y="150" rx="10" ry="10" width="792" height="458" />
+
+            {/* Information Card */}
+            <rect x="822" y="150" rx="10" ry="10" width="396" height="210" />
+
+            {/* Share Button */}
+            <rect x="822" y="400" rx="10" ry="10" width="396" height="50" />
+
+            {/* Description */}
+            <rect x="0" y="668" rx="5" ry="5" width="792" height="24" />
+            <rect x="0" y="702" rx="5" ry="5" width="792" height="24" />
+            <rect x="0" y="736" rx="5" ry="5" width="792" height="24" />
+            <rect x="0" y="770" rx="5" ry="5" width="600" height="24" />
+          </ContentLoader>
+        )
       ) : (
         <Fragment>
           <h1 className="text-heading-5 md:text-heading-3 primary-color mb-12 md:mb-[60px] max-w-[792px]">
