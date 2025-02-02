@@ -4,6 +4,7 @@ import style from './style.module.scss';
 // Third-party library imports
 import { useEffect } from 'react';
 import Inputmask from 'inputmask';
+import { Link } from 'react-router-dom';
 
 function Contact() {
   useEffect(() => {
@@ -122,12 +123,12 @@ function Contact() {
             <input type="checkbox" />
             <div className={style.checkmark}></div>
             <span className="sm:inline-flex items-end text-body-sm-regular sm:text-body-md-regular">
-              <a
-                href=""
+              <Link
+                to="/kvkk"
                 className="primary-color hover:underline text-body-sm-regular sm:text-body-md-regular font-bold sm:font-bold"
               >
                 KVKK Aydınlatma Metni
-              </a>
+              </Link>
               &apos;ni okudum ve onaylıyorum.
             </span>
           </label>
