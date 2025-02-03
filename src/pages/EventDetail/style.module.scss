@@ -7,3 +7,18 @@ html[data-theme='dark'] {
     color: #fff;
   }
 }
+
+.swiperSlide img {
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+:global(.swiper-button-next),
+:global(.swiper-button-prev) {
+  color: var(--primary-color) !important;
+}
+
+:global(.swiper-pagination-bullet-active) {
+  background: var(--primary-color) !important;
+}
