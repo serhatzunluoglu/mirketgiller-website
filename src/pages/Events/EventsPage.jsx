@@ -1,6 +1,5 @@
 // Third-party library imports
 import { useState, useEffect } from 'react';
-import { ArrowRightIcon, ArrowLeftIcon } from '@heroicons/react/24/outline';
 import ContentLoader from 'react-content-loader';
 import { motion } from 'framer-motion';
 import axios from 'axios';

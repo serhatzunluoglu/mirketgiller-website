@@ -1,5 +1,3 @@
-import { color } from 'framer-motion';
-
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,jsx}'],
@@ -38,8 +36,11 @@ export default {
       },
       colors: {
         'primary-color': 'var(--primary-color)',
+        'secondary-color': 'var(--secondary-color)',
+        'tertiary-color': 'var(--tertiary-color)',
       },
     },
   },
+  darkMode: 'class',
   plugins: [],
 };
