@@ -22,3 +22,36 @@ html[data-theme='dark'] {
 :global(.swiper-pagination-bullet-active) {
   background: var(--primary-color) !important;
 }
+
+:global(.swiper-button-prev),
+:global(.swiper-button-next) {
+  background-color: var(--primary-color);
+  color: white !important;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &::after {
+    font-size: 20px;
+    font-weight: 500;
+  }
+}
+:global(.swiper-button-prev) {
+  padding-right: 3px;
+  left: 20px !important;
+}
+:global(.swiper-button-next) {
+  padding-left: 3px;
+  right: 20px !important;
+}
+
+@media screen and (max-width: 600px) {
+  :global(.swiper-button-prev),
+  :global(.swiper-button-next) {
+    &::after {
+      font-size: 24px;
+    }
+  }
+}

@@ -32,7 +32,7 @@ function Contact() {
             href="#"
             className="text-center text-body-sm-bold sm:text-body-md-bold primary-color"
           >
-            lorem@ipsum.com
+            mirketgillerresmi@gmail.com
           </a>
         </p>
       </div>

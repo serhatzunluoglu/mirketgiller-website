@@ -50,17 +50,16 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
           <ArrowLeftIcon aria-hidden="true" className="h-[13px] w-[14px]" />
         </button>
 
-        {/* Sayfa Numaraları */}
         {pageNumbers.map((page) => (
           <button
             key={page}
-            className={`w-[35px] h-[35px] flex justify-center items-center rounded-full text-sm ${
+            className={`w-[35px] h-[35px] flex justify-center items-center rounded-full text-sm dark:hover: ${
               currentPage === page
                 ? 'bg-[#d37c26] text-white'
                 : `${
                     theme === 'light'
                       ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                      : `${style.buttonDarkThemeBorder} text-[#dcdcdc]`
+                      : `dark:bg-secondary-color dark:hover:bg-[#202020] text-[#dcdcdc]`
                   }`
             }`}
             onClick={() => onPageChange(page)}
@@ -69,7 +68,6 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
           </button>
         ))}
 
-        {/* Sonraki Butonu */}
         <button
           className={`${
             style.buttonBorderOrange

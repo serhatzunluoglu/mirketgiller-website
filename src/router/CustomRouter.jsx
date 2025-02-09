@@ -15,7 +15,7 @@ export const CustomRouter = [
   { path: '/iletisim', element: <ContactPage /> },
   { path: '/blog', element: <BlogPage /> },
   { path: '/etkinliklerimiz', element: <EventsPage /> },
-  { path: 'etkinliklerimiz/:slug', element: <EventDetailPage /> },
+  { path: '/etkinliklerimiz/:slug', element: <EventDetailPage /> },
   { path: '/ekibimiz', element: <TeamPage /> },
   { path: '/kvkk', element: <KvkkPage /> },
   { path: '/destekledigimiz-projeler', element: <SupportedProjectsPage /> },
