@@ -19,7 +19,7 @@ function Footer() {
             <img src={mirketLogo} alt="Mirketgiller" className="h-8 w-auto" />
           </Link>
           <p className="text-body-sm-regular sm:text-body-md-regular text-white">
-            Mirketgiller | {year} Tüm hakları saklıdır.
+            Mirketgiller © {year} | Tüm hakları saklıdır
           </p>
         </div>
 

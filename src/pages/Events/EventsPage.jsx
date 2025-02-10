@@ -45,7 +45,7 @@ function EventsPage() {
   const { theme } = useAppContext();
   const apiUrl = import.meta.env.VITE_API_URL;
 
-  const [events, setEvents] = useState([]); // Etkinlikler listesi
+  const [events, setEvents] = useState([]);
   const [pagination, setPagination] = useState({
     current_page: 1,
     last_page: 1,
@@ -53,34 +53,33 @@ function EventsPage() {
     total: 0,
     from: 0,
     to: 0,
-  }); // Pagination bilgileri
-  const [loading, setLoading] = useState(false); // Yüklenme durumu
+  });
+  const [loading, setLoading] = useState(false);
 
   const fetchEvents = async (page = 1) => {
-    setLoading(true); // Yükleniyor durumunu göster
+    setLoading(true);
     try {
       const response = await axios.get(
         `https://admin.mirketgiller.com.tr/api/events?per_page=${pagination.per_page}&page=${page}`
       );
       const data = response.data;
-      console.log(data);
 
-      setEvents(data.events); // Etkinlikler
-      setPagination(data.pagination); // Pagination bilgilerini ayarla
+      setEvents(data.events);
+      setPagination(data.pagination);
     } catch (error) {
       console.error('Etkinlikler yüklenirken hata oluştu:', error);
     } finally {
-      setLoading(false); // Yükleniyor durumunu kaldır
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchEvents(pagination.current_page); // İlk yüklendiğinde ve sayfa değiştiğinde API çağrısı
+    fetchEvents(pagination.current_page);
   }, [pagination.current_page]);
 
   const handlePageChange = (page) => {
     if (page > 0 && page <= pagination.last_page) {
-      setPagination((prev) => ({ ...prev, current_page: page })); // Sayfayı güncelle
+      setPagination((prev) => ({ ...prev, current_page: page }));
     }
   };
 
@@ -95,7 +94,7 @@ function EventsPage() {
           Düzenlediğimiz Etkinlikler
         </h1>
         <p
-          className={`${style.textDark} text-body-sm-regular sm:text-body-md-regular text-center max-w-3xl`}
+          className={`primary-text-color ${style.textDark} text-body-sm-regular sm:text-body-md-regular text-center max-w-3xl`}
         >
           Sektörün önde gelen profesyonelleriyle gerçekleştirdiğimiz eğitimler,
           seminerler ve atölye çalışmalarıyla gelişiminizi destekliyoruz.
@@ -112,7 +111,7 @@ function EventsPage() {
                 width={370}
                 height={352}
                 viewBox="0 0 370 352"
-                backgroundColor={`${theme === 'light' ? '#f3f3f3' : '#1A1A1A'}`}
+                backgroundColor={`${theme === 'light' ? '#f3f3f3' : '#1a1a1a'}`}
                 foregroundColor={`${theme === 'light' ? '#ecebeb' : '#202020'}`}
                 title="Yükleniyor..."
               >
@@ -131,10 +130,10 @@ function EventsPage() {
                 to={`${event.slug}`}
                 key={`event-${index}`}
               >
-                <div
+                <article
                   className={`event ${style.cardHover} w-full sm:w-[370px] rounded-lg overflow-hidden flex flex-col`}
                 >
-                  <div className="event-image relative">
+                  <div className="event-image relative bg-[#f3f3f3] dark:bg-[#1a1a1a]">
                     <img
                       src={`${apiUrl}/storage/${event.event_paths[0]}`}
                       alt="Meet AutoManage, the best AI management tools"
@@ -160,7 +159,7 @@ function EventsPage() {
                       {truncateText(event.title, 50)}
                     </div>
                   </div>
-                </div>
+                </article>
               </Link>
             ))}
       </div>

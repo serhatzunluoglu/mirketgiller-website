@@ -82,7 +82,6 @@ function TimeFlow() {
       className={`mx-auto flex items-center flex-col bg-[#F9FAFB] justify-center px-8 py-16 md:py-[90px] overflow-y-hidden ${style.timeflowBackground}`}
     >
       {timeflowData.map((item, index) => {
-        // Sağ/sol pozisyonunu sıraya göre belirliyoruz
         const isRight = index % 2 === 0;
 
         return (
