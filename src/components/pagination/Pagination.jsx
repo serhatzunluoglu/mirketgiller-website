@@ -1,5 +1,6 @@
 // Third-party library imports
 import { ArrowRightIcon, ArrowLeftIcon } from '@heroicons/react/24/outline';
+import { useState } from 'react';
 
 // Stylesheet imports
 import style from './style.module.scss';
@@ -10,8 +11,9 @@ import { useAppContext } from '../../context/AppContext';
 // eslint-disable-next-line react/prop-types
 function Pagination({ currentPage, totalPages, onPageChange }) {
   const { theme } = useAppContext();
-  const isPrevDisabled = currentPage === 1;
-  const isNextDisabled = currentPage === totalPages;
+  const [isLoading, setIsLoading] = useState(false);
+  const isPrevDisabled = currentPage === 1 || isLoading;
+  const isNextDisabled = currentPage === totalPages || isLoading;
 
   // Maksimum 5 sayfa göstermek için sayfa aralığını hesaplama
   const getPageNumbers = () => {
@@ -34,8 +36,6 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
   return (
     <div className="events-pagination flex flex-col items-center gap-3 py-2 mt-[60px]">
       <div className="flex justify-center items-center gap-2 sm:gap-3">
-        {/* Önceki Butonu */}
-
         <button
           className={`${
             style.buttonBorderOrange

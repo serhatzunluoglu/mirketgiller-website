@@ -1,38 +1,17 @@
 // Stylesheet imports
 import style from './style.module.scss';
+
+// Third-party library imports
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-const timeflowData = [
-  {
-    heading: 'Lorem Ipsum',
-    content:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec molestie arcu. Nam egestas a enim a aliquam.',
-  },
-  {
-    heading: 'Lorem Ipsum',
-    content:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec molestie arcu. Nam egestas a enim a aliquam.',
-  },
-  {
-    heading: 'Lorem Ipsum',
-    content:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec molestie arcu Nam egestas a enim a aliquam.',
-  },
-  {
-    heading: 'Lorem Ipsum',
-    content:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec molestie arcu. Nam egestas a enim a aliquam.',
-  },
-  {
-    heading: 'Lorem Ipsum',
-    content:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec molestie arcu. Nam egestas a enim a aliquam.',
-  },
-];
+// Other imports
+import { getTimeflows } from '../../services/timeFlowService';
+import formatEventDate from '../../utils/formatEventDate';
 
 function TimeFlow() {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1020);
+  const [timeflows, setTimeflows] = useState([]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -41,6 +20,19 @@ function TimeFlow() {
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    const fetchTimeflows = async () => {
+      try {
+        const data = await getTimeflows();
+        setTimeflows(data);
+      } catch (error) {
+        console.error('Timeflow yüklenemedi.');
+      }
+    };
+
+    fetchTimeflows();
   }, []);
 
   const largeScreenVariants = {
@@ -79,9 +71,9 @@ function TimeFlow() {
 
   return (
     <div
-      className={`mx-auto flex items-center flex-col bg-[#F9FAFB] justify-center px-8 py-16 md:py-[90px] overflow-y-hidden ${style.timeflowBackground}`}
+      className={`mx-auto flex items-center flex-col bg-[#F9FAFB] justify-center px-8 py-16 md:py-[90px] overflow-hidden ${style.timeflowBackground}`}
     >
-      {timeflowData.map((item, index) => {
+      {timeflows.map((item, index) => {
         const isRight = index % 2 === 0;
 
         return (
@@ -113,13 +105,20 @@ function TimeFlow() {
                 ></div>
               </div>
               <div className="content-container w-[360px]">
-                <h1
+                <h3
                   className={`heading-6 primary-color ${
                     !isRight ? 'text-left lg:text-right' : ''
                   } w-full text-wrap`}
                 >
                   {item.heading}
-                </h1>
+                </h3>
+                <h4
+                  className={`primary-color text-body-sm-medium ${
+                    !isRight ? 'text-left lg:text-right' : ''
+                  }`}
+                >
+                  {formatEventDate(item.time)}
+                </h4>
                 <p
                   className={`body-small-regular primary-color ${
                     !isRight ? 'text-left lg:text-right' : ''
