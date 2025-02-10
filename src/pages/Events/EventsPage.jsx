@@ -111,7 +111,7 @@ function EventsPage() {
                 width={370}
                 height={352}
                 viewBox="0 0 370 352"
-                backgroundColor={`${theme === 'light' ? '#f3f3f3' : '#1A1A1A'}`}
+                backgroundColor={`${theme === 'light' ? '#f3f3f3' : '#1a1a1a'}`}
                 foregroundColor={`${theme === 'light' ? '#ecebeb' : '#202020'}`}
                 title="Yükleniyor..."
               >
@@ -133,7 +133,7 @@ function EventsPage() {
                 <article
                   className={`event ${style.cardHover} w-full sm:w-[370px] rounded-lg overflow-hidden flex flex-col`}
                 >
-                  <div className="event-image relative bg-pink-600 dark:bg-pink-600">
+                  <div className="event-image relative bg-[#f3f3f3] dark:bg-[#1a1a1a]">
                     <img
                       src={`${apiUrl}/storage/${event.event_paths[0]}`}
                       alt="Meet AutoManage, the best AI management tools"

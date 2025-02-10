@@ -112,20 +112,30 @@ function BlogPage() {
               </ContentLoader>
             ))
           : blogs.map((blog, index) => (
-              <article
+              <motion.article
                 className="blog-link-container"
+                whileHover={{ scale: 1.01 }}
+                transition={{
+                  type: 'tween',
+                  duration: 0.15,
+                  ease: 'easeInOut',
+                }}
                 to={`/`}
                 key={`blog-${index}`}
               >
-                <div
+                <a
+                  href={blog.link}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Medium'da blogu oku"
                   key={index}
-                  className={`dark:bg-tertiary-color bg-white w-full sm:w-[370px] rounded-lg overflow-hidden flex flex-col shadow-[0_4px_4px_rgba(0,0,0,0.25)]`}
+                  className={`dark:bg-tertiary-color bg-white w-full sm:w-[370px] rounded-lg overflow-hidden flex flex-col shadow-[0_2px_2px_rgba(0,0,0,0.15)]`}
                 >
                   <div className="relative h-[220px]">
                     <img
                       src={`${apiUrl}/storage/${blog.image}`}
                       alt={blog.title}
-                      className={`w-full h-[220px] object-cover opacity-100 rounded-b-none rounded-t-[8px] aspect-[37/22]`}
+                      className={`w-full h-[220px] object-cover opacity-100 rounded-b-none rounded-t-[8px] aspect-[37/22] bg-[#f3f3f3] dark:bg-[#202020]`}
                     />
                     <div className="blog-date mt-4">
                       <div className="bg-[#d37c26] text-white absolute top-3 right-3 px-[10px] py-[4px] sm:px-[15px] sm:py-[6px] rounded-[5px] body-extra-small-text-medium w-max">
@@ -144,18 +154,14 @@ function BlogPage() {
                     >
                       {blog.content}
                     </p>
-                    <a
-                      href={blog.link}
-                      target="_blank"
-                      rel="noopener"
-                      aria-label="Medium'da blogu oku"
+                    <div
                       className={`${style.buttonDark}  px-[28px] py-[12px] rounded-[50px] text-body-sm-regular sm:text-body-md-regular primary-text-color border-solid border-[1px]  dark:border-white dark:hover:border-primary-color dark:text-white hover:text-white hover:bg-[#d37c26] transition-all`}
                     >
                       Yazıyı Oku
-                    </a>
+                    </div>
                   </div>
-                </div>
-              </article>
+                </a>
+              </motion.article>
             ))}
       </section>
       <Pagination
