@@ -125,7 +125,7 @@ function Contact() {
 
         <form
           onSubmit={handleSubmit}
-          className="form-layout flex flex-col items-center gap-6 w-full"
+          className="form-layout flex flex-col items-center gap-6 w-full "
         >
           <div className="form-row flex flex-col sm:flex-row items-center gap-6 w-full">
             <div className="input-container flex flex-col gap-2 w-full">
