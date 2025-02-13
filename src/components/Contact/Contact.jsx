@@ -5,6 +5,7 @@ import style from './style.module.scss';
 import { useEffect, useState } from 'react';
 import Inputmask from 'inputmask';
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer, Bounce } from 'react-toastify';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -37,6 +38,18 @@ function Contact() {
       formErrors.agree =
         "KVKK Aydınlatma Metni'ni onaylamadan devam edemezsiniz.";
     setErrors(formErrors);
+
+    if (Object.keys(formErrors).length > 0) {
+      // Hataları Toastify ile göster
+      Object.values(formErrors).forEach((err) => {
+        toast.error(err, {
+          style: {
+            color: '#d37c26', // Yazı rengi
+          },
+        });
+      });
+    }
+
     return Object.keys(formErrors).length === 0;
   };
 
@@ -53,53 +66,8 @@ function Contact() {
     Inputmask('0 (999) 999 99 99').mask(phoneInput);
   }, []);
 
-  useEffect(() => {
-    if (window.innerWidth >= 640) {
-      const timer = setTimeout(() => {
-        setErrors({});
-      }, 5000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [errors]);
-
   return (
     <>
-      <div className="fixed hidden sm:flex flex-col gap-4 top-5 right-5 z-50">
-        {Object.keys(errors).map((key) => (
-          <div
-            key={key}
-            className="p-4 bg-red-400 text-white rounded-lg flex flex-col gap-2 shadow-md"
-          >
-            <div className="flex items-center gap-4">
-              <i className="bi bi-exclamation-circle-fill text-[20px]" />
-              {errors[key]}
-            </div>
-            {/* Yükleme Barı */}
-            <div className="h-[2px] w-full bg-white/50 rounded overflow-hidden">
-              <div
-                className="bg-white h-full"
-                style={{
-                  animation: 'progress 5s linear forwards',
-                }}
-              />
-            </div>
-          </div>
-        ))}
-
-        {/* Bar Animasyonuna Stil */}
-        <style>{`
-        @keyframes progress {
-          from {
-            width: 100%;
-          }
-          to {
-            width: 0;
-          }
-        }
-      `}</style>
-      </div>
-
       <div
         className={`${style.contactContainer} mx-auto flex max-w-7xl items-center flex-col pt-6 md:pt-[50px] pb-[90px] px-8 gap-12 md:gap-[60px]`}
       >
@@ -133,10 +101,7 @@ function Contact() {
                 htmlFor="fullname"
                 className="body-small-medium primary-color"
               >
-                Ad Soyad *{' '}
-                {errors.name && (
-                  <p className="text-red-500 flex sm:hidden">{errors.name}</p>
-                )}
+                Ad Soyad *
               </label>
               <input
                 value={formData.name}
@@ -154,10 +119,7 @@ function Contact() {
                 htmlFor="email"
                 className="body-small-medium primary-color"
               >
-                E-posta Adresi *{' '}
-                {errors.email && (
-                  <p className="text-red-500 flex sm:hidden">{errors.email}</p>
-                )}
+                E-posta Adresi *
               </label>
               <input
                 value={formData.email}
@@ -193,12 +155,7 @@ function Contact() {
                 htmlFor="subject"
                 className="body-small-medium primary-color"
               >
-                Konu *{' '}
-                {errors.subject && (
-                  <p className="text-red-500 flex sm:hidden">
-                    {errors.subject}
-                  </p>
-                )}
+                Konu *
               </label>
               <input
                 value={formData.subject}
@@ -218,12 +175,7 @@ function Contact() {
                 htmlFor="message"
                 className="body-small-medium primary-color"
               >
-                Mesajınız *{' '}
-                {errors.message && (
-                  <p className="text-red-500 flex sm:hidden">
-                    {errors.message}
-                  </p>
-                )}
+                Mesajınız *
               </label>
               <textarea
                 value={formData.message}
@@ -253,10 +205,7 @@ function Contact() {
                 >
                   KVKK Aydınlatma Metni
                 </Link>
-                &apos;ni okudum ve onaylıyorum.{' '}
-                {errors.agree && (
-                  <p className="text-red-500 flex sm:hidden">{errors.agree}</p>
-                )}
+                &apos;ni okudum ve onaylıyorum.
               </span>
             </label>
             <button
@@ -267,6 +216,20 @@ function Contact() {
             </button>
           </div>
         </form>
+
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition={Bounce}
+        />
       </div>
     </>
   );
