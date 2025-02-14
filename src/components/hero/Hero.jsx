@@ -30,11 +30,13 @@ const Hero = () => {
             >
               Topluluğumuza Katıl
             </button>
-            <button
+            <a
+              href="https://forms.gle/4TpWrXeMZTQrRRwT7"
+              target="_blank"
               className={`${style.buttonSecond} font-medium body-small-medium px-6 py-3 rounded-lg w-full md:w-max h-12 sm:text-sm hover:scale-105`}
             >
               Ekibimize Katıl
-            </button>
+            </a>
           </div>
           <div className="hidden md:flex gap-5 flex-wrap w-max mt-12">
             <div className="reached-people">

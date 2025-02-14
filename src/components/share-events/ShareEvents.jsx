@@ -80,7 +80,7 @@ const ShareEvent = ({ eventSlug, eventTitle }) => {
               <a
                 href={shareLinks.linkedin}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 className="flex gap-2 justify-center items-center px-3 py-3 screen-380:px-4 screen-380:py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-center"
               >
                 <Linkedin className="h-5 w-5"></Linkedin> LinkedIn'de Paylaş
@@ -88,7 +88,7 @@ const ShareEvent = ({ eventSlug, eventTitle }) => {
               <a
                 href={shareLinks.twitter}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 className="flex gap-2 justify-center items-center px-3 py-3 screen-380:px-4 screen-380:py-4 bg-black hover:bg-gray-900 text-white rounded-lg text-center"
               >
                 <TwitterX className="h-5 w-5"></TwitterX> X (Twitter)'da Paylaş
@@ -96,7 +96,7 @@ const ShareEvent = ({ eventSlug, eventTitle }) => {
               <a
                 href={shareLinks.whatsapp}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 className="flex gap-2 justify-center items-center px-3 py-3 screen-380:px-4 screen-380:py-4 bg-green-500 hover:bg-green-600 text-white rounded-lg text-center"
               >
                 <Whatsapp className="h-5 w-5"></Whatsapp> WhatsApp'ta Paylaş

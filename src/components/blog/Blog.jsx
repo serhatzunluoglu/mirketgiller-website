@@ -1,5 +1,6 @@
 import style from './styles.module.scss';
 import blogs from '../../assets/images/blogs/blogs.jpg';
+import { Link } from 'react-router-dom';
 
 const blogData = [
   {
@@ -82,12 +83,12 @@ const Blog = () => {
         </div>
 
         <div className="h-auto w-full flex items-center justify-center ">
-          <a
-            href="#"
+          <Link
+            to={'/blog'}
             className="text-body-sm-regular sm:text-body-md-regular  primary-color px-[20px] py-[12px] sm:py-[14px] sm:px-[28px] border-solid border-[1px] hover:bg-[#d37c26] transition hover:border-[#d37c26] hover:text-white rounded-[50px] text-center"
           >
             Blog Yazılarımıza Göz Atın ✍️
-          </a>
+          </Link>
         </div>
       </div>
     </div>

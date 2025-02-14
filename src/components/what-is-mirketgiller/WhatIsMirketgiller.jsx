@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import style from './style.module.scss';
 import dots from '../../assets/images/dots.png';
 
@@ -63,9 +63,12 @@ function WhatIsMirketgiller() {
               sağlıyoruz.
             </p>
           </div>
-          <Link className="py-[12px] px-7 w-fit flex items-center justify-center primary-color-bg text-white rounded-full text-body-sm-regular sm:text-body-md-medium hover:bg-[#eb9035]">
+          <NavLink
+            to={'/hakkimizda#team'}
+            className="py-[12px] px-7 w-fit flex items-center justify-center primary-color-bg text-white rounded-full text-body-sm-regular sm:text-body-md-medium hover:bg-[#eb9035]"
+          >
             Kimler var bu ekipte 👀
-          </Link>
+          </NavLink>
         </div>
       </div>
     </div>

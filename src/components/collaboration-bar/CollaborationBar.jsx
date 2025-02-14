@@ -54,7 +54,7 @@ const CollaborationBar = () => {
             key={index}
             className="flex gap-16 sm:gap-5 justify-center items-center"
           >
-            <a href={brand.link} target="_blank" rel="noopener noreferrer">
+            <a href={brand.link} target="_blank" rel="noopener">
               <img
                 src={brand.logo}
                 alt={brand.name}
