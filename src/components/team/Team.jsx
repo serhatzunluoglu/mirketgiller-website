@@ -109,7 +109,8 @@ const Team = () => {
                 className={`${style.personSocialMedia} flex w-full flex-col gap-4`}
               >
                 <a
-                  // href=`${member.linkedin}`
+                  href={`${member.linkedin}`}
+                  target="_blank"
                   className="person-linkedin flex items-center justify-center gap-3 p-4 border border-white border-solid rounded-full text-white cursor-pointer hover:bg-white hover:text-primary-color"
                 >
                   <Linkedin className="w-5 h-5" />
@@ -117,7 +118,8 @@ const Team = () => {
                 </a>
                 {member.other_link && (
                   <a
-                    href=""
+                    href={`${member.other_link}`}
+                    target="_blank"
                     className="person-website flex items-center justify-center gap-3 p-4 border border-white border-solid rounded-full text-white cursor-pointer hover:bg-white hover:text-primary-color"
                   >
                     <Globe2 className="w-5 h-5" />
@@ -131,9 +133,11 @@ const Team = () => {
                 <h3 className="primary-color body-medium-bold">
                   {member.name} {member.surname}
                 </h3>
-                <p className="text-white body-extra-small-text-regular text-center">
-                  {member.jobTitle}
-                </p>
+                {member.jobTitle && (
+                  <p className="text-white body-extra-small-text-regular text-center">
+                    {member.jobTitle}
+                  </p>
+                )}
               </div>
             </div>
           </motion.div>
