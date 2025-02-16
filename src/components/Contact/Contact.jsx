@@ -184,7 +184,7 @@ function Contact() {
                 id="message"
                 name="message"
                 placeholder="Mesajınızı yazın..."
-                className="px-4 py-3 border-[#D37C26] border text-body-sm-regular sm:text-body-md-regular rounded-lg w-full focus:outline-[#D37C26] h-[172px] min-h-[120px]"
+                className="px-4 py-3 border-[#D37C26] border text-body-sm-regular sm:text-body-md-regular rounded-lg w-full focus:outline-[#D37C26] h-[120px] min-h-[120px]"
               />
             </div>
           </div>
