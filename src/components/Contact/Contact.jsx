@@ -40,11 +40,10 @@ function Contact() {
     setErrors(formErrors);
 
     if (Object.keys(formErrors).length > 0) {
-      // Hataları Toastify ile göster
       Object.values(formErrors).forEach((err) => {
         toast.error(err, {
           style: {
-            color: '#d37c26', // Yazı rengi
+            color: '#d37c26',
           },
         });
       });
@@ -61,7 +60,6 @@ function Contact() {
   };
 
   useEffect(() => {
-    // Telefon numarası giriş alanına maske uygula
     const phoneInput = document.getElementById('phone');
     Inputmask('0 (999) 999 99 99').mask(phoneInput);
   }, []);
@@ -83,10 +81,10 @@ function Contact() {
           <p className="text-body-sm-regular sm:text-body-md-regular primary-text-color flex items-center gap-1">
             İletişim:
             <a
-              href="#"
+              href="mailto:mirketgillerresmi@gmail.com"
               className="text-center text-body-sm-bold sm:text-body-md-bold primary-color"
             >
-              lorem@ipsum.com
+              mirketgillerresmi@gmail.com
             </a>
           </p>
         </div>
@@ -147,6 +145,7 @@ function Contact() {
                 name="phone"
                 placeholder="0 (___) ___ __ __"
                 className="px-4 py-3 border-[#D37C26] border text-body-sm-regular sm:text-body-md-regular rounded-lg w-full focus:outline-[#D37C26]"
+                inputMode="numeric"
               />
             </div>
 

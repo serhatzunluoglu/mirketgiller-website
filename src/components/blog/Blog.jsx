@@ -1,5 +1,4 @@
 import style from './styles.module.scss';
-import blogs from '../../assets/images/blogs/blogs.jpg';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
@@ -73,6 +72,7 @@ const Blog = () => {
                   </p>
                   <a
                     href={blog.link}
+                    target="_blank"
                     className={`${style.buttonDark}  px-[28px] py-[12px] rounded-[50px] text-body-sm-regular sm:text-body-md-regular primary-text-color border-solid border-[1px] hover:text-white hover:bg-[#d37c26] transition-all`}
                   >
                     Yazıyı Oku
