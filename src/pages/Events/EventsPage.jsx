@@ -78,7 +78,7 @@ function EventsPage() {
   }, [pagination.current_page]);
 
   const handlePageChange = (page) => {
-    if (page > 0 && page <= pagination.last_page) {
+    if (!loading && page > 0 && page <= pagination.last_page) {
       setPagination((prev) => ({ ...prev, current_page: page }));
     }
   };
@@ -171,6 +171,7 @@ function EventsPage() {
         from={pagination.from}
         to={pagination.to}
         total={pagination.total}
+        isLoading={loading}
       />
     </motion.div>
   );
