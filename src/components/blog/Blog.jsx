@@ -1,32 +1,33 @@
 import style from './styles.module.scss';
 import blogs from '../../assets/images/blogs/blogs.jpg';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-const blogData = [
-  {
-    title: '50+ Best creative website themes & templates',
-    description:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-    image: blogs,
-    link: '#',
-  },
-  {
-    title: 'The ultimate UX and UI guide to card design',
-    description:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-    image: blogs,
-    link: '#',
-  },
-  {
-    title: 'Creative Card Component designsgraphic elements',
-    description:
-      'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-    image: blogs,
-    link: '#',
-  },
-];
+import { getBlogLittle } from '../../services/blogLittleService';
+
+function truncateText(text, maxLength) {
+  return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
+}
 
 const Blog = () => {
+  const [blogLittle, setBlogLittle] = useState([]);
+  const apiUrl = import.meta.env.VITE_API_URL;
+
+  useEffect(() => {
+    const fetchBlogLittle = async () => {
+      try {
+        const data = await getBlogLittle();
+        setBlogLittle(data);
+      } catch (error) {
+        console.error('Timeflow yüklenemedi.');
+      }
+    };
+
+    fetchBlogLittle();
+  }, []);
+
+  console.log(blogLittle);
+
   return (
     <div
       className={`${style.sectionDark} py-[64px] md:py-[90px] bg-[#F9FAFB] h-auto `}
@@ -47,34 +48,34 @@ const Blog = () => {
 
         <div className={`flex flex-wrap w-full lg:flex-nowrap gap-[30px] `}>
           <div className="flex flex-wrap w-full items-center justify-center  xl:justify-between  gap-8">
-            {blogData.map((blog, index) => (
+            {blogLittle.map((blog, index) => (
               <div
                 key={index}
                 className={`${style.bgDark} bg-white w-full sm:w-[370px] rounded-lg overflow-hidden flex flex-col`}
               >
                 <div>
                   <img
-                    src={blog.image}
+                    src={`${apiUrl}/storage/${blog.image}`}
                     alt={blog.title}
                     className={`w-full h-[220px] object-cover opacity-100 rounded-b-none rounded-t-[8px]`}
                   />
                 </div>
                 <div className="flex flex-col px-[34px] py-[30px] items-center justify-center">
                   <div
-                    className={`${style.stroke} text-center text-xl font-sans font-semibold sm:heading-6 mg-dark cursor-pointer transition-all`}
+                    className={`dark:text-white  min-h-[56px] text-center text-xl font-sans font-semibold sm:heading-6 mg-dark cursor-pointer transition-all line-clamp-2`}
                   >
-                    {blog.title}
+                    {truncateText(blog.title, 50)}
                   </div>
                   <p
-                    className={`${style.stroke} w-full text-center pt-[14px] pb-[28px] primary-text-color text-body-sm-regular sm:text-body-md-regular`}
+                    className={`dark:text-white w-full min-h-[72px] text-center mt-[14px] mb-[28px] primary-text-color text-body-sm-regular sm:text-body-md-regular line-clamp-3`}
                   >
-                    {blog.description}
+                    {blog.content}
                   </p>
                   <a
                     href={blog.link}
                     className={`${style.buttonDark}  px-[28px] py-[12px] rounded-[50px] text-body-sm-regular sm:text-body-md-regular primary-text-color border-solid border-[1px] hover:text-white hover:bg-[#d37c26] transition-all`}
                   >
-                    View Details
+                    Yazıyı Oku
                   </a>
                 </div>
               </div>
