@@ -3,7 +3,7 @@ import style from './style.module.scss';
 
 // Third-party library imports
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 // Other imports
 import { getTimeflows } from '../../services/timeFlowService';
@@ -12,6 +12,8 @@ import formatEventDate from '../../utils/formatEventDate';
 function TimeFlow() {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1020);
   const [timeflows, setTimeflows] = useState([]);
+  const sectionRef = useRef(null);
+  const [inView, setInView] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -35,11 +37,26 @@ function TimeFlow() {
     fetchTimeflows();
   }, []);
 
+  // Intersection Observer ile görünürlüğü kontrol et
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const largeScreenVariants = {
-    hidden: (direction) => ({
-      y: '-50vh',
-      opacity: 0,
-    }),
+    hidden: { y: '-50vh', opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
@@ -60,17 +77,13 @@ function TimeFlow() {
     visible: {
       x: 0,
       opacity: 1,
-      transition: {
-        type: 'tween',
-        stiffness: 110,
-        damping: 110,
-        duration: 2,
-      },
+      transition: { type: 'tween', stiffness: 110, damping: 110, duration: 2 },
     },
   };
 
   return (
     <div
+      ref={sectionRef}
       className={`mx-auto flex items-center flex-col bg-[#F9FAFB] justify-center px-8 py-16 md:py-[90px] overflow-hidden ${style.timeflowBackground}`}
     >
       {timeflows.map((item, index) => {
@@ -88,7 +101,7 @@ function TimeFlow() {
             <motion.div
               custom={isSmallScreen ? 'right' : isRight ? 'right' : 'left'}
               initial="hidden"
-              animate="visible"
+              animate={inView ? 'visible' : 'hidden'}
               variants={
                 isSmallScreen ? smallScreenVariants : largeScreenVariants
               }

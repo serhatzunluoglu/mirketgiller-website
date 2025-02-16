@@ -9,11 +9,10 @@ import style from './style.module.scss';
 import { useAppContext } from '../../context/AppContext';
 
 // eslint-disable-next-line react/prop-types
-function Pagination({ currentPage, totalPages, onPageChange }) {
+function Pagination({ currentPage, totalPages, onPageChange, isLoading }) {
   const { theme } = useAppContext();
-  const [isLoading, setIsLoading] = useState(false);
-  const isPrevDisabled = currentPage === 1 || isLoading;
-  const isNextDisabled = currentPage === totalPages || isLoading;
+  const isPrevDisabled = currentPage === 1;
+  const isNextDisabled = currentPage === totalPages;
 
   // Maksimum 5 sayfa göstermek için sayfa aralığını hesaplama
   const getPageNumbers = () => {
@@ -43,7 +42,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
             isPrevDisabled
               ? 'opacity-50 cursor-auto'
               : 'hover:bg-[#d37c26] hover:text-white hover:border-none'
-          } `}
+          } ${isLoading ? 'cursor-not-allowed' : ''}`}
           onClick={() => onPageChange(currentPage - 1)}
           disabled={isPrevDisabled}
         >
@@ -61,7 +60,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
                       ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                       : `dark:bg-secondary-color dark:hover:bg-[#202020] text-[#dcdcdc]`
                   }`
-            }`}
+            } ${isLoading ? 'cursor-not-allowed' : ''}`}
             onClick={() => onPageChange(page)}
           >
             {page}
@@ -75,7 +74,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
             isNextDisabled
               ? 'opacity-50 cursor-auto'
               : 'hover:bg-[#d37c26] hover:text-white hover:border-none'
-          } `}
+          } ${isLoading ? 'cursor-not-allowed' : ''}`}
           onClick={() => onPageChange(currentPage + 1)}
           disabled={isNextDisabled}
         >

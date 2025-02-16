@@ -1,16 +1,24 @@
-// Stylesheet imports
-import { useState } from 'react';
+// Third-party library imports
+import { useState, useEffect, Fragment } from 'react';
 import { motion } from 'framer-motion';
 import { Globe2, Linkedin } from 'react-bootstrap-icons';
+import ContentLoader from 'react-content-loader';
+
+// Other imports
+import { getTeamMember } from '../../services/teamMemberService';
+import { useAppContext } from '../../context/AppContext';
 
 // Stylesheet imports
 import style from './styles.module.scss';
 
 const Team = () => {
-  const [activeButton, setActiveButton] = useState(1);
   const [isAnimating, setIsAnimating] = useState(false);
-
+  const [teamMemberData, setTeamMemberData] = useState([]);
   const [flippedCards, setFlippedCards] = useState({});
+  const [activeDepartment, setActiveDepartment] = useState('yonetim-kurulu');
+  const [loading, setLoading] = useState(true);
+  const { theme } = useAppContext();
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const handleFlip = (id, isFlipped) => {
     setFlippedCards((prev) => ({
@@ -19,129 +27,95 @@ const Team = () => {
     }));
   };
 
-  const teamData = [
-    {
-      id: 1,
-      name: 'Coriss Ambady',
-      role: 'Web Developer',
-      image:
-        'https://cdn0.iconfinder.com/data/icons/user-pictures/100/maturewoman-2-512.png',
-      category: 'management',
-    },
-    {
-      id: 2,
-      name: 'Serhat İsmail Zunluoğlu',
-      role: 'Yönetim Kurulu Üyesi',
-      image:
-        'https://cdn0.iconfinder.com/data/icons/user-pictures/100/boy-2-512.png',
-      category: 'management',
-    },
-    {
-      id: 3,
-      name: 'Glorius Cristian',
-      role: 'UI/UX Designer',
-      image:
-        'https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman2-2-512.png',
-      category: 'department_heads',
-    },
-    {
-      id: 4,
-      name: 'Nikolas Brooten',
-      role: 'Sales Manager',
-      image:
-        'https://cdn0.iconfinder.com/data/icons/user-pictures/100/supportfemale-2-512.png',
-      category: 'general_members',
-    },
-    {
-      id: 5,
-      name: 'Glorius Cristian',
-      role: 'App Developer',
-      image:
-        'https://cdn0.iconfinder.com/data/icons/user-pictures/100/supportmale-2-256.png',
-      category: 'department_heads',
-    },
-    {
-      id: 6,
-      name: 'Glorius Cristian',
-      role: 'App Developer',
-      image:
-        'https://cdn0.iconfinder.com/data/icons/user-pictures/100/boy-2-512.png',
-      category: 'general_members',
-    },
-    {
-      id: 7,
-      name: 'Glorius Cristian',
-      role: 'App Developer',
-      image:
-        'https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-512.png',
-      category: 'department_heads',
-    },
-    {
-      id: 8,
-      name: 'Glorius Cristian',
-      role: 'IOS Developer',
-      image:
-        'https://cdn0.iconfinder.com/data/icons/user-pictures/100/boy-2-512.png',
-      category: 'management',
-    },
-  ];
+  useEffect(() => {
+    const fetchTeamMember = async () => {
+      setLoading(true);
+      try {
+        const data = await getTeamMember(activeDepartment);
+        setTeamMemberData(data);
+      } catch (error) {
+        console.error('Team Member yüklenemedi.');
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const renderTeamMembers = (category) => {
-    return teamData
-      .filter((member) => member.category === category)
-      .map((member) => (
-        <div
-          key={member.id}
-          onMouseEnter={() => handleFlip(member.id, true)}
-          onMouseLeave={() => handleFlip(member.id, false)}
-          className={`${style.flipCard} w-[270px] h-[330px]`}
+    fetchTeamMember();
+  }, [activeDepartment]);
+
+  const renderSkeletons = () => {
+    return Array.from({ length: 3 }).map((_, index) => (
+      <ContentLoader
+        key={`loader-${index}`}
+        speed={2}
+        width={270}
+        height={330}
+        viewBox="0 0 270 330"
+        backgroundColor={`${theme === 'light' ? '#f3f3f3' : '#1a1a1a'}`}
+        foregroundColor={`${theme === 'light' ? '#ecebeb' : '#202020'}`}
+        title="Yükleniyor..."
+      >
+        <rect x="0" y="0" rx="8" ry="8" width="270" height="330" />
+      </ContentLoader>
+    ));
+  };
+
+  const renderTeamMembers = (department) => {
+    return teamMemberData.map((member, index) => (
+      <div
+        key={index}
+        onMouseEnter={() => handleFlip(index, true)}
+        onMouseLeave={() => handleFlip(index, false)}
+        className={`${style.flipCard} w-[270px] h-[330px]`}
+      >
+        <motion.div
+          initial={{ opacity: 0, translateY: -30 }}
+          animate={{ opacity: 1, translateY: 0 }}
+          exit={{ opacity: 0 }}
         >
           <motion.div
-            initial={{ opacity: 0, translateY: -30 }}
-            animate={{ opacity: 1, translateY: 0 }}
-            exit={{ opacity: 0 }}
+            className={`${style.flipCardInner} w-[270px] h-[330px]`}
+            initial={false}
+            animate={{ rotateY: flippedCards[index] ? 180 : 0 }}
+            transition={{ duration: 0.1, animationDirection: 'normal' }}
+            onAnimationComplete={() => setIsAnimating(false)}
           >
-            <motion.div
-              className={`${style.flipCardInner} w-[270px] h-[330px]`}
-              initial={false}
-              animate={{ rotateY: flippedCards[member.id] ? 180 : 0 }}
-              transition={{ duration: 0.1, animationDirection: 'normal' }}
-              onAnimationComplete={() => setIsAnimating(false)}
+            <div
+              className={`${style.flipCardFront} flex items-center justify-center relative gap-[30px]`}
+            >
+              <img
+                src={`${apiUrl}/storage/${member.image}`}
+                alt={`${member.name} ${member.surname}`}
+                className="w-[270px] h-[330px] object-cover rounded-[8px]"
+              />
+              <div
+                className={`${style.nameBoxDark} p-4 absolute bottom-4 flex flex-col items-center justify-center rounded-[8px] px-4 w-[230px]`}
+              >
+                <h3 className="primary-color body-medium-bold text-center">
+                  {member.name} {member.surname}
+                </h3>
+                <p
+                  className={`text-white body-extra-small-text-regular text-center`}
+                >
+                  {/* {member.role} */}
+                  Mirketgiller Rolü
+                </p>
+              </div>
+            </div>
+            <div
+              className={`${style.flipCardBack} w-[270px] h-[330px] px-5 flex flex-col items-center justify-end relative pb-5 gap-12 primary-color-bg rounded-[8px]`}
             >
               <div
-                className={`${style.flipCardFront} flex items-center justify-center relative gap-[30px]`}
+                className={`${style.personSocialMedia} flex w-full flex-col gap-4`}
               >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-[270px] h-[330px] object-cover rounded-[8px]"
-                />
-                <div
-                  className={`${style.nameBoxDark} p-4 absolute bottom-4 flex flex-col items-center justify-center rounded-[8px] px-4 w-[230px]`}
+                <a
+                  // href=`${member.linkedin}`
+                  className="person-linkedin flex items-center justify-center gap-3 p-4 border border-white border-solid rounded-full text-white cursor-pointer hover:bg-white hover:text-primary-color"
                 >
-                  <h3 className="primary-color body-medium-bold text-center">
-                    {member.name}
-                  </h3>
-                  <p
-                    className={`text-white body-extra-small-text-regular text-center`}
-                  >
-                    {member.role}
-                  </p>
-                </div>
-              </div>
-              <div
-                className={`${style.flipCardBack} w-[270px] h-[330px] px-5 flex flex-col items-center justify-end relative pb-5 gap-12 primary-color-bg rounded-[8px]`}
-              >
-                <div
-                  className={`${style.personSocialMedia} flex w-full flex-col gap-4`}
-                >
-                  <a
-                    href=""
-                    className="person-linkedin flex items-center justify-center gap-3 p-4 border border-white border-solid rounded-full text-white cursor-pointer hover:bg-white hover:text-primary-color"
-                  >
-                    <Linkedin className="w-5 h-5" />
-                    <span className="text-body-md-medium">Linkedin</span>
-                  </a>
+                  <Linkedin className="w-5 h-5" />
+                  <span className="text-body-md-medium">Linkedin</span>
+                </a>
+                {member.other_link && (
                   <a
                     href=""
                     className="person-website flex items-center justify-center gap-3 p-4 border border-white border-solid rounded-full text-white cursor-pointer hover:bg-white hover:text-primary-color"
@@ -149,22 +123,23 @@ const Team = () => {
                     <Globe2 className="w-5 h-5" />
                     <span className="text-body-md-medium">Website</span>
                   </a>
-                </div>
-                <div
-                  className={`${style.nameBoxDark} p-4 bottom-4 flex flex-col items-center justify-center rounded-[8px] w-full text-center`}
-                >
-                  <h3 className="primary-color body-medium-bold">
-                    {member.name}
-                  </h3>
-                  <p className="text-white body-extra-small-text-regular text-center">
-                    CARD BACK
-                  </p>
-                </div>
+                )}
               </div>
-            </motion.div>
+              <div
+                className={`${style.nameBoxDark} p-4 bottom-4 flex flex-col items-center justify-center rounded-[8px] w-full text-center`}
+              >
+                <h3 className="primary-color body-medium-bold">
+                  {member.name} {member.surname}
+                </h3>
+                <p className="text-white body-extra-small-text-regular text-center">
+                  {member.jobTitle}
+                </p>
+              </div>
+            </div>
           </motion.div>
-        </div>
-      ));
+        </motion.div>
+      </div>
+    ));
   };
 
   return (
@@ -188,30 +163,30 @@ const Team = () => {
         >
           <div className="flex gap-4 flex-wrap items-center justify-center">
             <a
-              onClick={() => setActiveButton(1)}
-              className={`${activeButton === 1 ? style.active : ''} ${
-                style.buttonDark
-              } ${
+              onClick={() => setActiveDepartment('yonetim-kurulu')}
+              className={`${
+                activeDepartment === 'yonetim-kurulu' ? style.active : ''
+              } ${style.buttonDark} ${
                 style.buttonHover
               } px-[28px] py-[12px] rounded-[50px] primary-color hover:text-white hover:bg-[#d37c26] border-solid border-[1px] cursor-pointer transition-all text-body-sm-regular sm:text-body-md-regular`}
             >
               Yönetim Kurulu
             </a>
             <a
-              onClick={() => setActiveButton(2)}
-              className={`${activeButton === 2 ? style.active : ''} ${
-                style.buttonDark
-              } ${
+              onClick={() => setActiveDepartment('departman-baskani')}
+              className={`${
+                activeDepartment === 'departman-baskani' ? style.active : ''
+              } ${style.buttonDark} ${
                 style.buttonHover
               } px-[28px] py-[12px] rounded-[50px] primary-color hover:text-white hover:bg-[#d37c26] border-solid border cursor-pointer transition-all text-body-sm-regular sm:text-body-md-regular`}
             >
               Departman Başkanları
             </a>
             <a
-              onClick={() => setActiveButton(3)}
-              className={`${activeButton === 3 ? style.active : ''} ${
-                style.buttonDark
-              } ${
+              onClick={() => setActiveDepartment('genel-ekip-uyesi')}
+              className={`${
+                activeDepartment === 'genel-ekip-uyesi' ? style.active : ''
+              } ${style.buttonDark} ${
                 style.buttonHover
               } px-[28px] py-[12px] rounded-[50px] primary-color hover:text-white hover:bg-[#d37c26] border-solid border-[1px] cursor-pointer transition-all text-body-sm-regular sm:text-body-md-regular`}
             >
@@ -221,9 +196,18 @@ const Team = () => {
         </div>
 
         <div className="w-full flex justify-center 3xl:justify-between items-center gap-[30px] flex-wrap">
-          {activeButton === 1 && renderTeamMembers('management')}
-          {activeButton === 2 && renderTeamMembers('department_heads')}
-          {activeButton === 3 && renderTeamMembers('general_members')}
+          {loading ? (
+            renderSkeletons()
+          ) : (
+            <Fragment>
+              {activeDepartment === 'yonetim-kurulu' &&
+                renderTeamMembers('yonetim-kurulu')}
+              {activeDepartment === 'departman-baskani' &&
+                renderTeamMembers('departman-baskani')}
+              {activeDepartment === 'genel-ekip-uyesi' &&
+                renderTeamMembers('genel-ekip-uyesi')}
+            </Fragment>
+          )}
         </div>
       </div>
     </div>

@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import ContentLoader from 'react-content-loader';
 import { motion } from 'framer-motion';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 // Stylesheet imports
 import style from './styles.module.scss';
@@ -63,7 +62,7 @@ function BlogPage() {
   }, [pagination.current_page]);
 
   const handlePageChange = (page) => {
-    if (page > 0 && page <= pagination.last_page) {
+    if (!loading && page > 0 && page <= pagination.last_page) {
       setPagination((prev) => ({ ...prev, current_page: page }));
     }
   };
@@ -171,6 +170,7 @@ function BlogPage() {
         from={pagination.from}
         to={pagination.to}
         total={pagination.total}
+        isLoading={loading}
       />
     </motion.div>
   );
