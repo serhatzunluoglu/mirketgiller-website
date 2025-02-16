@@ -72,8 +72,6 @@ function Contact() {
           privacy_policy_consent: formData.privacy_policy_consent ? 1 : 0, // Kesin olarak 1 veya 0 olacak
         };
         delete payload.name; // name alanını kaldır
-
-        console.log('Gönderilen veri:', payload);
         const response = await postContact(payload);
         setSuccess('Mesajınız başarıyla gönderildi!');
         toast.error('Mesajınız başarıyla gönderildi!', {
