@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import Inputmask from 'inputmask';
 import { Link } from 'react-router-dom';
 import { toast, ToastContainer, Bounce } from 'react-toastify';
+import postContact from '../../services/contactService';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -13,14 +14,19 @@ function Contact() {
     email: '',
     subject: '',
     message: '',
+    phone: '',
+    privacy_policy_consent: 0,
   });
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
 
   const handleChange = (e) => {
     const { name, type, value, checked } = e.target;
     setFormData({
       ...formData,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: type === 'checkbox' ? (checked ? 1 : 0) : value,
     });
   };
 
@@ -34,8 +40,8 @@ function Contact() {
     }
     if (!formData.subject) formErrors.subject = 'Konu alanı zorunludur.';
     if (!formData.message) formErrors.message = 'Mesaj alanı zorunludur.';
-    if (!formData.agree)
-      formErrors.agree =
+    if (!formData.privacy_policy_consent)
+      formErrors.privacy_policy_consent =
         "KVKK Aydınlatma Metni'ni onaylamadan devam edemezsiniz.";
     setErrors(formErrors);
 
@@ -52,10 +58,47 @@ function Contact() {
     return Object.keys(formErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      alert('Form başarıyla gönderildi!');
+      setLoading(true);
+      setError(null);
+      setSuccess(null);
+
+      try {
+        const payload = {
+          ...formData,
+          full_name: formData.name, // name yerine full_name kullanılıyor
+          privacy_policy_consent: formData.privacy_policy_consent ? 1 : 0, // Kesin olarak 1 veya 0 olacak
+        };
+        delete payload.name; // name alanını kaldır
+
+        console.log('Gönderilen veri:', payload);
+        const response = await postContact(payload);
+        setSuccess('Mesajınız başarıyla gönderildi!');
+        toast.error('Mesajınız başarıyla gönderildi!', {
+          style: {
+            color: '#d37c26',
+          },
+        });
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: '',
+          privacy_policy_consent: 0,
+        });
+      } catch (err) {
+        setError('Bir hata oluştu, lütfen tekrar deneyin.');
+        toast.error('Bir hata oluştu, lütfen tekrar deneyin.', {
+          style: {
+            color: '#d37c26',
+          },
+        });
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
@@ -140,6 +183,8 @@ function Contact() {
                 Telefon Numaranız
               </label>
               <input
+                value={formData.phone}
+                onChange={handleChange}
                 type="text"
                 id="phone"
                 name="phone"
@@ -192,8 +237,8 @@ function Contact() {
             <label className={style.checkBoxContainer}>
               <input
                 type="checkbox"
-                name="agree"
-                checked={formData.agree}
+                name="privacy_policy_consent"
+                checked={formData.privacy_policy_consent}
                 onChange={handleChange}
               />
               <div className={style.checkmark}></div>
@@ -210,8 +255,9 @@ function Contact() {
             <button
               type="submit"
               className="text-body-sm-regular sm:text-body-md-regular w-full sm:w-[240px] primary-color-bg py-4 rounded-full text-white hover:bg-[#eb9035]"
+              disabled={loading}
             >
-              Gönder
+              {loading ? 'Gönderiliyor...' : 'Gönder'}
             </button>
           </div>
         </form>
