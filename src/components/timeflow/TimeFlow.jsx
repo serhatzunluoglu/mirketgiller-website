@@ -104,14 +104,9 @@ function TimeFlow() {
                   className={`span-line w-1 h-full ${style.strokeColorBg}`}
                 ></div>
               </div>
-              <div className="content-container w-[360px]">
-                <h3
-                  className={`heading-6 primary-color ${
-                    !isRight ? 'text-left lg:text-right' : ''
-                  } w-full text-wrap`}
-                >
-                  {item.heading}
-                </h3>
+              <div
+                className={`${style.contentContainer} w-[360px] flex flex-col gap-1`}
+              >
                 <h4
                   className={`primary-color text-body-sm-medium ${
                     !isRight ? 'text-left lg:text-right' : ''
@@ -119,8 +114,15 @@ function TimeFlow() {
                 >
                   {formatEventDate(item.time)}
                 </h4>
+                <h3
+                  className={`heading-6 primary-color ${
+                    !isRight ? 'text-left lg:text-right' : ''
+                  } w-full text-wrap`}
+                >
+                  {item.heading}
+                </h3>
                 <p
-                  className={`body-small-regular primary-color ${
+                  className={`body-small-regular primary-text-color ${
                     !isRight ? 'text-left lg:text-right' : ''
                   } w-full text-wrap`}
                 >
