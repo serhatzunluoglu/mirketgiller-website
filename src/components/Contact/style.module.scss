@@ -2,12 +2,6 @@
   :global(.Toastify__progress-bar-theme--light.Toastify__progress-bar--error) {
     background: var(--primary-color);
   }
-
-  :global(.Toastify__toast-icon) {
-    svg {
-      fill: var(--primary-color);
-    }
-  }
 }
 
 html[data-theme='dark'] {

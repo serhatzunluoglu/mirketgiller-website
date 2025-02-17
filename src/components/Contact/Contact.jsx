@@ -74,7 +74,7 @@ function Contact() {
         delete payload.name; // name alanını kaldır
         const response = await postContact(payload);
         setSuccess('Mesajınız başarıyla gönderildi!');
-        toast.error('Mesajınız başarıyla gönderildi!', {
+        toast.success('Mesajınız başarıyla gönderildi!', {
           style: {
             color: '#d37c26',
           },
