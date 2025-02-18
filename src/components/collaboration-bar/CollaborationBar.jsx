@@ -1,6 +1,8 @@
 import { useRef, useEffect, useState } from 'react';
 import { getCollaborations } from '../../services/collaborationBarService';
 import style from './style.module.scss';
+
+// Third-party library imports
 import { useAppContext } from '../../context/AppContext';
 import ContentLoader from 'react-content-loader';
 
@@ -28,8 +30,6 @@ const CollaborationBar = () => {
 
     fetchTeamMember();
   }, []);
-  console.log('repeatedBrands', repeatedBrands);
-  console.log('collaborations', collaborations);
 
   const handleMouseEnter = () => {
     if (scrollRef.current) {
