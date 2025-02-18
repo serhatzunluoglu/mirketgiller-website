@@ -1,7 +1,7 @@
 // Third-party library imports
 import { useState, useEffect, Fragment } from 'react';
 import { motion } from 'framer-motion';
-import { Globe2, Linkedin } from 'react-bootstrap-icons';
+import { Link45deg, Linkedin } from 'react-bootstrap-icons';
 import ContentLoader from 'react-content-loader';
 
 // Other imports
@@ -60,7 +60,7 @@ const Team = () => {
     ));
   };
 
-  const renderTeamMembers = (department) => {
+  const renderTeamMembers = () => {
     return teamMemberData.map((member, index) => (
       <div
         key={index}
@@ -94,12 +94,13 @@ const Team = () => {
                 <h3 className="primary-color body-medium-bold text-center">
                   {member.name} {member.surname}
                 </h3>
-                <p
-                  className={`text-white body-extra-small-text-regular text-center`}
-                >
-                  {/* {member.role} */}
-                  Mirketgiller Rolü
-                </p>
+                {member.mirketgiller_title && (
+                  <p
+                    className={`text-white body-extra-small-text-regular text-center`}
+                  >
+                    {member.mirketgiller_title}
+                  </p>
+                )}
               </div>
             </div>
             <div
@@ -122,7 +123,7 @@ const Team = () => {
                     target="_blank"
                     className="person-website flex items-center justify-center gap-3 p-4 border border-white border-solid rounded-full text-white cursor-pointer hover:bg-white hover:text-primary-color"
                   >
-                    <Globe2 className="w-5 h-5" />
+                    <Link45deg className="w-6 h-6" />
                     <span className="text-body-md-medium">Website</span>
                   </a>
                 )}
@@ -133,9 +134,9 @@ const Team = () => {
                 <h3 className="primary-color body-medium-bold">
                   {member.name} {member.surname}
                 </h3>
-                {member.jobTitle && (
+                {member.title && (
                   <p className="text-white body-extra-small-text-regular text-center">
-                    {member.jobTitle}
+                    {member.title}
                   </p>
                 )}
               </div>
