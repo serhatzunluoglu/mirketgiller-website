@@ -127,7 +127,7 @@ function EventDetailPage() {
         ) : (
           <Fragment>
             <Helmet>
-              <title>Mirketgiller | {event.title}</title>
+              <title>{event.title} | Mirketgiller</title>
               <meta name="description" content={event.content} />
               {/* Open Graph Meta Tags for Event */}
               <meta property="og:title" content={event.title} />
@@ -188,7 +188,11 @@ function EventDetailPage() {
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
                   className={`${style.darkThemeWhiteText} event-text text-body-md-regular mt-6 space-y-4`}
-                  style={{ whiteSpace: 'pre-line' }}
+                  components={{
+                    strong: ({ children }) => (
+                      <strong className="align-baseline">{children}</strong>
+                    ),
+                  }}
                 >
                   {event.content}
                 </ReactMarkdown>
