@@ -9,6 +9,8 @@ import { useMediaQuery } from 'react-responsive';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -37,7 +39,7 @@ function EventDetailPage() {
     const fetchEvent = async () => {
       try {
         const response = await axios.get(`${apiUrl}/api/events/${slug}`);
-        console.log(response);
+        console.log(response.data.post);
         setEvent(response.data.post);
       } catch (error) {
         if (error.response && error.response.status === 404) {
@@ -183,11 +185,13 @@ function EventDetailPage() {
                     })}
                   </Swiper>
                 </div>
-                <div
-                  className={`${style.darkThemeWhiteText} event-text text-body-md-regular mt-6`}
+                <ReactMarkdown
+                  remarkPlugins={[remarkGfm]}
+                  className={`${style.darkThemeWhiteText} event-text text-body-md-regular mt-6 space-y-4`}
+                  style={{ whiteSpace: 'pre-line' }}
                 >
                   {event.content}
-                </div>
+                </ReactMarkdown>
               </div>
               <div className="event-right w-full md:w-4/12">
                 <div

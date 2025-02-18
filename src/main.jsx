@@ -11,12 +11,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </AppProvider>
   </React.StrictMode>
 );
-
-
-console.log('%c Mirketgiller', 'font-size: 20px; font-weight: bold; color: #d37c26; transform: rotate(360deg);');
-
-
-
-
-
-                                                                                                        

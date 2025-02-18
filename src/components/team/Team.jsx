@@ -44,7 +44,9 @@ const Team = () => {
   }, [activeDepartment]);
 
   const renderSkeletons = () => {
-    return Array.from({ length: 3 }).map((_, index) => (
+    return Array.from({
+      length: activeDepartment === 'genel-ekip-uyesi' ? 16 : 4,
+    }).map((_, index) => (
       <ContentLoader
         key={`loader-${index}`}
         speed={2}

@@ -47,7 +47,6 @@ function BlogPage() {
         `https://admin.mirketgiller.com.tr/api/posts?per_page=${pagination.per_page}&page=${page}`
       );
       const data = response.data;
-      console.log(data);
       setBlogs(data.posts);
       setPagination(data.pagination);
     } catch (error) {

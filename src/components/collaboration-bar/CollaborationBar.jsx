@@ -28,8 +28,6 @@ const CollaborationBar = () => {
 
     fetchTeamMember();
   }, []);
-  console.log('repeatedBrands', repeatedBrands);
-  console.log('collaborations', collaborations);
 
   const handleMouseEnter = () => {
     if (scrollRef.current) {

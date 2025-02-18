@@ -6,8 +6,14 @@ function eventTypeBgColor(eventType) {
       return 'bg-[#007bff]';
     case 'hackathon':
       return 'bg-[#28a745]';
-    case 'Webinar':
-      return 'bg-[#6f42c1]';
+    case 'webinar':
+      return 'bg-[#00AC47]';
+    case 'conference':
+      return 'bg-[#3500ff]';
+    case 'workshop':
+      return 'bg-[#2bb2e7]';
+    case 'bootcamp':
+      return 'bg-[#e52828]';
     default:
       return 'bg-[#d37c26]';
   }
