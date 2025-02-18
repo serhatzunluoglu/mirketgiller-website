@@ -11,31 +11,8 @@ import style from './styles.module.scss';
 // Other imports
 import { useAppContext } from '../../context/AppContext';
 import Pagination from '../../components/pagination/Pagination';
-
-function formatDate(inputDate) {
-  const date = new Date(inputDate);
-
-  return date.toLocaleDateString('tr-TR', {
-    month: 'short',
-    day: '2-digit',
-    year: 'numeric',
-  });
-}
-
-function getBackgroundColor(eventType) {
-  switch (eventType) {
-    case 'ideathon':
-      return 'bg-[#ff6347]';
-    case 'meetup':
-      return 'bg-[#007bff]';
-    case 'hackathon':
-      return 'bg-[#28a745]';
-    case 'Webinar':
-      return 'bg-[#6f42c1]';
-    default:
-      return 'bg-[#d37c26]';
-  }
-}
+import formatDate from '../../utils/formatDate';
+import eventTypeBgColor from '../../utils/eventTypeBgColor';
 
 function truncateText(text, maxLength) {
   return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
@@ -121,7 +98,6 @@ function EventsPage() {
                 <rect x="0" y="236" rx="5" ry="5" width="105" height="32" />
                 {/* Title */}
                 <rect x="0" y="292" rx="5" ry="5" width="370" height="25" />
-                <rect x="0" y="327" rx="5" ry="5" width="300" height="25" />
               </ContentLoader>
             ))
           : events.map((event, index) => (
@@ -140,7 +116,7 @@ function EventsPage() {
                       className={`${style.imageHover} w-full aspect-[370/220] min-h-40 h-auto sm:h-[220px] object-cover rounded-[5px] opacity-100`}
                     />
                     <span
-                      className={`${getBackgroundColor(
+                      className={`${eventTypeBgColor(
                         event.event_type
                       )} text-white px-[8px] py-[2px] sm:px-[10px] sm:py-[4px] rounded-[5px] body-extra-small-text-medium absolute top-2 right-2`}
                     >
@@ -154,7 +130,7 @@ function EventsPage() {
                   </div>
                   <div className="event-texts flex flex-col gap-4 mt-6">
                     <div
-                      className={`${style.textDark} ${style.textHover} text-base screen-380:text-xl font-sans font-semibold sm:heading- mg-dark cursor-pointer transition-all min-h-[60px]`}
+                      className={`${style.textDark} ${style.textHover} text-base screen-380:text-xl font-sans font-semibold sm:heading-6 mg-dark cursor-pointer transition-all min-h-[60px]`}
                     >
                       {truncateText(event.title, 50)}
                     </div>

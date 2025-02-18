@@ -14,6 +14,7 @@ function TimeFlow() {
   const [timeflows, setTimeflows] = useState([]);
   const sectionRef = useRef(null);
   const [inView, setInView] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false); // Yeni state eklendi
 
   useEffect(() => {
     const handleResize = () => {
@@ -37,10 +38,15 @@ function TimeFlow() {
     fetchTimeflows();
   }, []);
 
-  // Intersection Observer ile görünürlüğü kontrol et
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => setInView(entry.isIntersecting),
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setInView(true);
+          setHasAnimated(true);
+          observer.disconnect();
+        }
+      },
       { threshold: 0.3 }
     );
 
@@ -53,7 +59,7 @@ function TimeFlow() {
         observer.unobserve(sectionRef.current);
       }
     };
-  }, []);
+  }, [hasAnimated]); // Dependenciye `hasAnimated` eklendi
 
   const largeScreenVariants = {
     hidden: { y: '-50vh', opacity: 0 },

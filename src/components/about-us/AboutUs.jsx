@@ -32,16 +32,14 @@ const AboutUs = () => {
                 <p
                   className={`${style.textDark} primary-text-color text-body-sm-regular sm:text-body-md-regular`}
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-                  nec molestie arcu. Nam egestas a enim a aliquam. Fusce quam
-                  nulla, lobortis id lorem vel, hendrerit ultricies ligula. Nunc
-                  lobortis purus ac finibus cursus. Duis id volutpat turpis, a
-                  viverra quam. Quisque sed est tincidunt, sodales ex et,
-                  volutpat dolor. Fusce velit lorem, consequat vitae condimentum
-                  vitae, porttitor ac odio. Vestibulum condimentum felis at
-                  ornare consectetur. Proin in risus viverra, consequat metus
-                  et, facilisis tellus. Vivamus blandit bibendum nisl, at cursus
-                  lectus aliquet ut.
+                  Mirketgiller olarak, genç profesyonelleri ve öğrencileri bir
+                  araya getirerek onları iş dünyasına hazırlayan inovatif
+                  projeler geliştiriyoruz. İnsan kaynakları, kariyer yönetimi ve
+                  sürdürülebilir iş modelleri üzerine odaklanan çalışmalarımızla
+                  bireylerin yeteneklerini keşfetmelerini ve geliştirmelerini
+                  sağlıyoruz. HR alanındaki projelerimizle iş dünyasının
+                  ihtiyaçlarına yenilikçi çözümler sunarken, topluluk bilincini
+                  ve dayanışmayı ön planda tutuyoruz.
                 </p>
               </div>
             </div>
@@ -53,16 +51,14 @@ const AboutUs = () => {
                 <p
                   className={`${style.textDark} primary-text-color text-body-sm-regular sm:text-body-md-regular`}
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
-                  nec molestie arcu. Nam egestas a enim a aliquam. Fusce quam
-                  nulla, lobortis id lorem vel, hendrerit ultricies ligula. Nunc
-                  lobortis purus ac finibus cursus. Duis id volutpat turpis, a
-                  viverra quam. Quisque sed est tincidunt, sodales ex et,
-                  volutpat dolor. Fusce velit lorem, consequat vitae condimentum
-                  vitae, porttitor ac odio. Vestibulum condimentum felis at
-                  ornare consectetur. Proin in risus viverra, consequat metus
-                  et, facilisis tellus. Vivamus blandit bibendum nisl, at cursus
-                  lectus aliquet ut.
+                  Mirketgiller, genç yetenekleri iş dünyasına hazırlayan, onlara
+                  sürdürülebilir ve yenilikçi kariyer fırsatları sunan öncü bir
+                  platform olmayı hedefler. İnsan kaynakları alanında teknoloji
+                  destekli çözümler geliştirerek, işe alım süreçlerini daha
+                  şeffaf, kapsayıcı ve etkili hale getirmeyi amaçlıyoruz. Uzun
+                  vadede, küresel çapta etki yaratabilecek projeler
+                  geliştirerek, gençlerin iş dünyasındaki yerlerini güçlendiren
+                  bir ekosistem oluşturmayı hedefliyoruz.
                 </p>
               </div>
             </div>
