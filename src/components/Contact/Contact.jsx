@@ -69,6 +69,7 @@ function Contact() {
         const payload = {
           ...formData,
           full_name: formData.name, // name yerine full_name kullanılıyor
+          phone: formData.phone ? formData.phone : '*', // phone alanı boşsa '*' koy
           privacy_policy_consent: formData.privacy_policy_consent ? 1 : 0, // Kesin olarak 1 veya 0 olacak
         };
         delete payload.name; // name alanını kaldır
@@ -102,7 +103,9 @@ function Contact() {
 
   useEffect(() => {
     const phoneInput = document.getElementById('phone');
-    Inputmask('0 (999) 999 99 99').mask(phoneInput);
+    if (phoneInput) {
+      Inputmask('0 (999) 999 99 99').mask(phoneInput);
+    }
   }, []);
 
   return (
