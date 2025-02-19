@@ -33,16 +33,22 @@ function Footer() {
               Etkinliklerimiz
             </Link>
             <Link
+              to={'/hakkimizda'}
+              className="text-body-sm-regular sm:text-body-md-regular text-white"
+            >
+              Hakkımızda
+            </Link>
+            <Link
+              to={'/hakkimizda#ekibimiz'}
+              className="text-body-sm-regular sm:text-body-md-regular text-white"
+            >
+              Ekibimiz
+            </Link>
+            <Link
               to={'/iletisim'}
               className="text-body-sm-regular sm:text-body-md-regular text-white"
             >
               İletişim
-            </Link>
-            <Link
-              to={'/ekibimiz'}
-              className="text-body-sm-regular sm:text-body-md-regular text-white"
-            >
-              Ekibimiz
             </Link>
           </div>
 
@@ -55,7 +61,7 @@ function Footer() {
               Blog Yazılarımız
             </Link>
             <Link
-              to={'/destekledigimiz-projeler'}
+              to={'/#destekledigimiz-projeler'}
               className="text-body-sm-regular sm:text-body-md-regular text-white"
             >
               Desteklediğimiz Projeler
