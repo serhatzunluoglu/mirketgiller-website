@@ -25,7 +25,7 @@ function NotFoundPage() {
               </p>
               <Link
                 to={'/'}
-                className={`text-white ${style.button} rounded-full w-max`}
+                className={`text-white ${style.button} rounded-full w-max transition-transform`}
               >
                 Ana Sayfaya Geri Dön
               </Link>

@@ -33,7 +33,10 @@ const Supported = () => {
     if (location.hash) {
       const element = document.getElementById(location.hash.replace('#', ''));
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        const yOffset = -100;
+        const y =
+          element.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
       }
     }
   }, [location]);
@@ -54,7 +57,7 @@ const Supported = () => {
                 height={50}
                 viewBox="0 0 254 50"
                 backgroundColor={`${theme === 'light' ? '#ededed' : '#1a1a1a'}`}
-                foregroundColor={`${theme === 'light' ? '#f9fafb' : '#575757'}`}
+                foregroundColor={`${theme === 'light' ? '#f9fafb' : '#2f2f2f'}`}
                 title="Yükleniyor..."
               >
                 {/* Image */}

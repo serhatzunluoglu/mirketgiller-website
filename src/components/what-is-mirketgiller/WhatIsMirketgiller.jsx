@@ -64,7 +64,7 @@ function WhatIsMirketgiller() {
             </p>
           </div>
           <NavLink
-            to={'/hakkimizda#team'}
+            to={'/hakkimizda#ekibimiz'}
             className="py-[12px] px-7 w-fit flex items-center justify-center primary-color-bg text-white rounded-full text-body-sm-regular sm:text-body-md-medium hover:bg-[#eb9035]"
           >
             Kimler var bu ekipte 👀
