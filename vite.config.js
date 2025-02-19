@@ -9,6 +9,7 @@ export default defineConfig(({ command, mode }) => {
     plugins: [react()],
     build: {
       sourcemap: false,
+      outDir: 'public',
     },
     server: {
       proxy: {
