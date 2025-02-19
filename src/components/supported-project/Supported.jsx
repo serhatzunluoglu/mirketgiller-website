@@ -3,6 +3,7 @@ import { useRef, useEffect, useState } from 'react';
 import { useAppContext } from '../../context/AppContext';
 import ContentLoader from 'react-content-loader';
 import { getSupportedProjects } from '../../services/supportedProjectsService';
+import { useLocation } from 'react-router-dom';
 
 const Supported = () => {
   const [loading, setLoading] = useState(false);
@@ -26,8 +27,19 @@ const Supported = () => {
     fetchSupportedProjects();
   }, []);
 
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.replace('#', ''));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
   return (
-    <div className={`${style.bgDark}`}>
+    <div className={`${style.bgDark}`} id="destekledigimiz-projeler">
       <div className="mx-auto flex flex-col max-w-7xl gap-12 md:gap-[60px] items-center justify-between py-[64px] md:py-[90px] px-8">
         <h2 className="primary-color text-heading-5 md:text-heading-3 w-full text-center">
           Desteklediğimiz Projeler

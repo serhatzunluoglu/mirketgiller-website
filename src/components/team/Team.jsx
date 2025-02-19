@@ -28,6 +28,15 @@ const Team = () => {
   };
 
   useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.replace('#', ''));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
+  useEffect(() => {
     const fetchTeamMember = async () => {
       setLoading(true);
       try {
@@ -150,7 +159,10 @@ const Team = () => {
   };
 
   return (
-    <div className={`${style.sectionDark} py-16 md:py-[90px] h-auto`}>
+    <div
+      className={`${style.sectionDark} py-16 md:py-[90px] h-auto`}
+      id="ekibimiz"
+    >
       <div className="mx-auto max-w-7xl items-center justify-between px-8 flex flex-col">
         <div className="text-center mb-12 md:mb-[60px]">
           <h2 className="heading-5 md:text-heading-3 font-bold primary-color mb-3">
