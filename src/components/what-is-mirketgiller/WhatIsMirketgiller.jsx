@@ -12,19 +12,19 @@ function WhatIsMirketgiller() {
         <div className="images-container flex items-center gap-0 w-full md:w-[80%] lg:w-1/2 h-max-[670px]">
           <div className="left-column w-1/2 flex flex-col gap-5 sm:gap-6 md:gap-8 h-fit justify-center">
             <img
-              src="https://placehold.co/270x320"
+              src="https://www.admin.mirketgiller.com.tr/storage/landing/mirket-placeholder.jpg"
               alt=""
               className="aspect-[27/32] w-[90%] object-cover rounded-[16px]"
             />
             <img
-              src="https://placehold.co/270x320"
+              src="https://www.admin.mirketgiller.com.tr/storage/landing/yonetim.jpg"
               alt=""
               className="aspect-[27/32] w-[90%] object-cover rounded-[16px]"
             />
           </div>
           <div className="right-column w-1/2 h-fit flex items-center relative pb-12">
             <img
-              src="https://placehold.co/270x400"
+              src="https://www.admin.mirketgiller.com.tr/storage/landing/mirket-placeholder.jpg"
               alt=""
               className="aspect-[27/40] w-[90%] object-cover rounded-[16px] z-10"
             />

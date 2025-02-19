@@ -69,7 +69,6 @@ function BlogPage() {
 
   return (
     <HelmetProvider>
-      {' '}
       <motion.div
         initial={{ opacity: 0, translateY: -30 }}
         animate={{ opacity: 1, translateY: 0 }}
@@ -160,7 +159,7 @@ function BlogPage() {
                     </div>
                     <div className="flex flex-col px-[34px] py-[30px] items-center justify-center rounded-b-lg dark:bg-secondary-color">
                       <h2
-                        className={`dark:text-white  min-h-[56px] text-center text-xl font-sans font-semibold sm:heading-6 mg-dark cursor-pointer transition-all line-clamp-2`}
+                        className={`dark:text-white flex items-center min-h-[56px] text-center text-xl font-sans font-semibold sm:heading-6 mg-dark cursor-pointer transition-all line-clamp-2`}
                       >
                         {truncateText(blog.title, 50)}
                       </h2>

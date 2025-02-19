@@ -88,7 +88,7 @@ const Team = () => {
               <img
                 src={`${apiUrl}/storage/${member.image}`}
                 alt={`${member.name} ${member.surname}`}
-                className="w-[270px] h-[330px] object-cover rounded-[8px]"
+                className="w-[270px] h-[330px] object-cover rounded-[8px] bg-[#cfcfcf] dark:bg-[#414141]"
               />
               <div
                 className={`${style.nameBoxDark} p-4 absolute bottom-4 flex flex-col items-center justify-center rounded-[8px] px-4 w-[230px]`}
