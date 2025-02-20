@@ -75,7 +75,7 @@ const Supported = () => {
                   {/* project Image */}
                   <img
                     src={`${apiUrl}/storage/${project.image}`}
-                    alt={project.desc}
+                    alt={project.name}
                     className="w-full h-[28px] sm:h-[40px]"
                   />
                   <div

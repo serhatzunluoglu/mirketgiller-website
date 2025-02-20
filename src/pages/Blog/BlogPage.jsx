@@ -45,7 +45,7 @@ function BlogPage() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://admin.mirketgiller.com.tr/api/posts?per_page=${pagination.per_page}&page=${page}`
+        `${apiUrl}/api/posts?per_page=${pagination.per_page}&page=${page}`
       );
       const data = response.data;
       setBlogs(data.posts);
@@ -164,7 +164,7 @@ function BlogPage() {
                         {truncateText(blog.title, 50)}
                       </h2>
                       <p
-                        className={`dark:text-white w-full min-h-[72px] text-center mt-[14px] mb-[28px] primary-text-color text-body-sm-regular sm:text-body-md-regular line-clamp-3`}
+                        className={`dark:text-white w-full sm:min-h-[72px] text-center mt-[14px] mb-[28px] primary-text-color text-body-sm-regular sm:text-body-md-regular line-clamp-3`}
                       >
                         {blog.content}
                       </p>

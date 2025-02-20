@@ -211,6 +211,7 @@ export default function Navbar() {
                   <div className="space-y-2 py-6 color-808080">
                     <Link
                       to={'/'}
+                      onClick={() => setMobileMenuOpen(false)}
                       className={`-mx-3 block rounded-lg px-3 py-2 text-lg/7 font-semibold ${
                         pathname === '/' && 'primary-color'
                       } ${
@@ -225,6 +226,7 @@ export default function Navbar() {
                     </Link>
                     <Link
                       to={'/etkinliklerimiz'}
+                      onClick={() => setMobileMenuOpen(false)}
                       className={`-mx-3 block rounded-lg px-3 py-2 text-lg/7 font-semibold ${
                         pathname === '/etkinliklerimiz' && 'primary-color'
                       } ${
@@ -239,6 +241,7 @@ export default function Navbar() {
                     </Link>
                     <Link
                       to={'/hakkimizda'}
+                      onClick={() => setMobileMenuOpen(false)}
                       className={`-mx-3 block rounded-lg px-3 py-2 text-lg/7 font-semibold ${
                         pathname === '/hakkimizda' && 'primary-color'
                       } ${
@@ -253,6 +256,7 @@ export default function Navbar() {
                     </Link>
                     <Link
                       to={'/iletisim'}
+                      onClick={() => setMobileMenuOpen(false)}
                       className={`-mx-3 block rounded-lg px-3 py-2 text-lg/7 font-semibold ${
                         pathname === '/iletisim' && 'primary-color'
                       } ${
@@ -267,6 +271,7 @@ export default function Navbar() {
                     </Link>
                     <Link
                       to={'/blog'}
+                      onClick={() => setMobileMenuOpen(false)}
                       className={`-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold ${
                         pathname === '/blog' && 'primary-color'
                       } ${

@@ -90,7 +90,7 @@ const Events = () => {
                       <div className="event-image relative bg-[#f3f3f3] dark:bg-[#1a1a1a]">
                         <img
                           src={`${apiUrl}/storage/${event.event_paths[0]}`}
-                          alt="Meet AutoManage, the best AI management tools"
+                          alt={event.title}
                           className={`${style.imageHover} w-full aspect-[370/220] min-h-40 h-auto sm:h-[220px] object-cover rounded-[5px] opacity-100`}
                         />
                         <span

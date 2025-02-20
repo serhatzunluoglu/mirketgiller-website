@@ -38,7 +38,7 @@ function EventsPage() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://admin.mirketgiller.com.tr/api/events?per_page=${pagination.per_page}&page=${page}`
+        `${apiUrl}/api/events?per_page=${pagination.per_page}&page=${page}`
       );
       const data = response.data;
 

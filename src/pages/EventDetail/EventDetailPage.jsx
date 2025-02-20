@@ -39,8 +39,8 @@ function EventDetailPage() {
     const fetchEvent = async () => {
       try {
         const response = await axios.get(`${apiUrl}/api/events/${slug}`);
-        console.log(response.data.post);
         setEvent(response.data.post);
+        console.log(response.data.post);
       } catch (error) {
         if (error.response && error.response.status === 404) {
           navigate('/404');
@@ -130,8 +130,7 @@ function EventDetailPage() {
               <title>{event.title} | Mirketgiller</title>
               <meta name="description" content={event.content} />
               {/* Open Graph Meta Tags for Event */}
-              <meta property="og:title" content={event.title} />
-              <meta property="og:description" content={event.excerpt} />
+              <meta property="og:description" content={event.content} />
               <meta
                 property="og:image"
                 content={`${apiUrl}/storage/${event.event_paths[0]}`}

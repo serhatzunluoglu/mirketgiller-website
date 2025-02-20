@@ -1,16 +1,10 @@
 import mirketLogo from '../../assets/images/svg/mirketgiller-white-logo.svg';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import style from './style.module.scss';
 
 let year = new Date().getFullYear();
 
 function Footer() {
-  const { pathname } = useLocation();
-
-  if (pathname == '*') {
-    return null;
-  }
-
   return (
     <footer className={`${style.footerContainer} primary-color-bg`}>
       <div className="mx-auto md:flex md:max-w-7xl md:justify-between py-16 sm:py-20 px-8 xl:flex-row sm:flex sm:gap-12 sm:flex-col flex-col flex gap-12">
@@ -25,7 +19,9 @@ function Footer() {
 
         <div className="md:flex md:gap-8 sm:flex sm:flex-row sm:justify-between flex flex-col gap-8">
           <div className="flex flex-col gap-4">
-            <p className="body-large-semibold text-white">Hızlı Bağlantılar</p>
+            <h6 className="body-large-semibold text-white">
+              Hızlı Bağlantılar
+            </h6>
             <Link
               to={'/etkinliklerimiz'}
               className="text-body-sm-regular sm:text-body-md-regular text-white"
@@ -53,7 +49,9 @@ function Footer() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <p className="body-large-semibold text-white">İlginizi Çekebilir</p>
+            <h6 className="body-large-semibold text-white">
+              İlginizi Çekebilir
+            </h6>
             <Link
               to={'/blog'}
               className="text-body-sm-regular sm:text-body-md-regular text-white"
@@ -69,7 +67,7 @@ function Footer() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <p className="body-large-semibold text-white">Sosyal Medya</p>
+            <h6 className="body-large-semibold text-white">Sosyal Medya</h6>
             <div className="flex gap-3 items-center">
               <a
                 href="https://www.instagram.com/mirketgiller_/"
@@ -87,7 +85,10 @@ function Footer() {
                   style={{ fontSize: '20px' }}
                 ></i>
               </a>
-              <a href="https://www.youtube.com/@mirketgiller" target="_blank">
+              <a
+                href="https://www.youtube.com/@mirketgiller?sub_confirmation=1&sub_confirmation=1"
+                target="_blank"
+              >
                 <i
                   className="bi bi-youtube text-white"
                   style={{ fontSize: '20px' }}

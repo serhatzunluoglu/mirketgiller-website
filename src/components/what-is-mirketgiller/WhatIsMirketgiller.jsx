@@ -4,6 +4,8 @@ import style from './style.module.scss';
 import dots from '../../assets/images/dots.png';
 
 function WhatIsMirketgiller() {
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   return (
     <div
       className={`${style.whatIsMirketgillerContainer} mx-auto flex items-center justify-center py-16 md:py-[90px] bg-[#F9FAFB]`}
@@ -12,26 +14,26 @@ function WhatIsMirketgiller() {
         <div className="images-container flex items-center gap-0 w-full md:w-[80%] lg:w-1/2 h-max-[670px]">
           <div className="left-column w-1/2 flex flex-col gap-5 sm:gap-6 md:gap-8 h-fit justify-center">
             <img
-              src="https://www.admin.mirketgiller.com.tr/storage/landing/mirket-placeholder.jpg"
-              alt=""
+              src={`${apiUrl}/storage/landing/ekip.jpg`}
+              alt="Mirkettgiller ile CV atölyesi etkinliği"
               className="aspect-[27/32] w-[90%] object-cover rounded-[16px]"
             />
             <img
-              src="https://www.admin.mirketgiller.com.tr/storage/landing/yonetim.jpg"
-              alt=""
+              src={`${apiUrl}/storage/landing/yonetim.jpg`}
+              alt="Mirketgiller Geleceği Tasarlayan Zihinler Zirvesi Yönetim Ekibi"
               className="aspect-[27/32] w-[90%] object-cover rounded-[16px]"
             />
           </div>
           <div className="right-column w-1/2 h-fit flex items-center relative pb-12">
             <img
-              src="https://www.admin.mirketgiller.com.tr/storage/landing/mirket-placeholder.jpg"
+              src={`${apiUrl}/storage/landing/mirket-poster.jpg`}
               alt=""
               className="aspect-[27/40] w-[90%] object-cover rounded-[16px] z-10"
             />
             <div className="absolute flex w-full h-full justify-end items-end z-0">
               <img
                 src={dots}
-                alt=""
+                alt="Mirketgiller Reklam Panosu"
                 className="w-[96px] h-auto sm:w-auto sm:h-auto"
               />
             </div>

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import ContentLoader from 'react-content-loader';
 import { useAppContext } from '../../context/AppContext';
-
 import { getBlogLittle } from '../../services/blogLittleService';
 
 function truncateText(text, maxLength) {
@@ -21,6 +20,7 @@ const Blog = () => {
       setLoading(true);
       try {
         const data = await getBlogLittle();
+        console.log(data);
         setBlogLittle(data);
       } catch (error) {
         console.error('Timeflow yüklenemedi.');
@@ -89,7 +89,6 @@ const Blog = () => {
               ))
             ) : (
               <>
-                {' '}
                 {blogLittle.map((blog, index) => (
                   <div
                     key={index}
@@ -109,7 +108,7 @@ const Blog = () => {
                         {truncateText(blog.title, 50)}
                       </div>
                       <p
-                        className={`dark:text-white w-full min-h-[72px] text-center mt-[14px] mb-[28px] primary-text-color text-body-sm-regular sm:text-body-md-regular line-clamp-3`}
+                        className={`dark:text-white w-full sm:min-h-[72px] text-center mt-[14px] mb-[28px] primary-text-color text-body-sm-regular sm:text-body-md-regular line-clamp-3`}
                       >
                         {blog.content}
                       </p>
