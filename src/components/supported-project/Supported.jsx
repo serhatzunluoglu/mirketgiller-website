@@ -76,8 +76,9 @@ const Supported = () => {
                   <img
                     src={`${apiUrl}/storage/${project.image}`}
                     alt={project.desc}
-                    className="w-full h-[28px] sm:h-[40px]"
+                    className="w-auto h-auto max-w-[160px] sm:max-w-[180px] md:max-w-[200px] object-contain aspect-[16/9]"
                   />
+
                   <div
                     className="absolute left-1/2 -translate-x-1/2 top-full mt-2 px-4 py-3 bg-gray-800 text-white text-xs rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap hidden md:flex flex-col items-center gap-1
                   before:content-[''] before:absolute before:-top-2 before:left-1/2 before:-translate-x-1/2 before:border-4 before:border-transparent before:border-b-gray-800"
