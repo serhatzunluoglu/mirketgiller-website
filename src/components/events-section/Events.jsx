@@ -107,11 +107,11 @@ const Events = () => {
                         </div>
                       </div>
                       <div className="event-texts flex flex-col gap-4 mt-6">
-                        <div
+                        <h3
                           className={`${style.textDark} ${style.textHover} text-base screen-380:text-xl font-sans font-semibold sm:heading- mg-dark cursor-pointer transition-all min-h-[60px]`}
                         >
                           {truncateText(event.title, 50)}
-                        </div>
+                        </h3>
                       </div>
                     </article>
                   </Link>

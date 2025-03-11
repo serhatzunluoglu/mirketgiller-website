@@ -145,30 +145,19 @@ export default function Navbar() {
           >
             Blog
           </Link>
-          <div className="theme-switcher flex justify-center gap-2 z-10">
-            <div
-              className={`theme-light w-9 h-9 flex justify-center p-2.5 cursor-pointer rounded-full ${
-                theme === 'light' ? 'primary-color-bg' : 'border-1-primary'
-              }`}
-              onClick={() => handleThemeChange('light')}
-            >
-              <img
-                src={theme === 'dark' ? sunDarkSvg : sunSvg}
-                alt="sun-icon"
-              />
-            </div>
-            <div
-              className={`theme-dark w-9 h-9 flex justify-center cursor-pointer p-2.5 rounded-full ${
-                theme === 'dark' ? 'primary-color-bg' : 'border-1-primary'
-              }`}
-              onClick={() => handleThemeChange('dark')}
-            >
-              <img
-                className="w-4 h-4"
-                src={theme === 'dark' ? moonDarkSvg : moonSvg}
-                alt="moon-icon"
-              />
-            </div>
+          <div
+            className={`theme-toggle w-9 h-9 flex justify-center items-center cursor-pointer rounded-full p-2.5 ${
+              theme === 'dark' ? 'primary-color-bg' : 'border-1-primary'
+            }`}
+            onClick={() =>
+              handleThemeChange(theme === 'light' ? 'dark' : 'light')
+            }
+          >
+            <img
+              className="w-4 h-4"
+              src={theme === 'light' ? sunDarkSvg : moonDarkSvg}
+              alt="theme-icon"
+            />
           </div>
         </div>
       </nav>
@@ -323,6 +312,7 @@ export default function Navbar() {
                 <div className="social-media-icons">
                   <a
                     target="_blank"
+                    rel="noopener"
                     href="https://www.instagram.com/mirketgiller_/"
                     alt="mirketgiller-instagram"
                   >
@@ -330,6 +320,7 @@ export default function Navbar() {
                   </a>
                   <a
                     target="_blank"
+                    rel="noopener"
                     href="https://www.linkedin.com/company/mirketgiller/"
                     alt="mirketgiller-linkedin"
                   >
@@ -338,6 +329,7 @@ export default function Navbar() {
 
                   <a
                     target="_blank"
+                    rel="noopener"
                     href="https://www.youtube.com/@mirketgiller?sub_confirmation=1&sub_confirmation=1"
                     alt="mirketgiller-youtube"
                   >
@@ -345,10 +337,27 @@ export default function Navbar() {
                   </a>
                   <a
                     target="_blank"
+                    rel="noopener"
                     href="https://medium.com/@mirketgillerresmi"
                     alt="mirketgiller-medium"
                   >
                     <i className="bi bi-medium"></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    rel="noopener"
+                    href="https://x.com/mirketgiller"
+                    alt="mirketgiller-twitter"
+                  >
+                    <i className="bi bi-twitter-x"></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    rel="noopener"
+                    href="https://github.com/mirketgiller"
+                    alt="mirketgiller-github"
+                  >
+                    <i className="bi bi-github"></i>
                   </a>
                 </div>
               </div>

@@ -123,6 +123,7 @@ const Team = () => {
                 <a
                   href={`${member.linkedin}`}
                   target="_blank"
+                  rel="noopener"
                   className="person-linkedin flex items-center justify-center gap-3 p-4 border border-white border-solid rounded-full text-white cursor-pointer hover:bg-white hover:text-primary-color"
                 >
                   <Linkedin className="w-5 h-5" />
@@ -132,6 +133,7 @@ const Team = () => {
                   <a
                     href={`${member.other_link}`}
                     target="_blank"
+                    rel="noopener"
                     className="person-website flex items-center justify-center gap-3 p-4 border border-white border-solid rounded-full text-white cursor-pointer hover:bg-white hover:text-primary-color"
                   >
                     <Link45deg className="w-6 h-6" />
@@ -181,7 +183,7 @@ const Team = () => {
           className={`flex flex-wrap w-full lg:flex-nowrap items-center justify-center mb-[40px]`}
         >
           <div className="flex gap-4 flex-wrap items-center justify-center">
-            <a
+            <h3
               onClick={() => setActiveDepartment('yonetim-kurulu')}
               className={`${
                 activeDepartment === 'yonetim-kurulu' ? style.active : ''
@@ -190,8 +192,8 @@ const Team = () => {
               } px-[28px] py-[12px] rounded-[50px] primary-color hover:text-white hover:bg-[#d37c26] border-solid border-[1px] cursor-pointer transition-all text-body-sm-regular sm:text-body-md-regular`}
             >
               Yönetim Kurulu
-            </a>
-            <a
+            </h3>
+            <h3
               onClick={() => setActiveDepartment('departman-baskani')}
               className={`${
                 activeDepartment === 'departman-baskani' ? style.active : ''
@@ -200,8 +202,8 @@ const Team = () => {
               } px-[28px] py-[12px] rounded-[50px] primary-color hover:text-white hover:bg-[#d37c26] border-solid border cursor-pointer transition-all text-body-sm-regular sm:text-body-md-regular`}
             >
               Departman Başkanları
-            </a>
-            <a
+            </h3>
+            <h3
               onClick={() => setActiveDepartment('genel-ekip-uyesi')}
               className={`${
                 activeDepartment === 'genel-ekip-uyesi' ? style.active : ''
@@ -210,7 +212,7 @@ const Team = () => {
               } px-[28px] py-[12px] rounded-[50px] primary-color hover:text-white hover:bg-[#d37c26] border-solid border-[1px] cursor-pointer transition-all text-body-sm-regular sm:text-body-md-regular`}
             >
               Genel Ekip Üyeleri
-            </a>
+            </h3>
           </div>
         </div>
 

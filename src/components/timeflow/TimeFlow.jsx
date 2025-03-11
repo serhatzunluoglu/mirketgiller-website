@@ -112,20 +112,20 @@ function TimeFlow() {
                   <div
                     className={`${style.contentContainer} w-[360px] flex flex-col gap-1`}
                   >
-                    <h4
+                    <div
                       className={`primary-color text-body-sm-medium ${
                         !isRight ? 'text-left lg:text-right' : ''
                       }`}
                     >
                       {formatEventDate(item.time)}
-                    </h4>
-                    <h3
+                    </div>
+                    <h4
                       className={`heading-6 primary-color ${
                         !isRight ? 'text-left lg:text-right' : ''
                       } w-full text-wrap`}
                     >
                       {item.heading}
-                    </h3>
+                    </h4>
                     <p
                       className={`body-small-regular primary-text-color ${
                         !isRight ? 'text-left lg:text-right' : ''

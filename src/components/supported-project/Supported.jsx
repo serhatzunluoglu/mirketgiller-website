@@ -76,7 +76,7 @@ const Supported = () => {
                   <img
                     src={`${apiUrl}/storage/${project.image}`}
                     alt={project.name}
-                    className="w-auto h-auto max-w-[160px] sm:max-w-[180px] md:max-w-[200px] object-contain aspect-[16/9]"
+                    className="w-auto h-auto max-w-[160px] sm:max-w-[180px] md:max-w-[200px] object-contain aspect-[16/9] cursor-pointer"
                   />
 
                   <div

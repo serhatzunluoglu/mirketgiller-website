@@ -67,11 +67,12 @@ function Footer() {
           </div>
 
           <div className="flex flex-col gap-4">
-            <h6 className="body-large-semibold text-white">Sosyal Medya</h6>
+            <h5 className="body-large-semibold text-white">Sosyal Medya</h5>
             <div className="flex gap-3 items-center">
               <a
                 href="https://www.instagram.com/mirketgiller_/"
                 target="_blank"
+                rel="noopener"
                 style={{ fontSize: '20px' }}
               >
                 <i className="bi bi-instagram text-white"></i>
@@ -79,6 +80,7 @@ function Footer() {
               <a
                 href="https://www.linkedin.com/company/mirketgiller"
                 target="_blank"
+                rel="noopener"
               >
                 <i
                   className="bi bi-linkedin text-white"
@@ -88,15 +90,40 @@ function Footer() {
               <a
                 href="https://www.youtube.com/@mirketgiller?sub_confirmation=1&sub_confirmation=1"
                 target="_blank"
+                rel="noopener"
               >
                 <i
                   className="bi bi-youtube text-white"
                   style={{ fontSize: '20px' }}
                 ></i>
               </a>
-              <a href="https://medium.com/@mirketgillerresmi" target="_blank">
+              <a
+                href="https://medium.com/@mirketgillerresmi"
+                target="_blank"
+                rel="noopener"
+              >
                 <i
                   className="bi bi-medium text-white"
+                  style={{ fontSize: '20px' }}
+                ></i>
+              </a>
+              <a
+                href="https://x.com/@mirketgiller"
+                target="_blank"
+                rel="noopener"
+              >
+                <i
+                  className="bi bi-twitter-x text-white"
+                  style={{ fontSize: '20px' }}
+                ></i>
+              </a>
+              <a
+                href="https://github.com/mirketgiller"
+                target="_blank"
+                rel="noopener"
+              >
+                <i
+                  className="bi bi-github text-white"
                   style={{ fontSize: '20px' }}
                 ></i>
               </a>
