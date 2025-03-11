@@ -9,7 +9,7 @@ const AboutUs = () => {
       <div className="mx-auto max-w-7xl items-center justify-between  px-8 flex flex-col gap-[30px]">
         <div className="text-center mb-0 md:mb-[30px]">
           <h1 className="font-bold primary-color mb-3 heading-5 md:text-heading-3">
-            Birlikte büyüyen yetenekler
+            Hakkımızda
           </h1>
           <p
             className={`${style.textDark} primary-text-color max-w-3xl mx-auto text-body-sm-regular sm:text-body-md-regular`}
@@ -28,7 +28,7 @@ const AboutUs = () => {
             <div className="w-full lg:w-3/4 flex flex-col items-start border-solid border border-[#d37c26]  justify-between rounded-3xl p-6 gap-[96px]">
               <i className={`${style.icon} bi bi-bar-chart-fill`}></i>
               <div className="flex flex-col">
-                <h4 className="heading-5 primary-color pb-4">Misyonumuz</h4>
+                <h3 className="heading-5 primary-color pb-4">Misyonumuz</h3>
                 <p
                   className={`${style.textDark} primary-text-color text-body-sm-regular sm:text-body-md-regular`}
                 >
@@ -47,7 +47,7 @@ const AboutUs = () => {
             <div className="w-full lg:w-3/4 flex flex-col items-start border-solid border border-[#d37c26]  justify-between rounded-3xl p-6 gap-[96px]">
               <i className={`${style.icon} bi bi-rocket-takeoff-fill`}></i>
               <div className="flex flex-col">
-                <h4 className="heading-5 primary-color pb-4">Vizyonumuz</h4>
+                <h3 className="heading-5 primary-color pb-4">Vizyonumuz</h3>
                 <p
                   className={`${style.textDark} primary-text-color text-body-sm-regular sm:text-body-md-regular`}
                 >

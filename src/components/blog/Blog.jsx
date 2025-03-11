@@ -44,9 +44,11 @@ const Blog = () => {
           <p
             className={`${style.textDark} primary-text-color max-w-3xl mx-auto text-body-sm-regular sm:text-body-md-regular`}
           >
-            Ekip arkadaşlarımızdan ilham verici ve bilgilendirici blog yazıları.
-            Kendi alanlarında uzmanlaşmış üyelerimizin paylaştığı yazılarla,
-            bilgi birikiminizi artırın ve yeni perspektifler kazanın.
+            Ekip arkadaşlarımızın kaleme aldığı ilham verici ve bilgilendirici
+            blog yazılarıyla bilgi dolu bir yolculuğa çıkın. Kendi alanlarında
+            uzmanlaşmış üyelerimizin deneyimlerinden ve derinlemesine
+            analizlerinden faydalanarak, hem bilgi birikiminizi artırabilir hem
+            de farklı bakış açıları kazanabilirsiniz.
           </p>
         </div>
 
@@ -102,11 +104,11 @@ const Blog = () => {
                       />
                     </div>
                     <div className="flex flex-col px-[34px] py-[30px] items-center justify-center">
-                      <div
+                      <h3
                         className={`dark:text-white flex items-center min-h-[56px] text-center text-xl font-sans font-semibold sm:heading-6 mg-dark cursor-pointer transition-all line-clamp-2`}
                       >
                         {truncateText(blog.title, 50)}
-                      </div>
+                      </h3>
                       <p
                         className={`dark:text-white w-full sm:min-h-[72px] text-center mt-[14px] mb-[28px] primary-text-color text-body-sm-regular sm:text-body-md-regular line-clamp-3`}
                       >
@@ -115,6 +117,7 @@ const Blog = () => {
                       <a
                         href={blog.link}
                         target="_blank"
+                        rel="noopener"
                         className={`${style.buttonDark}  px-[28px] py-[12px] rounded-[50px] text-body-sm-regular sm:text-body-md-regular primary-text-color border-solid border-[1px] hover:text-white hover:bg-[#d37c26] transition-all`}
                       >
                         Yazıyı Oku

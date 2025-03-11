@@ -33,6 +33,7 @@ const Hero = () => {
             <a
               href="https://forms.gle/4TpWrXeMZTQrRRwT7"
               target="_blank"
+              rel="noopener"
               className={`${style.buttonSecond} font-medium body-small-medium px-6 py-3 rounded-lg w-full md:w-max h-12 sm:text-sm hover:scale-105 transition-transform`}
             >
               Ekibimize Katıl
@@ -59,7 +60,7 @@ const Hero = () => {
             ></div>
             <div className="team-member">
               <div className="heading-4">
-                <Counter from={0} to={25} duration={2} /> +
+                <Counter from={0} to={20} duration={2} /> +
               </div>
               <div className="body-small-regular">Ekip Üyesi</div>
             </div>

@@ -63,14 +63,42 @@ function EventsPage() {
 
   return (
     <HelmetProvider>
-      {' '}
       <motion.div
         initial={{ opacity: 0, translateY: -30 }}
         animate={{ opacity: 1, translateY: 0 }}
         className="events-page mx-auto max-w-7xl pt-6 md:pt-[50px] pb-10 px-8"
       >
         <Helmet>
-          <title>Etkinliklerimiz | Mirketgiller</title>
+          <title>Mirketgiller | Etkinliklerimiz</title>
+          <meta
+            name="description"
+            content="Mirketgiller olarak üniversite öğrencilerine yönelik sektörel etkinlikler düzenleyerek, onların profesyonel dünyaya daha donanımlı adım atmalarını sağlıyoruz."
+          />
+          {/* Open Graph Meta Tags for Event */}
+          <meta
+            property="og:description"
+            content="Mirketgiller olarak üniversite öğrencilerine yönelik sektörel etkinlikler düzenleyerek, onların profesyonel dünyaya daha donanımlı adım atmalarını sağlıyoruz."
+          />
+          <meta
+            property="og:image"
+            content="https://www.admin.mirketgiller.com.tr/storage/seo/etkinliklerimiz.jpg"
+          />
+          <meta property="og:url" content={window.location.href} />
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="Mirketgiller" />
+          {/* Twitter Card Meta Tags */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Mirketgiller | Etkinliklerimiz" />
+          <meta
+            name="twitter:description"
+            content="Mirketgiller olarak üniversite öğrencilerine yönelik sektörel etkinlikler düzenleyerek, onların profesyonel dünyaya daha donanımlı adım atmalarını sağlıyoruz."
+          />
+          <meta
+            name="twitter:image"
+            content="https://www.admin.mirketgiller.com.tr/storage/seo/etkinliklerimiz.jpg"
+          />
+          <meta name="twitter:url" content={window.location.href} />
+          <meta name="twitter:creator" content="@mirketgiller" />
         </Helmet>
         <div className="events-page-header flex flex-col items-center gap-3 mb-12 md:mb-[60px]">
           <h1 className="text-heading-5 md:text-heading-3 primary-color text-center">
@@ -122,7 +150,7 @@ function EventsPage() {
                     <div className="event-image relative bg-[#f3f3f3] dark:bg-[#1a1a1a]">
                       <img
                         src={`${apiUrl}/storage/${event.event_paths[0]}`}
-                        alt="Meet AutoManage, the best AI management tools"
+                        alt={event.title}
                         className={`${style.imageHover} w-full aspect-[370/220] min-h-40 h-auto sm:h-[220px] object-cover rounded-[5px] opacity-100`}
                       />
                       <span
@@ -139,11 +167,11 @@ function EventsPage() {
                       </div>
                     </div>
                     <div className="event-texts flex flex-col gap-4 mt-6">
-                      <div
+                      <h2
                         className={`${style.textDark} ${style.textHover} text-base screen-380:text-xl font-sans font-semibold sm:heading-6 mg-dark cursor-pointer transition-all min-h-[60px]`}
                       >
                         {truncateText(event.title, 50)}
-                      </div>
+                      </h2>
                     </div>
                   </article>
                 </Link>

@@ -75,7 +75,36 @@ function BlogPage() {
         className="blogs-page mx-auto max-w-7xl pt-6 md:pt-[50px] pb-10 px-8"
       >
         <Helmet>
-          <title>Blog | Mirketgiller</title>
+          <title>Mirketgiller | Blog</title>
+          <meta
+            name="description"
+            content="Ekip arkadaşlarımızın kaleme aldığı blog yazılarıyla bilgi dolu bir yolculuğa çıkın, yeni bakış açıları kazanın ve deneyimlerden faydalanın."
+          />
+          {/* Open Graph Meta Tags for Event */}
+          <meta
+            property="og:description"
+            content="Ekip arkadaşlarımızın kaleme aldığı blog yazılarıyla bilgi dolu bir yolculuğa çıkın, yeni bakış açıları kazanın ve deneyimlerden faydalanın."
+          />
+          <meta
+            property="og:image"
+            content="https://www.admin.mirketgiller.com.tr/storage/seo/blog.jpg"
+          />
+          <meta property="og:url" content={window.location.href} />
+          <meta property="og:type" content="website" />
+          <meta property="og:site_name" content="Mirketgiller" />
+          {/* Twitter Card Meta Tags */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:title" content="Mirketgiller | Blog" />
+          <meta
+            name="twitter:description"
+            content="Ekip arkadaşlarımızın kaleme aldığı blog yazılarıyla bilgi dolu bir yolculuğa çıkın, yeni bakış açıları kazanın ve deneyimlerden faydalanın."
+          />
+          <meta
+            name="twitter:image"
+            content="https://www.admin.mirketgiller.com.tr/storage/seo/blog.jpg"
+          />
+          <meta name="twitter:url" content={window.location.href} />
+          <meta name="twitter:creator" content="@mirketgiller" />
         </Helmet>
         <div className="blogs-page-header flex flex-col items-center gap-3 mb-12 md:mb-[60px]">
           <h1 className="text-heading-5 md:text-heading-3 primary-color text-center">

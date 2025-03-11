@@ -52,9 +52,9 @@ const ShareEvent = ({ eventSlug, eventTitle }) => {
       {/* Share Button */}
       <button
         onClick={toggleModal}
-        className="w-full flex gap-3 justify-center items-center mt-6 px-4 py-4 bg-primary-color hover:bg-[#eb9035] text-white  rounded-lg"
+        className="w-full flex gap-3 justify-center items-center mt-6 px-4 py-4 primary-color border border-[#D37C26] hover:bg-[#eb9035] hover:text-white  rounded-lg"
       >
-        Etkinliği Paylaş <ShareFill className="h-5 w-5"></ShareFill>
+        Paylaş <ShareFill className="h-5 w-5"></ShareFill>
       </button>
 
       {/* Modal */}

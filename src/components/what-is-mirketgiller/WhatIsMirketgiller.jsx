@@ -42,9 +42,9 @@ function WhatIsMirketgiller() {
 
         <div className="content-container flex flex-col w-full md:w-[80%] lg:w-1/2 gap-8">
           <div className="text-container flex flex-col gap-4">
-            <p className="text-body-md-semibold sm:text-body-lg-semibold primary-color">
+            <h2 className="text-body-md-semibold sm:text-body-lg-semibold primary-color">
               Nedir bu Mirketgiller 🤔
-            </p>
+            </h2>
             <h3
               className={`${style.textColorWhite} text-heading-4 sm:text-heading-3 mg-dark`}
             >

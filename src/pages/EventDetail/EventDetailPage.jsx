@@ -25,6 +25,7 @@ import style from './style.module.scss';
 import { useAppContext } from '../../context/AppContext';
 import formatEventDate from '../../utils/formatEventDate';
 import ShareEvent from '../../components/share-events/ShareEvents';
+import { div } from 'framer-motion/client';
 
 function EventDetailPage() {
   const { slug } = useParams();
@@ -52,6 +53,8 @@ function EventDetailPage() {
 
     fetchEvent();
   }, [slug]);
+
+  console.log(Event);
 
   return (
     <HelmetProvider>
@@ -127,13 +130,27 @@ function EventDetailPage() {
         ) : (
           <Fragment>
             <Helmet>
-              <title>{event.title} | Mirketgiller</title>
-              <meta name="description" content={event.content} />
+              <title>
+                Mirketgiller{`${event.title ? ` | ${event.title}` : ''}`}
+              </title>
+              <meta
+                name="description"
+                content={
+                  event.content.split(' ').slice(0, 20).join(' ') +
+                  (event.content.split(' ').length > 20 ? '...' : '')
+                }
+              />
               {/* Open Graph Meta Tags for Event */}
-              <meta property="og:description" content={event.content} />
+              <meta
+                property="og:description"
+                content={
+                  event.content.split(' ').slice(0, 20).join(' ') +
+                  (event.content.split(' ').length > 20 ? '...' : '')
+                }
+              />
               <meta
                 property="og:image"
-                content={`${apiUrl}/storage/${event.event_paths[0]}`}
+                content="https://www.admin.mirketgiller.com.tr/storage/seo/etkinlik.jpg"
               />
               <meta property="og:url" content={window.location.href} />
               <meta property="og:type" content="event" />
@@ -141,19 +158,25 @@ function EventDetailPage() {
               <meta property="og:event:location" content={event.address} />
               {/* Twitter Card Meta Tags */}
               <meta name="twitter:card" content="summary_large_image" />
-              <meta name="twitter:title" content={event.title} />
-              <meta name="twitter:description" content={event.content} />
+              <meta
+                name="twitter:title"
+                content={`Mirketgiller${
+                  event.title ? ` | ${event.title}` : ''
+                }`}
+              />
+              <meta
+                name="twitter:description"
+                content={
+                  event.content.split(' ').slice(0, 20).join(' ') +
+                  (event.content.split(' ').length > 20 ? '...' : '')
+                }
+              />
               <meta
                 name="twitter:image"
-                content={`${apiUrl}/storage/${event.event_paths[0]}`}
+                content="https://www.admin.mirketgiller.com.tr/storage/seo/etkinlik.jpg"
               />
               <meta name="twitter:url" content={window.location.href} />
               <meta name="twitter:creator" content="@mirketgiller" />
-              {/* Pinterest, WhatsApp, and other platforms */}
-              <meta
-                property="og:image"
-                content={`${apiUrl}/storage/${event.event_paths[0]}`}
-              />
             </Helmet>
 
             <h1 className="text-heading-5 md:text-heading-3 primary-color mb-12 md:mb-[60px] max-w-[792px]">
@@ -161,32 +184,34 @@ function EventDetailPage() {
             </h1>
             <div className="event-detail flex flex-col md:flex-row gap-12 md:gap-7 mb-16 md:mb-[76px]">
               <div className="event-left w-full md:w-8/12">
-                <div className="event-image mb-12 md:mb-[60px]">
-                  <Swiper
-                    className={style.swiperSlide}
-                    modules={[Navigation, Pagination, Scrollbar, A11y]}
-                    spaceBetween={50}
-                    slidesPerView={1}
-                    rewind={true}
-                    navigation
-                    pagination={{ clickable: true }}
-                  >
-                    {event.event_paths.map((eventImg, index) => {
-                      return (
-                        <SwiperSlide key={index}>
-                          <img
-                            src={`${apiUrl}/storage/${eventImg}`}
-                            alt={event.title}
-                            className="w-full rounded-lg max-h-[458px]"
-                          />
-                        </SwiperSlide>
-                      );
-                    })}
-                  </Swiper>
-                </div>
+                {event?.event_paths?.length > 1 && (
+                  <div className="event-image mb-[72px] md:mb-[60px]">
+                    <Swiper
+                      className={style.swiperSlide}
+                      modules={[Navigation, Pagination, Scrollbar, A11y]}
+                      spaceBetween={50}
+                      slidesPerView={1}
+                      rewind={true}
+                      navigation
+                      pagination={{ clickable: true }}
+                    >
+                      {event.event_paths.slice(1).map((eventImg, index) => {
+                        return (
+                          <SwiperSlide key={index}>
+                            <img
+                              src={`${apiUrl}/storage/${eventImg}`}
+                              alt={event.title}
+                              className="w-full rounded-lg max-h-[458px] aspect-video"
+                            />
+                          </SwiperSlide>
+                        );
+                      })}
+                    </Swiper>
+                  </div>
+                )}
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
-                  className={`${style.darkThemeWhiteText} event-text text-body-md-regular mt-6 space-y-4`}
+                  className={`${style.darkThemeWhiteText} event-text text-body-md-regular space-y-4`}
                   components={{
                     strong: ({ children }) => (
                       <strong className="align-baseline">{children}</strong>
@@ -235,6 +260,20 @@ function EventDetailPage() {
                     </div>
                   )}
                 </div>
+                {event.form_link &&
+                  event.published_at &&
+                  new Date(event.published_at) > new Date() && (
+                    <a
+                      target="_blank"
+                      rel="noopener"
+                      alt={`${event.title} Form Linki`}
+                      href={`${event.form_link}`}
+                      className="w-full flex gap-3 justify-center items-center mt-6 px-4 py-4 bg-primary-color hover:bg-[#eb9035] text-white rounded-lg leading-5"
+                    >
+                      Etkinliğe Katıl
+                    </a>
+                  )}
+
                 <ShareEvent
                   eventSlug={event.slug}
                   eventImage={event.event_paths[0]}
