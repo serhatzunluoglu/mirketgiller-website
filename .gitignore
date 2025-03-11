@@ -8,6 +8,18 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+src
+.env.development
+.env.production
+.prettierrc.json
+eslint.config.js
+index.html
+package-lock.json
+package.json
+postcss.config.js
+README.md
+tailwind.config.js
+vite.config.js
 dist-ssr
 dist
 public
