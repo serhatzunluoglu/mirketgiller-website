@@ -1,5 +1,6 @@
 import React from 'react';
 import AccordionMenu from '../../components/accordion-menu/AccordionMenu';
+import { motion } from 'framer-motion';
 
 const faqItems = [
   {
@@ -32,20 +33,25 @@ const faqItems = [
 
 function FAQ() {
   return (
-    <div className="mx-auto max-w-7xl pt-6 md:pt-[50px] pb-[90px] px-8">
-      <div className="w-full justify-center flex flex-col items-center">
-        <h1 className="heading-5 md:text-heading-3 primary-color mb-3 text-center">
-          Sıkça Sorulan Sorular
-        </h1>
-        <p className="text-center text-body-sm-regular sm:text-body-md-regular primary-text-color mb-[48px] md:mb-[60px] sm:w-[90%] md:w-[80%] lg:w-[65%] xl:w-[65%] dark:text-white">
-          Mirketgiller topluluğu hakkında daha fazla bilgi almak mı
-          istiyorsunuz? Aşağıdaki sorular, üyelerimizin en sık sorduğu sorulara
-          yanıtlar sunmaktadır. Eğer hala cevapsız kalan bir sorunuz varsa,
-          bizimle iletişime geçmekten çekinmeyin!
-        </p>
+    <motion.div
+      initial={{ opacity: 0, translateY: -30 }}
+      animate={{ opacity: 1, translateY: 0 }}
+    >
+      <div className="mx-auto max-w-7xl pt-6 md:pt-[50px] pb-[90px] px-8">
+        <div className="w-full justify-center flex flex-col items-center">
+          <h1 className="heading-5 md:text-heading-3 primary-color mb-3 text-center">
+            Sıkça Sorulan Sorular
+          </h1>
+          <p className="text-center text-body-sm-regular sm:text-body-md-regular primary-text-color mb-[48px] md:mb-[60px] sm:w-[90%] md:w-[80%] lg:w-[65%] xl:w-[65%] dark:text-white">
+            Mirketgiller topluluğu hakkında daha fazla bilgi almak mı
+            istiyorsunuz? Aşağıdaki sorular, üyelerimizin en sık sorduğu
+            sorulara yanıtlar sunmaktadır. Eğer hala cevapsız kalan bir sorunuz
+            varsa, bizimle iletişime geçmekten çekinmeyin!
+          </p>
+        </div>
+        <AccordionMenu items={faqItems} />
       </div>
-      <AccordionMenu items={faqItems} />
-    </div>
+    </motion.div>
   );
 }
 
