@@ -145,6 +145,14 @@ export default function Navbar() {
           >
             Blog
           </Link>
+          <Link
+            to={'/sss'}
+            className={`text-base/9 font-semibold ${
+              pathname === '/sss' && 'active-link primary-color'
+            }`}
+          >
+            SSS
+          </Link>
           <div
             className={`theme-toggle w-9 h-9 flex justify-center items-center cursor-pointer rounded-full p-2.5 ${
               theme === 'dark' ? 'primary-color-bg' : 'border-1-primary'
