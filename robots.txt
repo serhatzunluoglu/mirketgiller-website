@@ -1,0 +1,8 @@
+# Tüm botlara erişim izni
+User-agent: *
+Disallow: /admin/
+Disallow: /admin/login
+Disallow: /admin.mirketgiller.com.tr/
+
+# Sitemap dosyasının yolunu belirtmek
+Sitemap: https://mirketgiller.com.tr/sitemap.xml
