@@ -25,11 +25,13 @@ const Hero = () => {
             anlayışını benimseyen bir topluluğuz.
           </p>
           <div className={`${style.heroButtons} flex gap-4 flex-wrap`}>
-            <button
+            <a
+              href="https://forms.gle/ztg8TBsaBahMwsTX8"
+              rel="noopener"
               className={`${style.buttonFirst} font-medium body-small-medium px-6 py-3 rounded-lg w-full md:w-max h-12 sm:text-sm hover:scale-105 transition-transform`}
             >
               Topluluğumuza Katıl
-            </button>
+            </a>
             <a
               href="https://forms.gle/4TpWrXeMZTQrRRwT7"
               target="_blank"

@@ -12,6 +12,8 @@ import sunSvg from '../../assets/images/svg/sun-white.svg';
 import sunDarkSvg from '../../assets/images/svg/sun-orange.svg';
 import moonSvg from '../../assets/images/svg/moon-orange.svg';
 import moonDarkSvg from '../../assets/images/svg/moon-white.svg';
+import kommunityLogoWhite from '../../assets/images/svg/kommunity-logo-white.svg';
+import kommunityLogoOrange from '../../assets/images/svg/kommunity-logo-orange.svg';
 
 // Stylesheet imports
 import './styles.scss';
@@ -322,7 +324,6 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener"
                     href="https://www.instagram.com/mirketgiller_/"
-                    alt="mirketgiller-instagram"
                   >
                     <i className="bi bi-instagram"> </i>
                   </a>
@@ -330,7 +331,6 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener"
                     href="https://www.linkedin.com/company/mirketgiller/"
-                    alt="mirketgiller-linkedin"
                   >
                     <i className="bi bi-linkedin"></i>
                   </a>
@@ -339,7 +339,6 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener"
                     href="https://www.youtube.com/@mirketgiller?sub_confirmation=1&sub_confirmation=1"
-                    alt="mirketgiller-youtube"
                   >
                     <i className="bi bi-youtube"></i>
                   </a>
@@ -347,7 +346,6 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener"
                     href="https://medium.com/@mirketgillerresmi"
-                    alt="mirketgiller-medium"
                   >
                     <i className="bi bi-medium"></i>
                   </a>
@@ -355,7 +353,6 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener"
                     href="https://x.com/mirketgiller"
-                    alt="mirketgiller-twitter"
                   >
                     <i className="bi bi-twitter-x"></i>
                   </a>
@@ -363,9 +360,19 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener"
                     href="https://github.com/mirketgiller"
-                    alt="mirketgiller-github"
                   >
                     <i className="bi bi-github"></i>
+                  </a>
+                  <a
+                    target="_blank"
+                    rel="noopener"
+                    href="https://kommunity.com/mirketgiller/about"
+                  >
+                    <img
+                      src={kommunityLogoOrange}
+                      className="w-6 h-6"
+                      alt="kommunity logo"
+                    />
                   </a>
                 </div>
               </div>

@@ -30,7 +30,7 @@
   background-color: var(--tertiary-color);
 }
 
-.color-808080{
+.color-808080 {
   color: #808080;
 }
 
@@ -109,7 +109,7 @@
 }
 
 .heading-4 {
-  @include text-style(30px, 38px, 700);
+  @include text-style(34px, 38px, 700);
 }
 
 .heading-3 {

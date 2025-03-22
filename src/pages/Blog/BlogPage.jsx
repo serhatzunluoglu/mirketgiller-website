@@ -181,7 +181,7 @@ function BlogPage() {
                         className={`w-full h-[220px] object-cover opacity-100 rounded-b-none rounded-t-[8px] aspect-[37/22] bg-[#f3f3f3] dark:bg-[#202020]`}
                       />
                       <div className="blog-date mt-4">
-                        <div className="bg-[#d37c26] text-white absolute top-3 right-3 px-[10px] py-[4px] sm:px-[15px] sm:py-[6px] rounded-[5px] body-extra-small-text-medium w-max">
+                        <div className="bg-[#d37c26] text-white absolute top-3 right-3 px-[10px] py-[4px] sm:px-[15px] sm:py-[6px] rounded-[6px] body-extra-small-text-medium w-max">
                           {formatDate(blog.published_at)}
                         </div>
                       </div>

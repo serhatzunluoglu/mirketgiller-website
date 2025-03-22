@@ -5,7 +5,7 @@ import { getEvents } from '../../services/eventsService';
 import { useState, useEffect } from 'react';
 import { useAppContext } from '../../context/AppContext';
 import formatDate from '../../utils/formatDate';
-import eventTypeBgColor from '../../utils/eventTypeBgColor';
+import eventTypeDetails from '../../utils/eventTypeDetails';
 
 const Events = () => {
   const [loading, setLoading] = useState(false);
@@ -60,8 +60,8 @@ const Events = () => {
                     key={`loader-${index}`}
                     speed={2}
                     width={370}
-                    height={352}
-                    viewBox="0 0 370 352"
+                    height={344}
+                    viewBox="0 0 370 344"
                     backgroundColor={`${
                       theme === 'light' ? '#f3f3f3' : '#1a1a1a'
                     }`}
@@ -75,7 +75,7 @@ const Events = () => {
                     {/* Date Area */}
                     <rect x="0" y="236" rx="5" ry="5" width="105" height="32" />
                     {/* Title */}
-                    <rect x="0" y="292" rx="5" ry="5" width="370" height="25" />
+                    <rect x="0" y="284" rx="5" ry="5" width="370" height="25" />
                   </ContentLoader>
                 ))
               : events.map((event, index) => (
@@ -94,19 +94,19 @@ const Events = () => {
                           className={`${style.imageHover} w-full aspect-[370/220] min-h-40 h-auto sm:h-[220px] object-cover rounded-[5px] opacity-100`}
                         />
                         <span
-                          className={`${eventTypeBgColor(
-                            event.event_type
-                          )} text-white px-[8px] py-[2px] sm:px-[10px] sm:py-[4px] rounded-[5px] body-extra-small-text-medium absolute top-2 right-2`}
+                          className={`${
+                            eventTypeDetails(event.event_type).bgColor
+                          } text-white px-[8px] py-[2px] sm:px-[10px] sm:py-[4px] rounded-[6px] body-extra-small-text-medium absolute top-3 right-3`}
                         >
-                          {event.event_type}
+                          {eventTypeDetails(event.event_type).text}
                         </span>
                       </div>
                       <div className="event-date mt-4">
-                        <div className="bg-[#d37c26] text-white px-[10px] py-[4px] sm:px-[15px] sm:py-[6px] rounded-[5px] body-extra-small-text-medium w-max">
+                        <div className="bg-[#d37c26] text-white px-[10px] py-[4px] sm:px-[15px] sm:py-[6px] rounded-[6px] body-extra-small-text-medium w-max">
                           {formatDate(event.published_at)}
                         </div>
                       </div>
-                      <div className="event-texts flex flex-col gap-4 mt-6">
+                      <div className="event-texts flex flex-col gap-4 mt-4">
                         <h3
                           className={`${style.textDark} ${style.textHover} text-base screen-380:text-xl font-sans font-semibold sm:heading- mg-dark cursor-pointer transition-all min-h-[60px]`}
                         >

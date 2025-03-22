@@ -1,0 +1,91 @@
+.floating-tab-container {
+  position: fixed;
+  z-index: 1000;
+
+  .floating-button {
+    width: var(--tab-size);
+    height: var(--tab-size);
+    background-color: var(--tab-bg-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+  }
+
+  .popup-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    bottom: calc(var(--tab-size) + 20px);
+    left: 0;
+    width: 250px;
+    background-color: white;
+    border: 2px solid var(--tab-bg-color);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+
+  .popup-close-button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    z-index: 2; /* Çarpı butonunun üstte olması için */
+  }
+
+  .popup-image {
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  h4 {
+    font-size: 16px;
+  }
+
+  .p {
+    font-size: 14px;
+  }
+}
+
+.floating-tab-container.bottom-left {
+  bottom: 20px;
+  left: 20px;
+}
+
+.floating-tab-container.bottom-right {
+  bottom: 20px;
+  right: 20px;
+}
+
+.floating-tab-container.top-left {
+  top: 20px;
+  left: 20px;
+}
+
+.floating-tab-container.top-right {
+  top: 20px;
+  right: 20px;
+}

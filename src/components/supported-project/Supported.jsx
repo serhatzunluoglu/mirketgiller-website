@@ -1,5 +1,5 @@
 import style from './styles.module.scss';
-import { useRef, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppContext } from '../../context/AppContext';
 import ContentLoader from 'react-content-loader';
 import { getSupportedProjects } from '../../services/supportedProjectsService';
@@ -68,7 +68,8 @@ const Supported = () => {
           ) : (
             <>
               {supportedProjects.map((project, index) => (
-                <div
+                <a
+                  href={project.link}
                   key={index}
                   className="relative group w-auto flex flex-col items-center"
                 >
@@ -93,7 +94,7 @@ const Supported = () => {
                       Daha fazla bilgi
                     </a>
                   </div>
-                </div>
+                </a>
               ))}
             </>
           )}

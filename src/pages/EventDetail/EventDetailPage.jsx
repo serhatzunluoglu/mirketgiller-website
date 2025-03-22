@@ -2,7 +2,14 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
-import { ClockFill, GeoFill } from 'react-bootstrap-icons';
+import {
+  ClockFill,
+  Copy,
+  Fullscreen,
+  GeoFill,
+  X,
+  XLg,
+} from 'react-bootstrap-icons';
 import ContentLoader from 'react-content-loader';
 import { motion } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
@@ -25,7 +32,6 @@ import style from './style.module.scss';
 import { useAppContext } from '../../context/AppContext';
 import formatEventDate from '../../utils/formatEventDate';
 import ShareEvent from '../../components/share-events/ShareEvents';
-import { div } from 'framer-motion/client';
 
 function EventDetailPage() {
   const { slug } = useParams();
@@ -35,13 +41,14 @@ function EventDetailPage() {
   const apiUrl = import.meta.env.VITE_API_URL;
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const { theme } = useAppContext();
+  const [isFullScreen, setIsFullScreen] = useState(false);
+  const [fullScreenContent, setFullScreenContent] = useState('');
 
   useEffect(() => {
     const fetchEvent = async () => {
       try {
         const response = await axios.get(`${apiUrl}/api/events/${slug}`);
         setEvent(response.data.post);
-        console.log(response.data.post);
       } catch (error) {
         if (error.response && error.response.status === 404) {
           navigate('/404');
@@ -54,7 +61,13 @@ function EventDetailPage() {
     fetchEvent();
   }, [slug]);
 
-  console.log(Event);
+  useEffect(() => {
+    if (isFullScreen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isFullScreen]);
 
   return (
     <HelmetProvider>
@@ -192,7 +205,7 @@ function EventDetailPage() {
                       spaceBetween={50}
                       slidesPerView={1}
                       rewind={true}
-                      navigation
+                      navigation={event.event_paths.length > 2}
                       pagination={{ clickable: true }}
                     >
                       {event.event_paths.slice(1).map((eventImg, index) => {
@@ -211,15 +224,79 @@ function EventDetailPage() {
                 )}
                 <ReactMarkdown
                   remarkPlugins={[remarkGfm]}
-                  className={`${style.darkThemeWhiteText} event-text text-body-md-regular space-y-4`}
+                  className={`${style.darkThemeWhiteText} ${style.eventText} text-body-md-regular space-y-4`}
                   components={{
-                    strong: ({ children }) => (
-                      <strong className="align-baseline">{children}</strong>
+                    a: ({ href, children }) => (
+                      <a href={href} target="_blank" rel="noopener">
+                        {children}
+                      </a>
                     ),
+                    pre: ({ children }) => {
+                      const codeElement = children.props.children;
+                      const codeContent =
+                        typeof codeElement === 'string'
+                          ? codeElement.trim()
+                          : '';
+
+                      const handleCopy = () => {
+                        navigator.clipboard.writeText(codeContent);
+                      };
+
+                      const handleFullScreen = () => {
+                        setFullScreenContent(codeContent);
+                        setIsFullScreen(true);
+                      };
+
+                      return (
+                        <div className="relative">
+                          <pre
+                            className={`overflow-x-auto ${style.customScrollbar}`}
+                          >
+                            <button
+                              onClick={handleCopy}
+                              className="absolute top-3 right-14 bg-gray-700 text-white px-2 py-1 text-xs rounded hover:bg-gray-600"
+                            >
+                              <Copy className="w-4 h-4"></Copy>
+                            </button>
+                            <button
+                              onClick={handleFullScreen}
+                              className="absolute top-3 right-3 bg-gray-700 text-white px-2 py-1 text-xs rounded hover:bg-gray-600"
+                            >
+                              <Fullscreen className="w-4 h-4"></Fullscreen>
+                            </button>
+                            {children}
+                          </pre>
+                        </div>
+                      );
+                    },
                   }}
                 >
                   {event.content}
                 </ReactMarkdown>
+
+                {isFullScreen && (
+                  <div
+                    onClick={() => setIsFullScreen(false)}
+                    className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50"
+                  >
+                    <div
+                      onClick={(e) => e.stopPropagation()}
+                      className="relative bg-secondary-color text-white p-6 rounded-md w-11/12 max-w-[1600px]"
+                    >
+                      <button
+                        onClick={() => setIsFullScreen(false)}
+                        className="absolute top-4 right-14 rounded-full px-3 py-3 text-white hover:text-primary-color text-sm bg-primary-color hover:bg-gray-100"
+                      >
+                        <XLg></XLg>
+                      </button>
+                      <pre
+                        className={`overflow-auto max-h-[80vh] leading-normal ${style.customScrollbar}`}
+                      >
+                        {fullScreenContent}
+                      </pre>
+                    </div>
+                  </div>
+                )}
               </div>
               <div className="event-right w-full md:w-4/12">
                 <div

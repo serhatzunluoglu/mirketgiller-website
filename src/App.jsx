@@ -5,11 +5,13 @@ import { HelmetProvider } from 'react-helmet-async';
 import MainLayout from './layout/mainLayout.jsx';
 import NotFoundLayout from './layout/NotFoundLayout.jsx';
 import NotFoundPage from './pages/NotFound/NotFoundPage.jsx';
+import ScrollToTop from '../src/router/ScrollToTop.jsx';
 
 function App() {
   return (
     <HelmetProvider>
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route element={<MainLayout />}>
             {CustomRouter.filter((item) => item.path !== '*').map(

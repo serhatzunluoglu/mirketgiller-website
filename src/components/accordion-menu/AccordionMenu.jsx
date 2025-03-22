@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { ChevronDown } from 'react-bootstrap-icons';
 
 const AccordionMenu = ({ items }) => {
@@ -44,7 +44,7 @@ const AccordionMenu = ({ items }) => {
             className="bg-gray-50 dark:bg-[#141414]"
           >
             <div className="px-4 py-6">
-              <p className="text-black dark:text-white text-body-sm-regular sm:text-body-md-regular">
+              <p className="primary-text-color dark:text-white text-body-sm-regular sm:text-body-md-regular">
                 {item.answer}
               </p>
             </div>

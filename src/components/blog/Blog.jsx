@@ -9,6 +9,16 @@ function truncateText(text, maxLength) {
   return text.length > maxLength ? text.slice(0, maxLength) + '...' : text;
 }
 
+function formatDate(inputDate) {
+  const date = new Date(inputDate);
+
+  return date.toLocaleDateString('tr-TR', {
+    month: 'short',
+    day: '2-digit',
+    year: 'numeric',
+  });
+}
+
 const Blog = () => {
   const [blogLittle, setBlogLittle] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -20,7 +30,6 @@ const Blog = () => {
       setLoading(true);
       try {
         const data = await getBlogLittle();
-        console.log(data);
         setBlogLittle(data);
       } catch (error) {
         console.error('Timeflow yüklenemedi.');
@@ -96,12 +105,17 @@ const Blog = () => {
                     key={index}
                     className={`${style.bgDark} bg-white w-full sm:w-[370px] rounded-lg overflow-hidden flex flex-col`}
                   >
-                    <div>
+                    <div className="relative h-[220px]">
                       <img
                         src={`${apiUrl}/storage/${blog.image}`}
                         alt={blog.title}
                         className={`w-full h-[220px] object-cover opacity-100 rounded-b-none rounded-t-[8px]`}
                       />
+                      <div className="blog-date mt-4">
+                        <div className="bg-[#d37c26] text-white absolute top-3 right-3 px-[10px] py-[4px] sm:px-[15px] sm:py-[6px] rounded-[6px] body-extra-small-text-medium w-max">
+                          {formatDate(blog.published_at)}
+                        </div>
+                      </div>
                     </div>
                     <div className="flex flex-col px-[34px] py-[30px] items-center justify-center">
                       <h3

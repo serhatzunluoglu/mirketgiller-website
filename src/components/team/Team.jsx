@@ -161,10 +161,7 @@ const Team = () => {
   };
 
   return (
-    <div
-      className={`${style.sectionDark} py-16 md:py-[90px] h-auto`}
-      id="ekibimiz"
-    >
+    <div className={`${style.sectionDark} py-16 md:py-[90px] h-auto`}>
       <div className="mx-auto max-w-7xl items-center justify-between px-8 flex flex-col">
         <div className="text-center mb-12 md:mb-[60px]">
           <h2 className="heading-5 md:text-heading-3 font-bold primary-color mb-3">
@@ -230,6 +227,9 @@ const Team = () => {
             </Fragment>
           )}
         </div>
+      </div>
+      <div id="ekibimiz" className="h-0 w-0 opacity-0">
+        .
       </div>
     </div>
   );

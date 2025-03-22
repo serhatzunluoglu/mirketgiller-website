@@ -1,3 +1,5 @@
+@use '../../assets/styles/base/utilities';
+
 .eventInfoBorder {
   border: 1px solid var(--primary-color);
 }
@@ -5,6 +7,18 @@
 html[data-theme='dark'] {
   .darkThemeWhiteText {
     color: #fff;
+  }
+  .eventText {
+    th,
+    td {
+      border-color: var(--tertiary-color);
+    }
+    tr:nth-child(even) {
+      background-color: var(--secondary-color);
+    }
+    tr:hover {
+      background-color: #141414;
+    }
   }
 }
 
@@ -26,6 +40,7 @@ html[data-theme='dark'] {
 :global(.swiper-button-prev),
 :global(.swiper-button-next) {
   background-color: var(--primary-color);
+  opacity: 0.9;
   color: white !important;
   border-radius: 50%;
   width: 40px;
@@ -37,6 +52,9 @@ html[data-theme='dark'] {
     font-size: 20px;
     font-weight: 500;
   }
+  &:hover {
+    opacity: 1;
+  }
 }
 :global(.swiper-button-prev) {
   padding-right: 3px;
@@ -45,6 +63,147 @@ html[data-theme='dark'] {
 :global(.swiper-button-next) {
   padding-left: 3px;
   right: 20px !important;
+}
+
+.eventText {
+  * {
+    vertical-align: baseline;
+  }
+  a {
+    color: var(--primary-color);
+    text-decoration: underline;
+  }
+  strong {
+    a {
+      text-decoration-thickness: 2px;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+
+  h1 {
+    @include utilities.text-style(40px, 48px, 700);
+  }
+
+  h2 {
+    @include utilities.text-style(34px, 38px, 700);
+  }
+
+  h3 {
+    @include utilities.text-style(28px, 40px, 600);
+  }
+
+  h4 {
+    @include utilities.text-style(24px, 30px, 600);
+  }
+
+  h5 {
+    @include utilities.text-style(20px, 26px, 600);
+  }
+
+  h6 {
+    @include utilities.text-style(18px, 24px, 600);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+
+  th,
+  td {
+    padding: 12px;
+    text-align: left;
+    border: 2px solid #fff;
+  }
+
+  th {
+    background-color: var(--primary-color);
+    font-weight: bold;
+    color: #fff;
+  }
+
+  tr:nth-child(even) {
+    background-color: #e9e9e9;
+  }
+
+  tr:hover {
+    background-color: #cfcfcf;
+  }
+
+  caption {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  pre {
+    background-color: #1e1e1e;
+    color: #dcdcdc;
+    border-radius: 8px;
+    padding: 60px 20px 20px; /* Üst boşluk artırıldı */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-x: auto;
+    position: relative;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    text-align: left;
+  }
+
+  /* Sol üst köşeye 3 büyük nokta ekleme */
+  pre::before {
+    content: '●●●';
+    font-size: 36px;
+    position: absolute;
+    top: 12px;
+    left: 15px;
+    letter-spacing: 4px;
+    color: transparent;
+    background: linear-gradient(90deg, #fd554f 0%, #ffbe2e 50%, #2aca44 100%);
+    -webkit-background-clip: text;
+    text-align: left;
+  }
+}
+
+.customScrollbar::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+.customScrollbar::-webkit-scrollbar-track {
+  background: #2d2d2d;
+  border-radius: 10px;
+}
+
+.customScrollbar::-webkit-scrollbar-thumb {
+  background: #d37c26;
+  border-radius: 10px;
+  border: 2px solid #2d2d2d;
+}
+
+.customScrollbar::-webkit-scrollbar-thumb:hover {
+  background: #e08a34;
+}
+
+.customScrollbar::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.eventText ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.eventText ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+}
+
+.eventText li {
+  margin-bottom: 0.5rem;
 }
 
 @media screen and (max-width: 600px) {

@@ -35,6 +35,14 @@
         <priority>0.7</priority>
     </url>
 
+    <!-- Sıkça Sorulan Sorular Sayfası -->
+    <url>
+        <loc>https://www.mirketgiller.com.tr/sss</loc>
+        <lastmod>2025-02-19T21:03:56+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.7</priority>
+    </url>
+
     <!-- Blog Sayfası -->
     <url>
         <loc>https://www.mirketgiller.com.tr/blog</loc>

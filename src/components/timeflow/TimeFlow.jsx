@@ -75,7 +75,7 @@ function TimeFlow() {
       className={`mx-auto flex items-center flex-col bg-[#F9FAFB] justify-center px-8 py-16 md:py-[90px] overflow-hidden ${style.timeflowBackground} min-h-[420vh]`}
     >
       {loading ? (
-        <>Yükleniyor...</>
+        <></>
       ) : (
         <>
           {timeflows.map((item, index) => {

@@ -1,15 +1,21 @@
 import mirketLogo from '../../assets/images/svg/mirketgiller-white-logo.svg';
 import { Link } from 'react-router-dom';
 import style from './style.module.scss';
+import kommunityLogoWhite from '../../assets/images/svg/kommunity-logo-white.svg';
 
 let year = new Date().getFullYear();
 
 function Footer() {
+  const handleClick = (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className={`${style.footerContainer} primary-color-bg`}>
       <div className="mx-auto md:flex md:max-w-7xl md:justify-between py-16 sm:py-20 px-8 xl:flex-row sm:flex sm:gap-12 sm:flex-col flex-col flex gap-12">
         <div className="gap-4 flex flex-col items-start">
-          <Link to={'/'}>
+          <Link onClick={handleClick}>
             <img src={mirketLogo} alt="Mirketgiller" className="h-8 w-auto" />
           </Link>
           <p className="text-body-sm-regular sm:text-body-md-regular text-white">
@@ -126,6 +132,17 @@ function Footer() {
                   className="bi bi-github text-white"
                   style={{ fontSize: '20px' }}
                 ></i>
+              </a>
+              <a
+                href="https://kommunity.com/mirketgiller/about"
+                target="_blank"
+                rel="noopener"
+              >
+                <img
+                  src={kommunityLogoWhite}
+                  className="w-5 h-5"
+                  style={{ fontSize: '20px' }}
+                />
               </a>
             </div>
           </div>
