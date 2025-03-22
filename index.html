@@ -59,7 +59,7 @@
       name="twitter:image"
       content="https://www.admin.mirketgiller.com.tr/storage/seo/mirketgiller.jpg"
     />
-    <meta name="twitter:url" content="{window.location.href}" />
+    <meta name="twitter:url" content="{window.location.href}" id="x-url" />
     <meta name="twitter:creator" content="@mirketgiller" />
 
     <title>Mirketgiller</title>
@@ -67,7 +67,9 @@
       window.onload = function () {
         var currentUrl = window.location.href;
         var ogUrlMeta = document.getElementById('og-url');
+        var xUrlMeta = document.getElementById('x-url');
         ogUrlMeta.setAttribute('content', currentUrl);
+        xUrlMeta.setAttribute('content', currentUrl);
       };
     </script>
   </head>
